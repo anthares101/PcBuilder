@@ -6,6 +6,9 @@
 package PcComponent;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -55,8 +58,17 @@ public class PcComponent extends javax.swing.JPanel {
         return this.jLabel2.getText();
     }
     
-    public String getProductPrize(){
-        return this.jLabel3.getText();
+    public double getProductPrize(){
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        Number prize = 0;
+                
+        try {
+            prize = currency.parse(this.jLabel3.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(PcComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return prize.doubleValue();
     }
     
     public boolean getRecomendationVisibility(){
