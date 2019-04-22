@@ -1,4 +1,4 @@
-Cooler Master Hyper TX3 EVO;21.60;1366,1156,1155,775,1150,FM1,FM2,AM3+,AM3,AM2+,AM2,AM4;136;-Disipación del calor óptima meidate 3 tubos de calor de contacto directos. 
+Cooler Master Hyper TX3 EVO;21.60;1366,1156,1155,775,1150,FM1,FM2,AM3+,AM3,AM2+,AM2,AM4;136;-Disipación del calor óptima mediante 3 tubos de calor de contacto directos. 
 -Opción para añadir un segundo ventilador con soportes Quick-Snap para aumentar el -rendimiento de refrigeración.
 -Ventilador de 92mm. termoregulado y velocidad moderada. 
 -Refrigerador de CPU silenciosa: 17dBA (en velocidad mínima). 
