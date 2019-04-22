@@ -5,21 +5,96 @@
  */
 package PcComponentInfo;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author thebender
  */
 public class PcComponentInfo extends javax.swing.JPanel {
 
+    boolean visible;
+    int componentType;
+    
     /**
      * Creates new form PcComponentInfo
      */
     public PcComponentInfo() {
         initComponents();
 
+        this.visible = true;
+        this.jTextArea1.setLineWrap(true);
+        this.jScrollPane1.getVerticalScrollBar().setValue(0);
+        
+        //Required for prize internationalitation
+        this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
+    }
+    
+    public void setProductName(String name) {
+        this.jLabel2.setText(name);
+    }
+    
+    public void setProductPrize(double prize) {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        this.jLabel3.setText(currency.format(prize));
+    }
+    
+    public void setRecomendationVisibility(boolean visible){
+        this.visible = visible;
+        this.jLabel4.setVisible(visible);
+    }
+    
+    public void setProductImage(ImageIcon image){
+        this.jLabel1.setIcon(image);
+    }
+    
+    public void setComponentType(int type){
+        this.componentType = type;
+    }
+    
+    public void setComponentDescription(String description) {
+        this.jTextArea1.setText(description);
         this.jTextArea1.setLineWrap(true);
     }
 
+    public String getProductName(){
+        return this.jLabel2.getText();
+    }
+    
+    public double getProductPrize(){
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        Number prize = 0;
+        
+        try {
+            prize = currency.parse(this.jLabel3.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(PcComponentInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return (double) prize;
+    }
+    
+    public boolean getRecomendationVisibility(){
+        return this.visible;
+    }
+    
+    public Icon getProductImage(){
+        return this.jLabel1.getIcon();
+    }
+    
+    public int getComponentType(){
+        return this.componentType;
+    }
+    
+    public String getComponentDescription() {
+        return this.jTextArea1.getText();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +118,9 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setHorizontalScrollBar(null);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 28)); // NOI18N
+        jPanel1.setBackground(java.awt.Color.white);
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
         jLabel5.setText("Descripción");
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -80,33 +157,33 @@ public class PcComponentInfo extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(49, 49, 49)
                         .addComponent(jLabel1)
-                        .addGap(52, 52, 52)
+                        .addGap(84, 84, 84)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
-                .addContainerGap(1212, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(32, Short.MAX_VALUE)
                         .addComponent(jLabel2)
-                        .addGap(32, 32, 32)
+                        .addGap(45, 45, 45)
                         .addComponent(jLabel3)
-                        .addGap(35, 35, 35)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel4)
-                        .addGap(41, 41, 41))
+                        .addGap(83, 83, 83))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(21, 21, 21)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -117,13 +194,11 @@ public class PcComponentInfo extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
