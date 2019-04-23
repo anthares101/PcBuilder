@@ -18,21 +18,32 @@ import java.util.logging.Logger;
  */
 public class ComponentReader {
     
-    public static void readGPUs() throws IOException {
+    public static GPU[] readGPUs() throws IOException {
+        
+        GPU[] array = new GPU[5];
+        int i = 0;
+        
         File file = new File ("DataBases/GPUS.txt");
         
         Scanner sc = new Scanner(file).useDelimiter("[$]");
         
-        StringTokenizer st = new StringTokenizer(sc.next(), ";");
+        while(sc.hasNext()) {
+            StringTokenizer st = new StringTokenizer(sc.next(), ";");
+            GPU gpu = new GPU();
+
+            gpu.setName(st.nextToken());
+            gpu.setPrize(Double.parseDouble(st.nextToken()));
+            gpu.setHeight(Double.parseDouble(st.nextToken()));
+            gpu.setWeight(Double.parseDouble(st.nextToken()));
+            //gpu.setLongitude(Double.parseDouble(st.nextToken())); <-- falta
+            gpu.setRecommendedPSU(Integer.parseInt(st.nextToken()));
+            gpu.setDescription(st.nextToken());
+            
+            array[i] = gpu;
+            i++;
+        }
         
-        //System.out.println(sc.next());
+        return array;
     }
     
-    public static void main(String argv[]) {
-        try {
-            ComponentReader.readGPUs();
-        } catch (IOException ex) {
-            Logger.getLogger(ComponentReader.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }
