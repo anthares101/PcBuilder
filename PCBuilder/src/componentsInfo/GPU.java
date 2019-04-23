@@ -11,7 +11,6 @@ package componentsInfo;
  */
 public class GPU extends PcComponent {
     
-    private double height;
     private double longitude;
     private double weight;
     private int recommendedPSU;
@@ -19,13 +18,9 @@ public class GPU extends PcComponent {
     public GPU() {
         super();
         
-        this.setHeight(0);
         this.setLongitude(0);
+        this.setWeight(0);
         this.setRecommendedPSU(0);
-    }
-    
-    public double getHeight() {
-        return this.height;
     }
 
     public double getWeight() {
@@ -38,10 +33,6 @@ public class GPU extends PcComponent {
 
     public int getRecommendedPSU() {
         return this.recommendedPSU;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
     }
 
     public void setWeight(double weight) {
