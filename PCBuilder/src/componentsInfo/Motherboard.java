@@ -46,4 +46,5 @@ public class Motherboard extends PcComponent {
     public void setRamCompatibility(int ramCompatibility) {
         this.ramCompatibility = ramCompatibility;
     }
+    
 }

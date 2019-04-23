@@ -55,4 +55,5 @@ public class GPU extends PcComponent {
     public void setRecommendedPSU(int recommendedPSU) {
         this.recommendedPSU = recommendedPSU;
     }
+    
 }

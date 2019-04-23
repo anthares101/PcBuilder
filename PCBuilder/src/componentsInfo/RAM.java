@@ -9,22 +9,22 @@ package componentsInfo;
  *
  * @author anthares101
  */
-public class CPU extends PcComponent {
+public class RAM extends PcComponent {
     
-    private String socket;
+    private int type;
     
-    public CPU() {
+    public RAM() {
         super();
         
-        this.setSocket("");
+        this.setType(0);
     }
 
-    public void setSocket(String socket) {
-        this.socket = socket;
+    public int getType() {
+        return this.type;
     }
 
-    public String getSocket() {
-        return socket;
+    public void setType(int type) {
+        this.type = type;
     }
     
 }
