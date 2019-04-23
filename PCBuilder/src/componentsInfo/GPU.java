@@ -14,7 +14,6 @@ public class GPU extends PcComponent {
     private double height;
     private double weight;
     private double longitude;
-    private double weight;
     private int recommendedPSU;
     
     public GPU() {
