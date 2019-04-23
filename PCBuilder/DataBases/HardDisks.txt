@@ -1,7 +1,7 @@
 Kingston A400;32.99;La unidad A400 de estado sólido de Kingston ofrece enormes mejoras en la velocidad de respuesta, sin actualizaciones adicionales del hardware. Brinda lapsos de arranque, carga y de transferencia de archivos increíblemente más breves en comparación con las unidades de disco duro mecánico.
 
 Apoyada en su controlador de la más reciente generación, que ofrece velocidades de lectura y escritura de hasta 500 MB/s y 450 MB/s, respectivamente, esta unidad SSD es 10 veces más rápida que los discos duros tradicionales y provee un mejor rendimiento, velocidad de respuesta ultrarrápida en el procesamiento multitareas y una aceleración general del sistema. Además son más fiables y duraderas que las unidades de disco duro, y están disponibles en varias capacidades que van de 120 GB hasta 480 GB.$
-Seagate BarraCuda 3.5" 1TB SATA3;46.58;Versátiles. Rápidos. Fiables. La unidad de disco duro más increíble que haya conocido.
+Seagate BarraCuda 1TB SATA3;46.58;Versátiles. Rápidos. Fiables. La unidad de disco duro más increíble que haya conocido.
 -Capacidad de disco duro: 1000 GB
 -Interfaz del disco duro: Serial ATA III
 -Velocidad de rotación de disco duro: 7200 RPM
@@ -9,7 +9,7 @@ Seagate BarraCuda 3.5" 1TB SATA3;46.58;Versátiles. Rápidos. Fiables. La unidad
 -Unidad, tamaño de búfer: 64 MB
 -Tipo de dispositivo: Unidad de disco duro
 -Acorde RoHS: Si$
-Toshiba P300 3.5" 1TB 7200RPM SATA 3;43.99;El disco duro interno P300 de 3,5" de Toshiba ofrece un alto rendimiento para profesionales. Lo que es más, tus datos e información multimedia están protegidos mediante un diseño de ramp loading y un sensor de golpes. El disco duro interno P300 es ideal para diseñadores gráficos y profesionales creativos que buscan un gran rendimiento. Este disco duro Toshiba ofrece una gran velocidad de lectura y escritura y un diseño seguro.
+Toshiba P300 1TB 7200RPM SATA 3;43.99;El disco duro interno P300 de 3,5" de Toshiba ofrece un alto rendimiento para profesionales. Lo que es más, tus datos e información multimedia están protegidos mediante un diseño de ramp loading y un sensor de golpes. El disco duro interno P300 es ideal para diseñadores gráficos y profesionales creativos que buscan un gran rendimiento. Este disco duro Toshiba ofrece una gran velocidad de lectura y escritura y un diseño seguro.
 -Capacidad de disco duro: 1000 GB
 -Interfaz del disco duro: Serial ATA III
 -Velocidad de rotación de disco duro: 7200 RPM
