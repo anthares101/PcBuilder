@@ -35,7 +35,7 @@ public class ComponentReader {
             
             //lectura de los factores forma
             StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
-            Vector factorForms = new Vector();
+            ArrayList<String> factorForms = new ArrayList();
             while(aux.hasMoreTokens()) {
                 factorForms.add(aux.nextToken());
             }
@@ -115,9 +115,8 @@ public class ComponentReader {
 
             gpu.setName(st.nextToken());
             gpu.setPrize(Double.parseDouble(st.nextToken()));
-            gpu.setHeight(Double.parseDouble(st.nextToken()));
             gpu.setWidth(Double.parseDouble(st.nextToken()));
-            //gpu.setLongitude(Double.parseDouble(st.nextToken())); <-- falta
+            gpu.setLongitude(Double.parseDouble(st.nextToken()));
             gpu.setRecommendedPSU(Integer.parseInt(st.nextToken()));
             gpu.setDescription(st.nextToken());
             
