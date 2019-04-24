@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author anthares101
  */
-public class Cooler {
+public class Cooler extends PcComponent{
     
-    private ArrayList formFactors;
+    private ArrayList sockets;
     private double height;
     
     public Cooler() {
@@ -22,42 +22,42 @@ public class Cooler {
         this.setHeight(0);
     }
 
-    public String getFormFactor(int index) {
-        return this.formFactors.get(index).toString();
+    public String getSocket(int index) {
+        return this.sockets.get(index).toString();
     }
     
-    public Boolean isFormFactorsEmpty(){
-        return this.formFactors.isEmpty();
+    public Boolean isSocketsEmpty(){
+        return this.sockets.isEmpty();
     }
 
     public double getHeight() {
         return this.height;
     }
 
-    public void setFormFactors(ArrayList formFactors) {
-        this.formFactors = formFactors;
+    public void setSockets(ArrayList sockets) {
+        this.sockets = sockets;
     }
     
-    public void addFormFactor(int index, String formFactor){
-        this.formFactors.add(index, formFactor);
+    public void addSocket(String socket){
+        this.sockets.add(socket);
     }
     
-    public void removeFormFactor(int index){
-        this.formFactors.remove(index);
+    public void removeSocket(String socket){
+        this.sockets.remove(socket);
     }
 
     public void setHeight(double height) {
         this.height = height;
     }
     
-    public Boolean findFormFactor(String formFactor){
+    public Boolean hasSocket(String formFactor){
         int i = 0;
         
-        while(!this.formFactors.get(i).toString().equals(formFactor) && 
-                i < this.formFactors.size())
+        while(!this.sockets.get(i).toString().equals(formFactor) && 
+                i < this.sockets.size())
             i++;
         
-        if(i == this.formFactors.size())
+        if(i == this.sockets.size())
             return false;
         
         return true;

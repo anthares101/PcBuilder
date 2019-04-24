@@ -5,6 +5,12 @@
  */
 package mainPage;
 
+import componentsInfo.ComponentReader;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author anthares101
@@ -16,6 +22,14 @@ public class mainPage extends javax.swing.JFrame {
      */
     public mainPage() {
         initComponents();
+        
+        ArrayList a;
+        try {
+            a = ComponentReader.readGPUs();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(mainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
