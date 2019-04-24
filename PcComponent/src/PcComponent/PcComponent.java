@@ -109,7 +109,7 @@ public class PcComponent extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 182, 0));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/StartIcon.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/StarIcon.png"))); // NOI18N
         jLabel5.setText("Recomendado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -127,7 +127,7 @@ public class PcComponent extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addContainerGap())))
         );

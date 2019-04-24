@@ -34,7 +34,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="267" max="32767" attributes="0"/>
+                      <EmptySpace pref="228" max="32767" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -98,7 +98,7 @@
           <Color blue="0" green="b6" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/PcComponent/Image/StartIcon.png"/>
+          <Image iconType="3" name="/PcComponent/Image/StarIcon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Recomendado"/>
       </Properties>
