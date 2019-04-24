@@ -10,8 +10,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -127,7 +125,7 @@ public class ComponentReader {
 
         ArrayList<GPU> array = new ArrayList();
         
-        File file = new File ("DataBases/GPUS.txt");
+        File file = new File ("DataBases/GPUs.txt");
        
         Scanner sc = new Scanner(file).useDelimiter("[$]\n");
         
@@ -197,7 +195,7 @@ public class ComponentReader {
         
         ArrayList<RAM> array = new ArrayList();
         
-        File file = new File ("DataBases/RAMS.txt");
+        File file = new File ("DataBases/RAMs.txt");
         
         Scanner sc = new Scanner(file).useDelimiter("[$]\n");
         
@@ -214,6 +212,63 @@ public class ComponentReader {
                 ram.setDescription(st.nextToken());
                 
                 array.add(ram);
+            }
+        }
+        
+        sc.close();
+        
+        return array;
+    }
+   
+   public static ArrayList<HardDisk> readDisks() throws FileNotFoundException {
+       
+       ArrayList<HardDisk> array = new ArrayList();
+       
+       File file = new File ("DataBases/HardDisks.txt");
+        
+        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        
+        while(sc.hasNext()) {
+            String token = sc.next();
+            
+            if(!token.isBlank()) {
+                StringTokenizer st = new StringTokenizer(token, ";");
+                HardDisk hd = new HardDisk();
+                
+                hd.setName(st.nextToken());
+                hd.setPrize(Double.parseDouble(st.nextToken()));
+                hd.setDescription(st.nextToken());
+                
+                array.add(hd);
+            }
+        }       
+       
+        sc.close();
+        
+        return array;
+    }
+    
+    public static ArrayList<PSU> readPSUs() throws FileNotFoundException {
+        
+        ArrayList<PSU> array = new ArrayList();
+        
+        File file = new File ("DataBases/PSUs.txt");
+        
+        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        
+        while(sc.hasNext()) {
+            String token = sc.next();
+            
+            if(!token.isBlank()) {
+                StringTokenizer st = new StringTokenizer(token, ";");
+                PSU psu = new PSU();
+                
+                psu.setName(st.nextToken());
+                psu.setPrize(Double.parseDouble(st.nextToken()));
+                psu.setWatts(Integer.parseInt(st.nextToken()));
+                psu.setDescription(st.nextToken());
+                
+                array.add(psu);
             }
         }
         

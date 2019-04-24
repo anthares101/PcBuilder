@@ -9,10 +9,9 @@ package componentsInfo;
  *
  * @author anthares101
  */
-public class HardDisk {
-    
+public class HardDisk extends PcComponent {
+
     public HardDisk() {
         super();
     }
-    
 }
