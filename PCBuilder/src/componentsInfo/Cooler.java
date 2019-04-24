@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @author anthares101
  */
+
 public class Cooler extends PcComponent{
     
     private ArrayList sockets;
