@@ -9,22 +9,10 @@ package componentsInfo;
  *
  * @author anthares101
  */
-public class CPU extends PcComponent {
+public class HardDisk {
     
-    private String socket;
-    
-    public CPU() {
+    public HardDisk() {
         super();
-        
-        this.setSocket("");
-    }
-
-    public void setSocket(String socket) {
-        this.socket = socket;
-    }
-
-    public String getSocket() {
-        return socket;
     }
     
 }

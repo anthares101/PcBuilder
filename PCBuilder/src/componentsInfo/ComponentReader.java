@@ -116,7 +116,7 @@ public class ComponentReader {
             gpu.setName(st.nextToken());
             gpu.setPrize(Double.parseDouble(st.nextToken()));
             gpu.setHeight(Double.parseDouble(st.nextToken()));
-            gpu.setWeight(Double.parseDouble(st.nextToken()));
+            gpu.setWidth(Double.parseDouble(st.nextToken()));
             //gpu.setLongitude(Double.parseDouble(st.nextToken())); <-- falta
             gpu.setRecommendedPSU(Integer.parseInt(st.nextToken()));
             gpu.setDescription(st.nextToken());

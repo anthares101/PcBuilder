@@ -9,22 +9,22 @@ package componentsInfo;
  *
  * @author anthares101
  */
-public class CPU extends PcComponent {
+public class PSU extends PcComponent {
     
-    private String socket;
+    private int watts;
     
-    public CPU() {
+    public PSU() {
         super();
         
-        this.setSocket("");
+        this.setWatts(0);
     }
 
-    public void setSocket(String socket) {
-        this.socket = socket;
+    public int getWatts() {
+        return this.watts;
     }
 
-    public String getSocket() {
-        return socket;
+    public void setWatts(int watts) {
+        this.watts = watts;
     }
     
 }

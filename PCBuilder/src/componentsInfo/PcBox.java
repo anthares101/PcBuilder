@@ -5,7 +5,7 @@
  */
 package componentsInfo;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.Vector;
  */
 public class PcBox extends PcComponent {
     
-    private Vector formFactors;
+    private ArrayList formFactors;
     private double height;
     private double weight;
     private double longitude;
@@ -52,7 +52,7 @@ public class PcBox extends PcComponent {
         return this.maxGPU;
     }
 
-    public void setFormFactors(Vector formFactors) {
+    public void setFormFactors(ArrayList formFactors) {
         this.formFactors = formFactors;
     }
     

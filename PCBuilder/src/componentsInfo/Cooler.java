@@ -5,7 +5,7 @@
  */
 package componentsInfo;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.Vector;
  */
 public class Cooler {
     
-    private Vector formFactors;
+    private ArrayList formFactors;
     private double height;
     
     public Cooler() {
@@ -34,7 +34,7 @@ public class Cooler {
         return this.height;
     }
 
-    public void setFormFactors(Vector formFactors) {
+    public void setFormFactors(ArrayList formFactors) {
         this.formFactors = formFactors;
     }
     
@@ -62,4 +62,5 @@ public class Cooler {
         
         return true;
     }
+    
 }
