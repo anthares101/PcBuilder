@@ -177,7 +177,7 @@ public class ComponentReader {
                 while(aux.hasMoreTokens()) {
                     socketList.add(aux.nextToken());
                 }
-                cooler.setFormFactors(socketList);
+                cooler.setSockets(socketList);
 
                 cooler.setHeight(Double.parseDouble(st.nextToken()));
                 cooler.setDescription(st.nextToken());
