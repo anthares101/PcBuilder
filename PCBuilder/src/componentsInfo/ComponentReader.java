@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -29,7 +30,7 @@ public class ComponentReader {
             
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 
                 StringTokenizer st = new StringTokenizer(token, ";");
                 PcBox box = new PcBox();
@@ -71,7 +72,7 @@ public class ComponentReader {
         while(sc.hasNext()) {
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 Motherboard mb = new Motherboard();
 
@@ -103,7 +104,7 @@ public class ComponentReader {
             
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 CPU cpu = new CPU();
 
@@ -132,7 +133,7 @@ public class ComponentReader {
         while(sc.hasNext()) {
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 GPU gpu = new GPU();
 
@@ -164,7 +165,7 @@ public class ComponentReader {
             
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 Cooler cooler = new Cooler();
 
@@ -202,7 +203,7 @@ public class ComponentReader {
         while(sc.hasNext()) {
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 RAM ram = new RAM();
                 
@@ -231,7 +232,7 @@ public class ComponentReader {
         while(sc.hasNext()) {
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 HardDisk hd = new HardDisk();
                 
@@ -259,7 +260,7 @@ public class ComponentReader {
         while(sc.hasNext()) {
             String token = sc.next();
             
-            if(!token.isBlank()) {
+            if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 PSU psu = new PSU();
                 
