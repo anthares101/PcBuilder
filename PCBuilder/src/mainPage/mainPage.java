@@ -8,6 +8,7 @@ package mainPage;
 import componentsInfo.ComponentReader;
 import componentsInfo.GPU;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -25,32 +26,44 @@ public class mainPage extends javax.swing.JFrame {
     public mainPage() {
         initComponents();
         
-        //Read all the GPUS in the database
-        ArrayList<GPU> a = new ArrayList();
+        //Read all the GPUs from the database
+        ArrayList<GPU> gpuList = new ArrayList();
         try {
-            a = ComponentReader.readGPUs();
+            gpuList = ComponentReader.readGPUs();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(mainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //Put the object below the last rule
+        //Rule to put the component bellow that last component added
         GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        //If it is the last element
-        gridBagConstraints.weightx = 1;
-        gridBagConstraints.weighty = 1;
-        gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-        ///////////////////////////
+        gridBagConstraints.insets = new Insets (0,0,5,0);
         
-        //Put the first GPU in the list
-        PcComponent.PcComponent pcComponentTest = new PcComponent.PcComponent();
-        GPU gpu1 = a.get(0);
-        pcComponentTest.setProductName(gpu1.getName());
-        pcComponentTest.setProductPrize(gpu1.getPrize());
+        //Add all the GPUs to the list according to gridBagConstraints
+        GPU gpu;
+        PcComponent.PcComponent pcComponentGPU;
         
-        jPanel1.add(pcComponentTest, gridBagConstraints);
+        for(int i = 0; i < gpuList.size(); i++){
+            pcComponentGPU = new PcComponent.PcComponent();
+            gpu = gpuList.get(i);
+            
+            //Set the information read from the database in the component
+            pcComponentGPU.setProductName(gpu.getName());
+            pcComponentGPU.setProductPrize(gpu.getPrize());
+            
+            //If it is the last element...
+            if(i == gpuList.size() -1){
+                gridBagConstraints.weightx = 1;
+                gridBagConstraints.weighty = 1;
+                gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+                gridBagConstraints.insets = new Insets (0,0,0,0);
+            }
+            
+            //Add the GPU to the list
+            jPanel1.add(pcComponentGPU, gridBagConstraints);
+        }
     }
 
     /**
@@ -61,7 +74,6 @@ public class mainPage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,9 +86,6 @@ public class mainPage extends javax.swing.JFrame {
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(790, 700));
 
         jScrollPane1.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(790, 700));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(790, 700));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(790, 700));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel1);
