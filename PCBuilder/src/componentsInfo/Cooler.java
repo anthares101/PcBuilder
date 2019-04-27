@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Cooler extends PcComponent{
     
-    private ArrayList sockets;
+    private ArrayList<String> sockets;
     private double height;
     
     public Cooler() {
@@ -24,7 +24,7 @@ public class Cooler extends PcComponent{
     }
 
     public String getSocket(int index) {
-        return this.sockets.get(index).toString();
+        return this.sockets.get(index);
     }
     
     public Boolean isSocketsEmpty(){
@@ -54,14 +54,11 @@ public class Cooler extends PcComponent{
     public Boolean hasSocket(String formFactor){
         int i = 0;
         
-        while(!this.sockets.get(i).toString().equals(formFactor) && 
+        while(!this.sockets.get(i).equals(formFactor) && 
                 i < this.sockets.size())
             i++;
         
-        if(i == this.sockets.size())
-            return false;
-        
-        return true;
+        return i != this.sockets.size();
     }
     
 }
