@@ -25,8 +25,6 @@ public class PcComponent extends javax.swing.JPanel {
         initComponents();
         
         this.visible = true;
-        this.jTextArea1.setLineWrap(true);
-        this.jTextArea1.setWrapStyleWord(true);
         
         //Required for prize internationalitation
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
@@ -114,10 +112,12 @@ public class PcComponent extends javax.swing.JPanel {
 
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(java.awt.Color.white);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jTextArea1.setColumns(15);
+        jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setText("Componente");
+        jTextArea1.setWrapStyleWord(true);
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextArea1.setCaretColor(java.awt.Color.white);
@@ -131,12 +131,12 @@ public class PcComponent extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5))
+                    .addComponent(jTextArea1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
