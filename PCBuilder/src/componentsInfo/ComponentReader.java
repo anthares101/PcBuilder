@@ -137,7 +137,7 @@ public class ComponentReader {
         
         while(sc.hasNext()) {
             String token = sc.next();
-            System.out.println(token);
+            
             if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 GPU gpu = new GPU();
