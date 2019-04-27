@@ -71,7 +71,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        System.out.print(sc.hasNext());
+
         while(sc.hasNext()) {
             String token = sc.next();
             
@@ -209,7 +209,7 @@ public class ComponentReader {
 
         while(sc.hasNext()) {
             String token = sc.next();
-            
+
             if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 RAM ram = new RAM();

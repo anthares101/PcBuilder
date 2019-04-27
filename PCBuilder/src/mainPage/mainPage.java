@@ -56,13 +56,13 @@ public class mainPage extends javax.swing.JFrame {
                         //Clear the coolers previously added
                         jPanel4.removeAll();
                         
-                        //componentList = ComponentReader.readCoolers();
+                        componentList = ComponentReader.readCoolers();
                         break;
                     case 4:
                         //Clear the rams previously added
                         jPanel5.removeAll();
                         
-                        //componentList = ComponentReader.readRAMs();
+                        componentList = ComponentReader.readRAMs();
                         break;
                     case 5:
                         //Clear the gpus previously added
