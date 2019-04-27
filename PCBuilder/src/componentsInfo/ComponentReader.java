@@ -27,7 +27,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        
+        //System.out.print(sc.hasNext());
         while(sc.hasNext()) {
             
             String token = sc.next();
@@ -49,7 +49,7 @@ public class ComponentReader {
                 box.setFormFactors(factorForms);
 
                 box.setHeight(Double.parseDouble(st.nextToken()));
-                box.setWeight(Double.parseDouble(st.nextToken()));
+                box.setWidth(Double.parseDouble(st.nextToken()));
                 box.setLongitude(Double.parseDouble(st.nextToken()));
                 box.setMaxGPU(Double.parseDouble(st.nextToken()));
                 box.setDescription(st.nextToken());
@@ -71,7 +71,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        
+        System.out.print(sc.hasNext());
         while(sc.hasNext()) {
             String token = sc.next();
             
@@ -137,7 +137,7 @@ public class ComponentReader {
         
         while(sc.hasNext()) {
             String token = sc.next();
-            System.out.println(token);
+            
             if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 GPU gpu = new GPU();
@@ -166,7 +166,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        
+
         while(sc.hasNext()) {
             
             String token = sc.next();
@@ -188,7 +188,7 @@ public class ComponentReader {
 
                 cooler.setHeight(Double.parseDouble(st.nextToken()));
                 cooler.setDescription(st.nextToken());
-
+                
                 array.add(cooler);
             }
         }
@@ -206,7 +206,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        
+
         while(sc.hasNext()) {
             String token = sc.next();
             

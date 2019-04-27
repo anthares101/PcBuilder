@@ -1,29 +1,29 @@
-Gigabyte B450M DS3H;65.99;Micro ATX;AM4;4;Las placas base GIGABYTE serie 400 maximizan el potencial de su PC con la tecnologÌa AMD StoreMI. StoreMI acelera los dispositivos de almacenamiento tradicionales para reducir los tiempos de arranque y mejorar la experiencia general del usuario. Esta utilidad f·cil de usar combina la velocidad de las SSD con la alta capacidad de las unidades de disco duro en una sola unidad, mejora las velocidades de lectura / escritura del dispositivo para que coincida con las SSD, aumenta el rendimiento de los datos a un valor increÌble y transforma las PC de uso cotidiano a un sistema impulsado por el rendimiento.
+Gigabyte B450M DS3H;65.99;Micro ATX;AM4;4;Las placas base GIGABYTE serie 400 maximizan el potencial de su PC con la tecnolog√≠a AMD StoreMI. StoreMI acelera los dispositivos de almacenamiento tradicionales para reducir los tiempos de arranque y mejorar la experiencia general del usuario. Esta utilidad f√°cil de usar combina la velocidad de las SSD con la alta capacidad de las unidades de disco duro en una sola unidad, mejora las velocidades de lectura / escritura del dispositivo para que coincida con las SSD, aumenta el rendimiento de los datos a un valor incre√≠ble y transforma las PC de uso cotidiano a un sistema impulsado por el rendimiento.
 
-Adem·s, cuenta con Smart Fan 5, con esta refrigeraciÛn los usuarios pueden asegurarse de que su PC gaming puede mantener un rendimiento estable mientras se mantiene refrigerado. Smart Fan 5 permite a los usuarios intercambiar sus conectores para los ventiladores para reflejar diferentes sensores tÈrmicos en diferentes ubicaciones de la placa base. Adem·s con Smart Fan 5 los conectores hÌbridos para el ventilador soportan ventiladores PWM y de voltaje, esto hace que la placa base este m·s adaptada a montar refrigeraciÛn lÌquida.
+Adem√°s, cuenta con Smart Fan 5, con esta refrigeraci√≥n los usuarios pueden asegurarse de que su PC gaming puede mantener un rendimiento estable mientras se mantiene refrigerado. Smart Fan 5 permite a los usuarios intercambiar sus conectores para los ventiladores para reflejar diferentes sensores t√©rmicos en diferentes ubicaciones de la placa base. Adem√°s con Smart Fan 5 los conectores h√≠bridos para el ventilador soportan ventiladores PWM y de voltaje, esto hace que la placa base este m√°s adaptada a montar refrigeraci√≥n l√≠quida.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-- Puertos HDMI, DVI-D para visualizaciÛn m˙ltiple
+- Puertos HDMI, DVI-D para visualizaci√≥n m√∫ltiple
 - DDR4 Dual Channel Non-ECC Unbuffered, 4 DIMMs
 - Ultra-Fast PCIe Gen3 x4 M.2 con PCIe NVMe y soporte SATA
-- CEC 2019 Ready, ahorre energÌa con un solo clic
-- Capacitadores de audio de alta calidad y con protecciÛn de ruido con separaciÛn de audio led
+- CEC 2019 Ready, ahorre energ√≠a con un solo clic
+- Capacitadores de audio de alta calidad y con protecci√≥n de ruido con separaci√≥n de audio led
 - Realtek Gigabit LAN con el software cFosSpeed Internet Accelerator
 - APP Center, que incluye las utilidades EasyTune y Cloud Station
 - RGB FUSION es compatible con tiras de LED RGB en 7 colores
-- Smart Fan 5 presenta 5 sensores de temperatura y 2 cabezales de ventiladores hÌbridos$
-MSI Mpg Z390 Gaming Plus;139.90;ATX;1151;4;La placa gaming MSI Mpg Z390 Gaming Plus tiene socket Intel 1151 y soporta procesadores Intel de 8™ y 9™ generaciÛn.$
-Asus ROG STRIX B450-I GAMING;168;Mini ITX;AM4;4;La placa base ROG Strix B450-I Gaming incluye todo el arsenal de mejoras ROG en el diminuto factor de forma mini-ITX. Con overclocking y refrigeraciÛn inteligentes, soporte para memoria de alto rendimiento, todas las opciones de conectividad m·s recientes y una gran cantidad de utilidades de firmware y software que mejoran su experiencia, el ROG Strix B450-I Gaming es una potencia de juego compacta.
+- Smart Fan 5 presenta 5 sensores de temperatura y 2 cabezales de ventiladores h√≠bridos$
+MSI Mpg Z390 Gaming Plus;139.90;ATX;1151;4;La placa gaming MSI Mpg Z390 Gaming Plus tiene socket Intel 1151 y soporta procesadores Intel de 8¬™ y 9¬™ generaci√≥n.$
+Asus ROG STRIX B450-I GAMING;168;Mini ITX;AM4;4;La placa base ROG Strix B450-I Gaming incluye todo el arsenal de mejoras ROG en el diminuto factor de forma mini-ITX. Con overclocking y refrigeraci√≥n inteligentes, soporte para memoria de alto rendimiento, todas las opciones de conectividad m√°s recientes y una gran cantidad de utilidades de firmware y software que mejoran su experiencia, el ROG Strix B450-I Gaming es una potencia de juego compacta.
 
-Preparada para enfriar con aire o lÌquido, el ROG Strix B450-I Gaming le brinda la flexibilidad de emparejar cualquier CPU Ryzen y tarjeta gr·fica en un chasis adecuado sin preocuparse por las tÈrmicas. Y con la ˙ltima tecnologÌa a bordo, hay menos desorden en su estructura y en sus alrededores, dejando m·s espacio para el hardware, los dispositivos de juego y los perifÈricos que los acompaÒan.
+Preparada para enfriar con aire o l√≠quido, el ROG Strix B450-I Gaming le brinda la flexibilidad de emparejar cualquier CPU Ryzen y tarjeta gr√°fica en un chasis adecuado sin preocuparse por las t√©rmicas. Y con la √∫ltima tecnolog√≠a a bordo, hay menos desorden en su estructura y en sus alrededores, dejando m√°s espacio para el hardware, los dispositivos de juego y los perif√©ricos que los acompa√±an.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-- Impulsado por procesadores AMD Ryzen AM4 de segunda generaciÛn para maximizar la conectividad y la velocidad con doble NVMe M.2, USB 3.1 Gen2, WiFi 802.11ac, LAN gigabit y hasta 32 GB de DDR4 (3600 MHz)
-- OptimizaciÛn de 5 vÌas con autoajuste y Fan Xpert 4 adapta autom·ticamente los perfiles de overclocking a su construcciÛn exclusiva para obtener el m·ximo rendimiento OC y una refrigeraciÛn din·mica del sistema
-- La iluminaciÛn Aura Sync RGB m·s 2 cabezales RGB adicionales proporcionan un espectro casi infinito de colores con la capacidad de sincronizar efectos en un ecosistema en constante expansiÛn de productos habilitados.
+- Impulsado por procesadores AMD Ryzen AM4 de segunda generaci√≥n para maximizar la conectividad y la velocidad con doble NVMe M.2, USB 3.1 Gen2, WiFi 802.11ac, LAN gigabit y hasta 32 GB de DDR4 (3600 MHz)
+- Optimizaci√≥n de 5 v√≠as con autoajuste y Fan Xpert 4 adapta autom√°ticamente los perfiles de overclocking a su construcci√≥n exclusiva para obtener el m√°ximo rendimiento OC y una refrigeraci√≥n din√°mica del sistema
+- La iluminaci√≥n Aura Sync RGB m√°s 2 cabezales RGB adicionales proporcionan un espectro casi infinito de colores con la capacidad de sincronizar efectos en un ecosistema en constante expansi√≥n de productos habilitados.
 - La tarjeta combo de audio M.2 aumenta las unidades M.2 y los circuitos de audio SupremeFX para minimizar la interferencia lateral
-- Audio HD de 8 canales lÌder en la industria con el ROG exclusivo SupremeFX S1220A impulsado por condensadores japoneses$
+- Audio HD de 8 canales l√≠der en la industria con el ROG exclusivo SupremeFX S1220A impulsado por condensadores japoneses$
 MSI Z370-A Pro;104.90;ATX;1151;4;Te presentamos la MSI Z370-A Pro, una placa base con socket Intel 1151 y chipset Z370. LA Z370-A Pro incluye luces LED en color blanco.$
 Gigabyte Aorus X470 Ultra Gaming;141.90;ATX;AM4;4;Gigabyte presenta su placa base X470 Aourus Ultra Gaming, una placa base con socket AMD AM4 y chipset X470.$

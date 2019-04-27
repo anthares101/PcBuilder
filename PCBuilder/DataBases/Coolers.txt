@@ -1,7 +1,7 @@
-Cooler Master Hyper TX3 EVO;21.60;1366,1156,1155,775,1150,FM1,FM2,AM3+,AM3,AM2+,AM2,AM4;136;-Disipación del calor óptima mediante 3 tubos de calor de contacto directos. 
+Cooler Master Hyper TX3 EVO;21.60;1366,1156,1155,775,1150,FM1,FM2,AM3+,AM3,AM2+,AM2,AM4;136;-Disipación del calor óptima mediante 3 tubos de calor de contacto directos.
 -Opción para añadir un segundo ventilador con soportes Quick-Snap para aumentar el -rendimiento de refrigeración.
--Ventilador de 92mm. termoregulado y velocidad moderada. 
--Refrigerador de CPU silenciosa: 17dBA (en velocidad mínima). 
+-Ventilador de 92mm. termoregulado y velocidad moderada.
+-Refrigerador de CPU silenciosa: 17dBA (en velocidad mínima).
 -Sistema sencillo para cambiar el ventilador mediante clips.$
 Cooler Master Hyper 212X;31.50;AM3,AM3+,FM1,FM2,FM2+,1151,2011-v3;158;El Cooler Master Hyper 212X con su diseño en forma de torre y su radiador de aluminio atravesado por cuatro heatpipes de cobre, con su contacto directo a la CPU permitiendo así una transmisión térmica más eficiente.
 
@@ -30,9 +30,9 @@ CARACTERÍSTICAS:
 -Compuesto térmico Premium X que asegura una conductividad de calor duradera
 -Tecnología de control de flujo de aire que utiliza deflectores especiales en las aletas para dirigir más aire a los tubos conductores de calor para una mejor refrigeración.
 -Ventilador de 120mm con el diseño premiado MSI TORX que utiliza rodamientos hidrodinámicos para aumentar el flujo de aire
--2 conjuntos de clips para ventilador compatibles con el diseño de 120mm, que permite la configuración de doble ventilador en modo push/pull 
--Diseño de base inteligente que deja espacio para la tarjeta gráfica en el 1er slot PCI-e 
--Fácil de instalar y compatible con todas las plataformas Intel y AMD 
+-2 conjuntos de clips para ventilador compatibles con el diseño de 120mm, que permite la configuración de doble ventilador en modo push/pull
+-Diseño de base inteligente que deja espacio para la tarjeta gráfica en el 1er slot PCI-e
+-Fácil de instalar y compatible con todas las plataformas Intel y AMD
 -Placa trasera de metal para el sistema de refrigeración de la CPU que ofrece mayor resistencia para evitar que la placa madre se doble durante el uso a largo plazo
 -Paneles de cobertura personalizables en colores negro y plateado incluidos en la caja con la cubireta LED MSI GAMING.$
 Nfortec Vela KX;23.99;1156,1155,1150,1151,2011;159;La familia de disipadores de Nfortec está compuesta por dos modelos que, a pesar de lo contenido de su precio, ofrecen unas prestaciones difícilmente igualables. En el caso del disipador Vela KX, nos encontramos con un disipador que incluye un total de 4 heatpipes con base de cobre, una configuración que ofrecerá el rendimiento esperado.
@@ -42,10 +42,10 @@ CARACTERÍSTICAS:
 -El complemento perfecto. A todo buen disipador debe acompañarle un buen ventilador por lo que Vela KX ha sido dotado ventilador de 140mm. Este no sólo cuenta con diseño cónico, sino que, además, es capaz de generar un flujo de aire constante a la par que elevado, todo ello con el fin de reducir la temperatura general del conjunto. Con un nivel sonoro que apenas rozará los 20 dBA junto con una velocidad que irá de las 600 a las 1200 RPM, el contar un alto caudal de aire está más que garantizado. Por si fuese poco, vienen incluidos dos adaptadores adicionales para instalar un segundo ventilador.
 -Pensado para todos. El que un disipador cuente con unas altas prestaciones no está necesariamente reñido con un tamaño elevado por lo que el Vela KX ha sido diseñado pensando en ofrecer la mayor compatibilidad que sea posible. Es por esto que sus dimensiones son de 146mm de alto por 159 de ancho y tan sólo 71mm de profundidad, algo que sin duda agradeceréis a la hora de colocar vuestras memorias.
 -Instalación sencilla. El Vela KX cuenta con un sistema de montaje que, lejos de estar pensado para expertos en la materia, ha sido diseñado pensando en todos los usuarios. En tan sólo unos pocos pasos guiados a través de su manual, tendrás tu disipador listo y montado sobre tu socket. Sus anclajes metálicos dotarán al conjunto de una sujeción correcta y duradera.$
-Thermaltake Riing Silent 12 CPU Cooler Rojo;2011-3,2011,1366,1156,1155,1151,1150,775,FM2,FM1,AM3+,AM3,AM2+,AM2;159;Diseñado para su uso con memoria RAM de gama alta y las placas base. Un ventilador de 120 mm equipado para mejorar el flujo de aire de refrigeración produce un rendimiento impresionante con un diseño optimizado 11 del ventilador de la hoja. Cojinetes hidráulicos para garantizar un funcionamiento silencioso ruido ultra bajo. El anillo de LED patentado mantiene la uniformidad de brillo y de color, y el efecto de iluminación es visible desde todos los lados y ángulos.
+Thermaltake Riing Silent 12 CPU Cooler Rojo;61.59;2011-3,2011,1366,1156,1155,1151,1150,775,FM2,FM1,AM3+,AM3,AM2+,AM2;159;Diseñado para su uso con memoria RAM de gama alta y las placas base. Un ventilador de 120 mm equipado para mejorar el flujo de aire de refrigeración produce un rendimiento impresionante con un diseño optimizado 11 del ventilador de la hoja. Cojinetes hidráulicos para garantizar un funcionamiento silencioso ruido ultra bajo. El anillo de LED patentado mantiene la uniformidad de brillo y de color, y el efecto de iluminación es visible desde todos los lados y ángulos.
 
 CARACTERÍSTICAS:
--Diseño aspas del ventilador once 
+-Diseño aspas del ventilador once
 -Marco del viento Bloqueador
 -Patentado Riing LED
 -Diseño de cojinete hidráulico

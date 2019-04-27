@@ -15,7 +15,7 @@ public class PcBox extends PcComponent {
     
     private ArrayList<String> formFactors;
     private double height;
-    private double weight;
+    private double width;
     private double longitude;
     private double maxGPU;
     
@@ -24,7 +24,7 @@ public class PcBox extends PcComponent {
         
         this.setHeight(0);
         this.setLongitude(0);
-        this.setWeight(0);
+        this.setWidth(0);
         this.setMaxGPU(0);
     }
 
@@ -40,8 +40,8 @@ public class PcBox extends PcComponent {
         return this.height;
     }
 
-    public double getWeight() {
-        return this.weight;
+    public double getWidth() {
+        return this.width;
     }
 
     public double getLongitude() {
@@ -68,8 +68,8 @@ public class PcBox extends PcComponent {
         this.height = height;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
     public void setLongitude(double longitude) {
