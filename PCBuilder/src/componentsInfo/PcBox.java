@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class PcBox extends PcComponent {
     
-    private ArrayList formFactors;
+    private ArrayList<String> formFactors;
     private double height;
     private double weight;
     private double longitude;
@@ -29,7 +29,7 @@ public class PcBox extends PcComponent {
     }
 
     public String getFormFactor(int index) {
-        return this.formFactors.get(index).toString();
+        return this.formFactors.get(index);
     }
     
     public Boolean isFormFactorsEmpty(){
@@ -83,14 +83,11 @@ public class PcBox extends PcComponent {
     public Boolean findFormFactor(String formFactor){
         int i = 0;
         
-        while(!this.formFactors.get(i).toString().equals(formFactor) && 
+        while(!this.formFactors.get(i).equals(formFactor) && 
                 i < this.formFactors.size())
             i++;
         
-        if(i == this.formFactors.size())
-            return false;
-        
-        return true;
+        return i != this.formFactors.size();
     }
     
 }
