@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -24,7 +25,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/PCBoxes.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             
@@ -67,7 +69,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/Motherboards.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             String token = sc.next();
@@ -98,7 +101,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/CPUs.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             
@@ -128,11 +132,12 @@ public class ComponentReader {
         
         File file = new File ("DataBases/GPUs.txt");
        
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             String token = sc.next();
-            
+            System.out.println(token);
             if(!StringUtils.isBlank(token)) {
                 StringTokenizer st = new StringTokenizer(token, ";");
                 GPU gpu = new GPU();
@@ -159,7 +164,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/Coolers.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             
@@ -198,7 +204,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/RAMs.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             String token = sc.next();
@@ -227,7 +234,8 @@ public class ComponentReader {
        
        File file = new File ("DataBases/HardDisks.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             String token = sc.next();
@@ -255,7 +263,8 @@ public class ComponentReader {
         
         File file = new File ("DataBases/PSUs.txt");
         
-        Scanner sc = new Scanner(file).useDelimiter("[$]\n");
+        Pattern pat = Pattern.compile("([$](\r?)\n)");
+        Scanner sc = new Scanner(file).useDelimiter(pat);
         
         while(sc.hasNext()) {
             String token = sc.next();
