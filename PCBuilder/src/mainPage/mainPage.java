@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -234,6 +235,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(pcBox.getName());
                     pcComponent.setProductPrize(pcBox.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/PCBoxes_images/" + pcBox.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel1.add(pcComponent, gridBagConstraints);
@@ -244,17 +246,19 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(motherboard.getName());
                     pcComponent.setProductPrize(motherboard.getPrize());
-
+                    pcComponent.setProductImage(new ImageIcon("DataBases/Motherboards_images/" + motherboard.getName() + "_142x141.jpg"));   
+                    
                     //Add the GPU to the list
                     jPanel2.add(pcComponent, gridBagConstraints);
-
+                    
                     break;
                 case 2:
                     CPU cpu = (CPU) componentList.get(i);
 
                     pcComponent.setProductName(cpu.getName());
                     pcComponent.setProductPrize(cpu.getPrize());
-
+                    pcComponent.setProductImage(new ImageIcon("DataBases/CPUs_images/" + cpu.getName() + "_142x141.jpg"));
+                    
                     //Add the GPU to the list
                     jPanel3.add(pcComponent, gridBagConstraints);
 
@@ -264,6 +268,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(cooler.getName());
                     pcComponent.setProductPrize(cooler.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel4.add(pcComponent, gridBagConstraints);
@@ -274,6 +279,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(ram.getName());
                     pcComponent.setProductPrize(ram.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/RAMs_images/" + ram.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel5.add(pcComponent, gridBagConstraints);
@@ -284,6 +290,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(gpu.getName());
                     pcComponent.setProductPrize(gpu.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/GPUs_images/" + gpu.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel6.add(pcComponent, gridBagConstraints);
@@ -294,6 +301,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(hardDisk.getName());
                     pcComponent.setProductPrize(hardDisk.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/HardDisks_images/" + hardDisk.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel7.add(pcComponent, gridBagConstraints);
@@ -304,6 +312,7 @@ public class mainPage extends javax.swing.JFrame {
 
                     pcComponent.setProductName(psu.getName());
                     pcComponent.setProductPrize(psu.getPrize());
+                    pcComponent.setProductImage(new ImageIcon("DataBases/PSU_images/" + psu.getName() + "_142x141.jpg"));
 
                     //Add the GPU to the list
                     jPanel8.add(pcComponent, gridBagConstraints);
