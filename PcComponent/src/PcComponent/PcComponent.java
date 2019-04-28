@@ -5,8 +5,6 @@
  */
 package PcComponent;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -165,14 +163,4 @@ public class PcComponent extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-
-    public String mouseClicked(MouseEvent evt) {
-        String info = this.getProductName()+";"+this.getProductPrize()+";"
-        +this.getRecomendationVisibility()+";"
-        +this.getProductImage().toString()+";holiwi";
-        
-        //System.out.println(info+"\n");
-        
-        return info;
-    }
 }
