@@ -27,174 +27,7 @@ import java.util.logging.Logger;
  */
 public class mainPage extends javax.swing.JFrame {
     
-    //Update all the Pc components avaible
-    private void updateComponentsTabs(){
-        for(int index = 0; index < 8; index++){
-            //Read all the components from the database according with the tab index
-            ArrayList componentList = new ArrayList();
-            try {
-                switch(index){
-                    case 0:
-                        //Clear the boxes previously added
-                        jPanel1.removeAll();
-                        
-                        componentList = ComponentReader.readPcBox();
-                        break;
-                    case 1:
-                        //Clear the motherboards previously added
-                        jPanel2.removeAll();
-                        
-                        componentList = ComponentReader.readMotherboards();
-                        break;
-                    case 2:
-                        //Clear the cpus previously added
-                        jPanel3.removeAll();
-                        
-                        componentList = ComponentReader.readCPUs();
-                        break;
-                    case 3:
-                        //Clear the coolers previously added
-                        jPanel4.removeAll();
-                        
-                        componentList = ComponentReader.readCoolers();
-                        break;
-                    case 4:
-                        //Clear the rams previously added
-                        jPanel5.removeAll();
-                        
-                        componentList = ComponentReader.readRAMs();
-                        break;
-                    case 5:
-                        //Clear the gpus previously added
-                        jPanel6.removeAll();
-                        
-                        componentList = ComponentReader.readGPUs();
-                        break;
-                    case 6:
-                        //Clear the disks previously added
-                        jPanel7.removeAll();
-                        
-                        componentList = ComponentReader.readDisks();
-                        break;
-                    case 7:
-                        //Clear the psus previously added
-                        jPanel8.removeAll();
-                        
-                        componentList = ComponentReader.readPSUs();
-                        break;
-                }
-            }
-            catch (FileNotFoundException ex) {
-                Logger.getLogger(mainPage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            //Rule to put the component bellow that last component added
-            GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-            gridBagConstraints.gridx = 0;
-            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
-            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-            gridBagConstraints.insets = new Insets (0,0,5,0);
-
-            //Add all the GPUs to the list according to gridBagConstraints
-            componentsInfo.PcComponent component = new componentsInfo.PcComponent();
-            PcComponent.PcComponent pcComponent;
-
-            for(int i = 0; i < componentList.size(); i++){
-                //If it is the last element...
-                if(i == componentList.size() -1){
-                    gridBagConstraints.weightx = 1;
-                    gridBagConstraints.weighty = 1;
-                    gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-                    gridBagConstraints.insets = new Insets (0,0,0,0);
-                }
-
-                //Set the information read from the database in the component
-                pcComponent = new PcComponent.PcComponent();
-                switch(index){
-                    case 0:
-                        PcBox pcBox = (PcBox) componentList.get(i);
-
-                        pcComponent.setProductName(pcBox.getName());
-                        pcComponent.setProductPrize(pcBox.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel1.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 1:
-                        Motherboard motherboard = (Motherboard) componentList.get(i);
-
-                        pcComponent.setProductName(motherboard.getName());
-                        pcComponent.setProductPrize(motherboard.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel2.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 2:
-                        CPU cpu = (CPU) componentList.get(i);
-
-                        pcComponent.setProductName(cpu.getName());
-                        pcComponent.setProductPrize(cpu.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel3.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 3:
-                        Cooler cooler = (Cooler) componentList.get(i);
-
-                        pcComponent.setProductName(cooler.getName());
-                        pcComponent.setProductPrize(cooler.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel4.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 4:
-                        RAM ram = (RAM) componentList.get(i);
-
-                        pcComponent.setProductName(ram.getName());
-                        pcComponent.setProductPrize(ram.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel5.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 5:
-                        GPU gpu = (GPU) componentList.get(i);
-
-                        pcComponent.setProductName(gpu.getName());
-                        pcComponent.setProductPrize(gpu.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel6.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 6:
-                        HardDisk hardDisk = (HardDisk) componentList.get(i);
-
-                        pcComponent.setProductName(hardDisk.getName());
-                        pcComponent.setProductPrize(hardDisk.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel7.add(pcComponent, gridBagConstraints);
-
-                        break;
-                    case 7:
-                        PSU psu = (PSU) componentList.get(i);
-
-                        pcComponent.setProductName(psu.getName());
-                        pcComponent.setProductPrize(psu.getPrize());
-
-                        //Add the GPU to the list
-                        jPanel8.add(pcComponent, gridBagConstraints);
-
-                        break;
-                }
-            }
-        }
-    }
+    private int tabSelected;
     
     /**
      * Creates new form mainPage
@@ -202,8 +35,8 @@ public class mainPage extends javax.swing.JFrame {
     public mainPage() {
         initComponents();
         
-        //Initialice the components avaible
-        this.updateComponentsTabs();
+        //Safe the tab selected, necesary later
+        this.tabSelected = jTabbedPane1.getSelectedIndex();
     }
 
     /**
@@ -238,6 +71,11 @@ public class mainPage extends javax.swing.JFrame {
         jTabbedPane1.setMaximumSize(new java.awt.Dimension(535, 700));
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(535, 700));
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(535, 700));
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -301,6 +139,179 @@ public class mainPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        //Clear the last selected tab for performance improvemment
+        switch(this.tabSelected){
+            case 0:
+                jPanel1.removeAll();
+                break;
+            case 1:
+                jPanel2.removeAll();
+                break;
+            case 2:
+                jPanel3.removeAll();
+                break;
+            case 3:
+                jPanel4.removeAll();
+                break;
+            case 4:
+                jPanel5.removeAll();
+                break;
+            case 5:
+                jPanel6.removeAll();
+                break;
+            case 6:
+                jPanel7.removeAll();
+                break;
+            case 7:
+                jPanel8.removeAll();
+                break; 
+        }
+        
+        //Safe the new selected tab
+        tabSelected = jTabbedPane1.getSelectedIndex();
+
+        //Read all the components from the database according with the tab index
+        ArrayList componentList = new ArrayList();
+        try {
+            switch(jTabbedPane1.getSelectedIndex()){
+                case 0:
+                    componentList = ComponentReader.readPcBox();
+                    break;
+                case 1:
+                    componentList = ComponentReader.readMotherboards();
+                    break;
+                case 2:
+                    componentList = ComponentReader.readCPUs();
+                    break;
+                case 3:
+                    componentList = ComponentReader.readCoolers();
+                    break;
+                case 4:
+                    componentList = ComponentReader.readRAMs();
+                    break;
+                case 5:
+                    componentList = ComponentReader.readGPUs();
+                    break;
+                case 6:
+                    componentList = ComponentReader.readDisks();
+                    break;
+                case 7:
+                    componentList = ComponentReader.readPSUs();
+                    break;
+            }
+        }
+        catch (FileNotFoundException ex) {
+            Logger.getLogger(mainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //Rule to put the component bellow that last component added
+        GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new Insets (0,0,5,0);
+
+        //Add all the GPUs to the list according to gridBagConstraints
+        componentsInfo.PcComponent component = new componentsInfo.PcComponent();
+        PcComponent.PcComponent pcComponent;
+
+        for(int i = 0; i < componentList.size(); i++){
+            //If it is the last element...
+            if(i == componentList.size() -1){
+                gridBagConstraints.weightx = 1;
+                gridBagConstraints.weighty = 1;
+                gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+                gridBagConstraints.insets = new Insets (0,0,0,0);
+            }
+
+            //Set the information read from the database in the component
+            pcComponent = new PcComponent.PcComponent();
+            switch(jTabbedPane1.getSelectedIndex()){
+                case 0:
+                    PcBox pcBox = (PcBox) componentList.get(i);
+
+                    pcComponent.setProductName(pcBox.getName());
+                    pcComponent.setProductPrize(pcBox.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel1.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 1:
+                    Motherboard motherboard = (Motherboard) componentList.get(i);
+
+                    pcComponent.setProductName(motherboard.getName());
+                    pcComponent.setProductPrize(motherboard.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel2.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 2:
+                    CPU cpu = (CPU) componentList.get(i);
+
+                    pcComponent.setProductName(cpu.getName());
+                    pcComponent.setProductPrize(cpu.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel3.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 3:
+                    Cooler cooler = (Cooler) componentList.get(i);
+
+                    pcComponent.setProductName(cooler.getName());
+                    pcComponent.setProductPrize(cooler.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel4.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 4:
+                    RAM ram = (RAM) componentList.get(i);
+
+                    pcComponent.setProductName(ram.getName());
+                    pcComponent.setProductPrize(ram.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel5.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 5:
+                    GPU gpu = (GPU) componentList.get(i);
+
+                    pcComponent.setProductName(gpu.getName());
+                    pcComponent.setProductPrize(gpu.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel6.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 6:
+                    HardDisk hardDisk = (HardDisk) componentList.get(i);
+
+                    pcComponent.setProductName(hardDisk.getName());
+                    pcComponent.setProductPrize(hardDisk.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel7.add(pcComponent, gridBagConstraints);
+
+                    break;
+                case 7:
+                    PSU psu = (PSU) componentList.get(i);
+
+                    pcComponent.setProductName(psu.getName());
+                    pcComponent.setProductPrize(psu.getPrize());
+
+                    //Add the GPU to the list
+                    jPanel8.add(pcComponent, gridBagConstraints);
+
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
