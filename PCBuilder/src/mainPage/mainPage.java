@@ -269,6 +269,7 @@ public class mainPage extends javax.swing.JFrame {
                     pcComponent.setProductName(cooler.getName());
                     pcComponent.setProductPrize(cooler.getPrize());
                     pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
+                    System.out.print("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg\n");
 
                     //Add the GPU to the list
                     jPanel4.add(pcComponent, gridBagConstraints);
