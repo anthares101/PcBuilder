@@ -5,6 +5,8 @@
  */
 package PcComponent;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -111,7 +113,6 @@ public class PcComponent extends javax.swing.JPanel {
         jLabel5.setText("Recomendado");
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(java.awt.Color.white);
         jTextArea1.setColumns(15);
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
         jTextArea1.setLineWrap(true);
@@ -164,4 +165,14 @@ public class PcComponent extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    public String mouseClicked(MouseEvent evt) {
+        String info = this.getProductName()+";"+this.getProductPrize()+";"
+        +this.getRecomendationVisibility()+";"
+        +this.getProductImage().toString()+";holiwi";
+        
+        //System.out.println(info+"\n");
+        
+        return info;
+    }
 }

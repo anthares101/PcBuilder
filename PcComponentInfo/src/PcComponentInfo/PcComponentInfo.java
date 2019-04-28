@@ -122,9 +122,11 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jTextArea2 = new javax.swing.JTextArea();
 
         setBackground(java.awt.Color.white);
+        setPreferredSize(new java.awt.Dimension(802, 756));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setHorizontalScrollBar(null);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(802, 756));
 
         jPanel1.setBackground(java.awt.Color.white);
 
@@ -145,7 +147,6 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponentInfo/Images/questionMarkIcon.png"))); // NOI18N
         jLabel1.setFocusable(false);
 
-        jTextArea1.setBackground(java.awt.Color.white);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
@@ -155,7 +156,6 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jTextArea1.setFocusable(false);
 
         jTextArea2.setEditable(false);
-        jTextArea2.setBackground(java.awt.Color.white);
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jTextArea2.setRows(5);
@@ -170,8 +170,8 @@ public class PcComponentInfo extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
@@ -198,7 +198,8 @@ public class PcComponentInfo extends javax.swing.JPanel {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -209,12 +210,12 @@ public class PcComponentInfo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

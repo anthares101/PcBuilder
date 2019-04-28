@@ -5,6 +5,7 @@
  */
 package mainPage;
 
+import PcComponentInfo.PcComponentInfo;
 import componentsInfo.CPU;
 import componentsInfo.ComponentReader;
 import componentsInfo.Cooler;
@@ -16,10 +17,13 @@ import componentsInfo.PcBox;
 import componentsInfo.RAM;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -240,6 +244,7 @@ public class mainPage extends javax.swing.JFrame {
 
             //Set the information read from the database in the component
             pcComponent = new PcComponent.PcComponent();
+            
             switch(components.getSelectedIndex()){
                 case 0:
                     PcBox pcBox = (PcBox) componentList.get(i);
@@ -330,6 +335,29 @@ public class mainPage extends javax.swing.JFrame {
 
                     break;
             }
+            
+            String name = pcComponent.getProductName();
+            Double prize = pcComponent.getProductPrize();
+            Boolean visibility = pcComponent.getRecomendationVisibility();
+            Icon icon = pcComponent.getProductImage();
+            
+            pcComponent.addMouseListener(new MouseAdapter() { 
+                public void mouseReleased(MouseEvent me) {
+                  
+                    principal.removeAll();
+                    
+                    PcComponentInfo pcInfo = new PcComponentInfo();
+                    pcInfo.setProductName(name);
+                    pcInfo.setProductPrize(prize);
+                    pcInfo.setRecomendationVisibility(visibility);
+                    pcInfo.setProductImage((ImageIcon) icon);
+                    pcInfo.setComponentDescription("holiwi");
+
+                    principal.add(pcInfo);
+                    principal.revalidate();
+                    principal.repaint();
+                } 
+            });
         }
     }//GEN-LAST:event_componentsStateChanged
 
