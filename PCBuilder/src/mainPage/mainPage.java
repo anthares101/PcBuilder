@@ -118,53 +118,92 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         container.setPreferredSize(new java.awt.Dimension(1337, 906));
         container.setLayout(new java.awt.BorderLayout());
 
-        components.setMaximumSize(new java.awt.Dimension(535, 700));
-        components.setMinimumSize(new java.awt.Dimension(535, 700));
-        components.setPreferredSize(new java.awt.Dimension(535, 700));
+        components.setBorder(null);
+        components.setMaximumSize(new java.awt.Dimension(535, 756));
+        components.setMinimumSize(new java.awt.Dimension(535, 756));
+        components.setPreferredSize(new java.awt.Dimension(535, 756));
         components.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 componentsStateChanged(evt);
             }
         });
 
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setViewportView(jPanel1);
 
+        jPanel1.setBorder(null);
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel1);
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("mainPage/Bundle"); // NOI18N
         components.addTab(bundle.getString("TAB1"), jScrollPane1); // NOI18N
 
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setViewportView(jPanel2);
+
+        jPanel2.setBorder(null);
         jPanel2.setLayout(new java.awt.GridBagLayout());
         jScrollPane2.setViewportView(jPanel2);
 
         components.addTab(bundle.getString("TAB2"), jScrollPane2); // NOI18N
 
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setViewportView(jPanel3);
+
+        jPanel3.setBorder(null);
         jPanel3.setLayout(new java.awt.GridBagLayout());
         jScrollPane3.setViewportView(jPanel3);
 
         components.addTab(bundle.getString("TAB3"), jScrollPane3); // NOI18N
 
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setViewportView(jPanel4);
+
+        jPanel4.setBorder(null);
         jPanel4.setLayout(new java.awt.GridBagLayout());
         jScrollPane4.setViewportView(jPanel4);
 
         components.addTab(bundle.getString("TAB4"), jScrollPane4); // NOI18N
 
+        jScrollPane5.setBorder(null);
+        jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane5.setViewportView(jPanel5);
+
+        jPanel5.setBorder(null);
         jPanel5.setLayout(new java.awt.GridBagLayout());
         jScrollPane5.setViewportView(jPanel5);
 
         components.addTab(bundle.getString("TAB5"), jScrollPane5); // NOI18N
 
+        jScrollPane6.setBorder(null);
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane6.setViewportView(jPanel6);
+
+        jPanel6.setBorder(null);
         jPanel6.setLayout(new java.awt.GridBagLayout());
         jScrollPane6.setViewportView(jPanel6);
 
         components.addTab(bundle.getString("TAB6"), jScrollPane6); // NOI18N
 
+        jScrollPane7.setBorder(null);
+        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane7.setViewportView(jPanel7);
+
+        jPanel7.setBorder(null);
         jPanel7.setLayout(new java.awt.GridBagLayout());
         jScrollPane7.setViewportView(jPanel7);
 
         components.addTab(bundle.getString("TAB7"), jScrollPane7); // NOI18N
 
+        jScrollPane8.setBorder(null);
+        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane8.setViewportView(jPanel8);
+
+        jPanel8.setBorder(null);
         jPanel8.setLayout(new java.awt.GridBagLayout());
         jScrollPane8.setViewportView(jPanel8);
 
@@ -172,6 +211,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
 
         container.add(components, java.awt.BorderLayout.LINE_END);
 
+        information.setBorder(null);
         information.setPreferredSize(new java.awt.Dimension(1337, 150));
 
         javax.swing.GroupLayout informationLayout = new javax.swing.GroupLayout(information);
@@ -187,6 +227,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
 
         container.add(information, java.awt.BorderLayout.PAGE_END);
 
+        principal.setBorder(null);
         principal.setLayout(new java.awt.BorderLayout());
         container.add(principal, java.awt.BorderLayout.CENTER);
 
