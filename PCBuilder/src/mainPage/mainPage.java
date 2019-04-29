@@ -404,14 +404,15 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
                     break;
             }
             
-            String name = pcComponent.getProductName();
-            Double prize = pcComponent.getProductPrize();
-            Boolean visibility = pcComponent.getRecomendationVisibility();
-            String description = desc;
-            String iconPath = path;
+            final String name = pcComponent.getProductName();
+            final Double prize = pcComponent.getProductPrize();
+            final Boolean visibility = pcComponent.getRecomendationVisibility();
+            final String description = desc;
+            final String iconPath = path;
             
+            //Set a listenner for
             pcComponent.addMouseListener(new MouseAdapter() { 
-                public void mouseReleased(MouseEvent me) {
+                public void mouseClicked(MouseEvent me) {
                   
                     principal.removeAll();
 
