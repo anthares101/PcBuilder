@@ -367,7 +367,7 @@ public class mainPage extends javax.swing.JFrame {
                 page.setVisible(true);
                 page.setLocationRelativeTo(null);
             }
-        });
+        }); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.TransferHandler;
 
 /**
  *
@@ -28,6 +29,9 @@ public class PcComponent extends javax.swing.JPanel {
         
         //Required for prize internationalitation
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
+        
+        //Required for drag and drop operation
+        this.setTransferHandler(new DragAndDrop());
     }
     
     private boolean visible;
@@ -99,6 +103,11 @@ public class PcComponent extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
 
         setBackground(java.awt.Color.white);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/questionMarkIcon.png"))); // NOI18N
 
@@ -156,6 +165,11 @@ public class PcComponent extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        TransferHandler handler = this.getTransferHandler();
+        handler.exportAsDrag(this, evt, TransferHandler.COPY);
+    }//GEN-LAST:event_formMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
