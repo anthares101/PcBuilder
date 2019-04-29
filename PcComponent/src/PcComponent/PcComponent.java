@@ -126,7 +126,6 @@ public class PcComponent extends javax.swing.JPanel {
         jLabel5.setText("Recomendado");
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(java.awt.Color.white);
         jTextArea1.setColumns(15);
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
         jTextArea1.setLineWrap(true);
