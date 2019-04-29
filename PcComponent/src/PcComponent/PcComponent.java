@@ -30,12 +30,18 @@ public class PcComponent extends javax.swing.JPanel {
         //Required for prize internationalitation
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
         
-        //Required for drag and drop operation
+        //Required for drag and drop operation (No listener set)
         this.setTransferHandler(new DragAndDrop());
     }
     
     private boolean visible;
     private int componentType;
+    
+    //Set a listener to the DnD move event
+    public void setDnDMoveEventListener(DnDMoveEventListener listener){
+        DragAndDrop dragAndDrop = (DragAndDrop) this.getTransferHandler();
+        dragAndDrop.setDnDMoveEventListener(listener);
+    }
     
     public void setProductName(String name){
         this.jTextArea1.setText(name);
@@ -168,7 +174,7 @@ public class PcComponent extends javax.swing.JPanel {
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         TransferHandler handler = this.getTransferHandler();
-        handler.exportAsDrag(this, evt, TransferHandler.COPY);
+        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
     }//GEN-LAST:event_formMousePressed
 
 

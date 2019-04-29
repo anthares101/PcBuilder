@@ -6,8 +6,6 @@
 package PcComponent;
 
 import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -22,9 +20,17 @@ import javax.swing.TransferHandler;
  * @author anthares101
  */
 class DragAndDrop extends TransferHandler {
+  
+  private DnDMoveEventListener listener;
+  
+  //Set a listener to the DnD move event
+  public void setDnDMoveEventListener (DnDMoveEventListener listener) {
+    this.listener = listener;
+  }
+  
   @Override
   public int getSourceActions(JComponent c) {
-    return TransferHandler.COPY_OR_MOVE;
+    return TransferHandler.MOVE;
   }
 
   @Override
@@ -50,30 +56,13 @@ class DragAndDrop extends TransferHandler {
         Container container = sourcePcComponent.getParent();
         //Remove the component
         container.remove(sourcePcComponent);
-        
-        //Fix the last element constraints
-        if(container.getComponentCount() > 0){
-            PcComponent pcComponent = (PcComponent) container.getComponent(container.getComponentCount() - 1);
-            //Delete last element
-            container.remove(pcComponent);
-            
-            //Set constraints
-            GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-            gridBagConstraints.gridx = 0;
-            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
-            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-            gridBagConstraints.weightx = 1;
-            gridBagConstraints.weighty = 1;
-            gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-            gridBagConstraints.insets = new Insets (0,0,0,0);
-            
-            //Re-add last element
-            container.add(pcComponent, gridBagConstraints);
-        }
       
         //Reload the container
         container.revalidate();
         container.repaint();
+        
+        //Throw the DnD move event if listener is set
+        if (this.listener != null) this.listener.onDnDMoveEvent(container);
     }
   }
 

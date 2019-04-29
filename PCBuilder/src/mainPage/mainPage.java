@@ -14,6 +14,7 @@ import componentsInfo.Motherboard;
 import componentsInfo.PSU;
 import componentsInfo.PcBox;
 import componentsInfo.RAM;
+import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.io.FileNotFoundException;
@@ -26,7 +27,7 @@ import javax.swing.ImageIcon;
  *
  * @author anthares101
  */
-public class mainPage extends javax.swing.JFrame {
+public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveEventListener {
     
     private int tabSelected;
     
@@ -38,6 +39,34 @@ public class mainPage extends javax.swing.JFrame {
         
         //Safe the tab selected, necesary later
         this.tabSelected = components.getSelectedIndex();
+    }
+    
+    //Action performed when the DnD move event happens
+    @Override
+    public void onDnDMoveEvent(Container panel){
+        //Fix the last element constraints
+        if(panel.getComponentCount() > 0){
+            PcComponent.PcComponent pcComponentEdit = (PcComponent.PcComponent) panel.getComponent(panel.getComponentCount() - 1);
+            //Delete last element
+            panel.remove(pcComponentEdit);
+            
+            //Set constraints
+            GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 0;
+            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+            gridBagConstraints.weightx = 1;
+            gridBagConstraints.weighty = 1;
+            gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+            gridBagConstraints.insets = new Insets (0,0,0,0);
+            
+            //Re-add last element
+            panel.add(pcComponentEdit, gridBagConstraints);
+        }
+        
+        //Reload the container
+        container.revalidate();
+        container.repaint();
     }
 
     /**
@@ -237,9 +266,12 @@ public class mainPage extends javax.swing.JFrame {
                 gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
                 gridBagConstraints.insets = new Insets (0,0,0,0);
             }
-
-            //Set the information read from the database in the component
+            
             pcComponent = new PcComponent.PcComponent();
+            //Set a listener for DnD move event
+            pcComponent.setDnDMoveEventListener(this);
+            
+            //Set the information read from the database in the component
             switch(components.getSelectedIndex()){
                 case 0:
                     PcBox pcBox = (PcBox) componentList.get(i);
