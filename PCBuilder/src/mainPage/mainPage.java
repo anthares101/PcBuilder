@@ -5,6 +5,7 @@
  */
 package mainPage;
 
+import Builder.Builder;
 import PcComponentInfo.PcComponentInfo;
 import componentsInfo.CPU;
 import componentsInfo.ComponentReader;
@@ -49,6 +50,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         this.jScrollPane6.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane7.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane8.getVerticalScrollBar().setUnitIncrement(16);
+        
+        this.principal.add(new Builder());
         
         //Save the tab selected, necesary later
         this.tabSelected = components.getSelectedIndex();
@@ -454,8 +457,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
             //Set a listenner for
             pcComponent.addMouseListener(new MouseAdapter() { 
                 public void mouseClicked(MouseEvent me) {
-                  
-                    principal.removeAll();
+
+                    if(principal.getComponentCount() > 1) {
+                        principal.remove(principal.getComponentCount()-1);
+                    }
 
                     PcComponentInfo pcInfo = new PcComponentInfo();
                     pcInfo.setProductName(name);
