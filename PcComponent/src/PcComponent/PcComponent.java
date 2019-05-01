@@ -35,7 +35,19 @@ public class PcComponent extends javax.swing.JPanel {
     }
     
     private boolean visible;
+    
+    //Necesary for pcInfo
+    private String description;
+    private String bigImagePath;
+    
     private int componentType;
+    
+    private MouseClickedEventListener listener;
+  
+    //Set a listener to the mouse clicked event
+    public void setMouseClickedEventListener (MouseClickedEventListener listener) {
+        this.listener = listener;
+    }
     
     //Set a listener to the DnD move event
     public void setDnDMoveEventListener(DnDMoveEventListener listener){
@@ -63,6 +75,14 @@ public class PcComponent extends javax.swing.JPanel {
     
     public void setComponentType(int type){
         this.componentType = type;
+    }
+    
+    public void setProductDescription(String description){
+        this.description = description;
+    }
+    
+    public void setProductBigImagePath(String bigImagePath){
+        this.bigImagePath = bigImagePath;
     }
     
     public String getProductName(){
@@ -94,6 +114,14 @@ public class PcComponent extends javax.swing.JPanel {
         return this.componentType;
     }
 
+    public String getProductDescription() {
+        return description;
+    }
+
+    public String getProductBigImagePath() {
+        return bigImagePath;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -115,8 +143,8 @@ public class PcComponent extends javax.swing.JPanel {
             }
         });
         addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                formMousePressed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
             }
         });
 
@@ -141,6 +169,16 @@ public class PcComponent extends javax.swing.JPanel {
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextArea1.setCaretColor(java.awt.Color.white);
         jTextArea1.setFocusable(false);
+        jTextArea1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseDragged(evt);
+            }
+        });
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -176,15 +214,25 @@ public class PcComponent extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        //TransferHandler handler = this.getTransferHandler();
-        //handler.exportAsDrag(this, evt, TransferHandler.MOVE);
-    }//GEN-LAST:event_formMousePressed
-
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         TransferHandler handler = this.getTransferHandler();
         handler.exportAsDrag(this, evt, TransferHandler.MOVE);
     }//GEN-LAST:event_formMouseDragged
+
+    private void jTextArea1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseDragged
+        TransferHandler handler = this.getTransferHandler();
+        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+    }//GEN-LAST:event_jTextArea1MouseDragged
+
+    private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
+        //Throw the mouse clicked move event if listener is set
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
+    }//GEN-LAST:event_jTextArea1MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        //Throw the mouse clicked move event if listener is set
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
