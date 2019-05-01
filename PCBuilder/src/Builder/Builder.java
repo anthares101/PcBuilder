@@ -11,11 +11,15 @@ package Builder;
  */
 public class Builder extends javax.swing.JPanel {
 
+    Double totalPrize;
+    
     /**
      * Creates new form Builder
      */
     public Builder() {
         initComponents();
+               
+        this.totalPrize = 0.0;
         
         this.tools.setVisible(true);
         this.box.setVisible(false);
@@ -174,6 +178,10 @@ public class Builder extends javax.swing.JPanel {
     
     public void setHardDiskName(String name) {
         this.boxName.setText(name);
+    }
+    
+    public void addToTotal(Double prize) {
+        this.totalPrize += prize;
     }
 
     /**

@@ -94,7 +94,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         pcInfo.setProductPrize(pcComponent.getProductPrize());
         pcInfo.setRecomendationVisibility(pcComponent.getRecomendationVisibility());
         pcInfo.setProductImage(new ImageIcon(pcComponent.getProductBigImagePath()));
-        System.out.print(pcComponent.getProductBigImagePath());
         pcInfo.setComponentDescription(pcComponent.getProductDescription());
 
         principal.add(pcInfo);
@@ -277,7 +276,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
                 break; 
         }
         
-        //Safe the new selected tab
+        //Save the new selected tab
         tabSelected = components.getSelectedIndex();
 
         //Read all the components from the database according with the tab index
@@ -314,7 +313,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
             Logger.getLogger(mainPage.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //Rule to put the component bellow that last component added
+        //Rule to put the component below that last component added
         GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = GridBagConstraints.RELATIVE;

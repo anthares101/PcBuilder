@@ -27,7 +27,7 @@ public class ComponentReader {
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
-        //System.out.print(sc.hasNext());
+
         while(sc.hasNext()) {
             
             String token = sc.next();
@@ -230,9 +230,9 @@ public class ComponentReader {
    
    public static ArrayList<HardDisk> readDisks() throws FileNotFoundException {
        
-       ArrayList<HardDisk> array = new ArrayList();
-       
-       File file = new File ("DataBases/HardDisks.txt");
+        ArrayList<HardDisk> array = new ArrayList();
+
+        File file = new File ("DataBases/HardDisks.txt");
         
         Pattern pat = Pattern.compile("([$](\r?)\n)");
         Scanner sc = new Scanner(file).useDelimiter(pat);
