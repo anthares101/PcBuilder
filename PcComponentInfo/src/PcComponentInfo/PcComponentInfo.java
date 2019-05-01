@@ -239,7 +239,7 @@ public class PcComponentInfo extends javax.swing.JPanel {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         Container parent = this.getParent();
-        parent.removeAll();
+        parent.remove(this);
         parent.revalidate();
         parent.repaint();
     }//GEN-LAST:event_jLabel2MouseClicked
