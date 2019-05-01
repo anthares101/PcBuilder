@@ -5,11 +5,13 @@
  */
 package Builder;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sergi
  */
-public class Builder extends javax.swing.JPanel {
+public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     /**
      * Creates new form Builder
@@ -17,8 +19,10 @@ public class Builder extends javax.swing.JPanel {
     public Builder() {
         initComponents();
         
-        //Required for DnD operation (No listener set)
-        this.setTransferHandler(new DropPcComponent());
+        //Required for drop operation
+        DropPcComponent transferHandler = new DropPcComponent();
+        transferHandler.setDragEventListener(this);
+        this.setTransferHandler(transferHandler);
         
         this.tools.setVisible(true);
         this.box.setVisible(false);
@@ -29,6 +33,49 @@ public class Builder extends javax.swing.JPanel {
         this.psu.setVisible(false);
         this.ram.setVisible(false);
         this.hardDisk.setVisible(false);
+    }
+    
+    //Performed when a deop event happen
+    @Override
+    public void onDropEvent(ArrayList<String> data){
+        //data --> 0.Name, 1.Prize, 2.Type
+        //NumberFormat currency = NumberFormat.getCurrencyInstance(); For prize
+        
+        //Check the component type
+        switch(Integer.parseInt(data.get(2))){
+            case 0:
+                this.setBoxVisible();
+                this.setBoxName(data.get(0) + "  " + data.get(1));
+                break;
+            case 1:
+                this.setMotherboardVisible();
+                this.setMotherboardName(data.get(0) + "  " + data.get(1));
+                break;
+            case 2:
+                this.setCpuVisible();
+                this.setCpuName(data.get(0) + "  " + data.get(1));
+                break;
+            case 3:
+                this.setCoolerVisible();
+                this.setCoolerName(data.get(0) + "  " + data.get(1));
+                break;
+            case 4:
+                this.setRamVisible();
+                this.setRamName(data.get(0) + "  " + data.get(1));
+                break;
+            case 5:
+                this.setGpuVisible();
+                this.setGpuName(data.get(0) + "  " + data.get(1));
+                break;
+            case 6:
+                this.setHardDiskVisible();
+                this.setHardDiskName(data.get(0) + "  " + data.get(1));
+                break;
+            case 7:
+                this.setPsuVisible();
+                this.setPsuName(data.get(0) + "  " + data.get(1));
+                break;
+        }
     }
     
     public void setBoxVisible() {
@@ -152,31 +199,31 @@ public class Builder extends javax.swing.JPanel {
     }
     
     public void setMotherboardName(String name) {
-        this.boxName.setText(name);
+        this.motherboardName.setText(name);
     }
     
     public void setCpuName(String name) {
-        this.boxName.setText(name);
+        this.cpuName.setText(name);
     }
     
     public void setGpuName(String name) {
-        this.boxName.setText(name);
+        this.gpuName.setText(name);
     }
     
     public void setCoolerName(String name) {
-        this.boxName.setText(name);
+        this.coolerName.setText(name);
     }
     
     public void setRamName(String name) {
-        this.boxName.setText(name);
+        this.ramName.setText(name);
     }
     
     public void setPsuName(String name) {
-        this.boxName.setText(name);
+        this.psuName.setText(name);
     }
     
     public void setHardDiskName(String name) {
-        this.boxName.setText(name);
+        this.hardDiskName.setText(name);
     }
 
     /**

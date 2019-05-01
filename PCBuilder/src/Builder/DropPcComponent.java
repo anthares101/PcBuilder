@@ -18,7 +18,14 @@ import javax.swing.TransferHandler;
  *
  * @author anthares101
  */
-public class DropPcComponent extends TransferHandler {  
+public class DropPcComponent extends TransferHandler {
+    private DropEventListener listener;
+    
+    //Set a listener to the drop event
+    public void setDragEventListener (DropEventListener listener) {
+        this.listener = listener;
+    }
+    
     @Override
     public boolean canImport(TransferHandler.TransferSupport support) {
         if (!support.isDrop()) {
@@ -54,10 +61,9 @@ public class DropPcComponent extends TransferHandler {
 
         @SuppressWarnings("unchecked")
         javax.swing.JPanel panel = (javax.swing.JPanel) support.getComponent();
-
-        System.out.print(data.get(0));
-        System.out.print(data.get(1));
-        System.out.print(data.get(2));
+        
+        //Throw the drop event if listener is set
+        if (this.listener != null) this.listener.onDropEvent(data);
 
         return true;
     }

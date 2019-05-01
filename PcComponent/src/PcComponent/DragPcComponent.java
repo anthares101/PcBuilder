@@ -18,10 +18,10 @@ import javax.swing.TransferHandler;
  */
 class DragPcComponent extends TransferHandler {
   
-    private DnDMoveEventListener listener;
+    private DragEventListener listener;
   
-    //Set a listener to the DnD move event
-    public void setDnDMoveEventListener (DnDMoveEventListener listener) {
+    //Set a listener to the drag event
+    public void setDragEventListener (DragEventListener listener) {
         this.listener = listener;
     }
 
@@ -62,7 +62,7 @@ class DragPcComponent extends TransferHandler {
             container.repaint();
 
             //Throw the DnD move event if listener is set
-            if (this.listener != null) this.listener.onDnDMoveEvent(container);
+            if (this.listener != null) this.listener.onDragEvent(container);
         }
     }
 }

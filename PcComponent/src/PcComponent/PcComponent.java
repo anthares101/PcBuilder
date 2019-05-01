@@ -48,10 +48,10 @@ public class PcComponent extends javax.swing.JPanel {
         this.listener = listener;
     }
     
-    //Set a listener to the DnD move event
-    public void setDnDMoveEventListener(DnDMoveEventListener listener){
+    //Set a listener to the drag event
+    public void setDragEventListener(DragEventListener listener){
         DragPcComponent dragAndDrop = (DragPcComponent) this.getTransferHandler();
-        dragAndDrop.setDnDMoveEventListener(listener);
+        dragAndDrop.setDragEventListener(listener);
     }
     
     public void setProductName(String name){
