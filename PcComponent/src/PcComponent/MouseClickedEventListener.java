@@ -11,5 +11,5 @@ package PcComponent;
  */
 public interface MouseClickedEventListener {
     //Action performed when the mouse clicked event happens
-    void onMouseClickedEvent();
+    void onMouseClickedEvent(PcComponent pcComponent);
 }

@@ -35,6 +35,11 @@ public class PcComponent extends javax.swing.JPanel {
     }
     
     private boolean visible;
+    
+    //Necesary for pcInfo
+    private String description;
+    private String bigImagePath;
+    
     private int componentType;
     
     private MouseClickedEventListener listener;
@@ -72,6 +77,14 @@ public class PcComponent extends javax.swing.JPanel {
         this.componentType = type;
     }
     
+    public void setProductDescription(String description){
+        this.description = description;
+    }
+    
+    public void setProductBigImagePath(String bigImagePath){
+        this.bigImagePath = bigImagePath;
+    }
+    
     public String getProductName(){
         return this.jTextArea1.getText();
     }
@@ -101,6 +114,14 @@ public class PcComponent extends javax.swing.JPanel {
         return this.componentType;
     }
 
+    public String getProductDescription() {
+        return description;
+    }
+
+    public String getProductBigImagePath() {
+        return bigImagePath;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +140,11 @@ public class PcComponent extends javax.swing.JPanel {
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
             }
         });
 
@@ -200,8 +226,13 @@ public class PcComponent extends javax.swing.JPanel {
 
     private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
         //Throw the mouse clicked move event if listener is set
-        if (this.listener != null) this.listener.onMouseClickedEvent();
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
     }//GEN-LAST:event_jTextArea1MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        //Throw the mouse clicked move event if listener is set
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
