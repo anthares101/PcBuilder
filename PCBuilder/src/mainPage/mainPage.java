@@ -24,14 +24,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author anthares101
  */
-public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveEventListener {
+public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveEventListener, PcComponent.MouseClickedEventListener {
     
     private int tabSelected;
     
@@ -80,6 +79,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         //Reload the container
         container.revalidate();
         container.repaint();
+    }
+    
+    //Action performed when the mouse clicked event happens
+    @Override
+    public void onMouseClickedEvent(){
     }
 
     /**
