@@ -31,16 +31,15 @@ public class PcComponent extends javax.swing.JPanel {
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
         
         //Required for drag and drop operation (No listener set)
-        this.setTransferHandler(new DragAndDrop());
+        this.setTransferHandler(new DragPcComponent());
     }
     
     private boolean visible;
+    private int componentType;
     
     //Necesary for pcInfo
     private String description;
     private String bigImagePath;
-    
-    private int componentType;
     
     private MouseClickedEventListener listener;
   
@@ -51,7 +50,7 @@ public class PcComponent extends javax.swing.JPanel {
     
     //Set a listener to the DnD move event
     public void setDnDMoveEventListener(DnDMoveEventListener listener){
-        DragAndDrop dragAndDrop = (DragAndDrop) this.getTransferHandler();
+        DragPcComponent dragAndDrop = (DragPcComponent) this.getTransferHandler();
         dragAndDrop.setDnDMoveEventListener(listener);
     }
     
@@ -214,16 +213,6 @@ public class PcComponent extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        TransferHandler handler = this.getTransferHandler();
-        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
-    }//GEN-LAST:event_formMouseDragged
-
-    private void jTextArea1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseDragged
-        TransferHandler handler = this.getTransferHandler();
-        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
-    }//GEN-LAST:event_jTextArea1MouseDragged
-
     private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
         //Throw the mouse clicked move event if listener is set
         if (this.listener != null) this.listener.onMouseClickedEvent(this);
@@ -233,6 +222,16 @@ public class PcComponent extends javax.swing.JPanel {
         //Throw the mouse clicked move event if listener is set
         if (this.listener != null) this.listener.onMouseClickedEvent(this);
     }//GEN-LAST:event_formMouseClicked
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        TransferHandler handler = this.getTransferHandler();
+        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void jTextArea1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseDragged
+        TransferHandler handler = this.getTransferHandler();
+        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+    }//GEN-LAST:event_jTextArea1MouseDragged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -94,7 +94,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         pcInfo.setProductPrize(pcComponent.getProductPrize());
         pcInfo.setRecomendationVisibility(pcComponent.getRecomendationVisibility());
         pcInfo.setProductImage(new ImageIcon(pcComponent.getProductBigImagePath()));
-        System.out.print(pcComponent.getProductBigImagePath());
         pcInfo.setComponentDescription(pcComponent.getProductDescription());
 
         principal.add(pcInfo);
@@ -341,6 +340,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
             //Set a listener for mouse clicked event
             pcComponent.setMouseClickedEventListener(this);
             
+            pcComponent.setComponentType(components.getSelectedIndex());
             //Set the information read from the database in the component
             switch(components.getSelectedIndex()){
                 case 0:

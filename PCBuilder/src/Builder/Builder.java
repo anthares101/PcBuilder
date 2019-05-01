@@ -17,6 +17,9 @@ public class Builder extends javax.swing.JPanel {
     public Builder() {
         initComponents();
         
+        //Required for DnD operation (No listener set)
+        this.setTransferHandler(new DropPcComponent());
+        
         this.tools.setVisible(true);
         this.box.setVisible(false);
         this.cooler.setVisible(false);
