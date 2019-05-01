@@ -138,7 +138,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         container.setPreferredSize(new java.awt.Dimension(1337, 906));
         container.setLayout(new java.awt.BorderLayout());
 
-        components.setBorder(null);
+        components.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         components.setMaximumSize(new java.awt.Dimension(535, 756));
         components.setMinimumSize(new java.awt.Dimension(535, 756));
         components.setPreferredSize(new java.awt.Dimension(535, 756));
@@ -152,7 +152,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setViewportView(jPanel1);
 
-        jPanel1.setBorder(null);
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel1);
 
@@ -163,7 +162,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setViewportView(jPanel2);
 
-        jPanel2.setBorder(null);
         jPanel2.setLayout(new java.awt.GridBagLayout());
         jScrollPane2.setViewportView(jPanel2);
 
@@ -173,7 +171,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setViewportView(jPanel3);
 
-        jPanel3.setBorder(null);
         jPanel3.setLayout(new java.awt.GridBagLayout());
         jScrollPane3.setViewportView(jPanel3);
 
@@ -183,7 +180,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane4.setViewportView(jPanel4);
 
-        jPanel4.setBorder(null);
         jPanel4.setLayout(new java.awt.GridBagLayout());
         jScrollPane4.setViewportView(jPanel4);
 
@@ -193,7 +189,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setViewportView(jPanel5);
 
-        jPanel5.setBorder(null);
         jPanel5.setLayout(new java.awt.GridBagLayout());
         jScrollPane5.setViewportView(jPanel5);
 
@@ -203,7 +198,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setViewportView(jPanel6);
 
-        jPanel6.setBorder(null);
         jPanel6.setLayout(new java.awt.GridBagLayout());
         jScrollPane6.setViewportView(jPanel6);
 
@@ -213,7 +207,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setViewportView(jPanel7);
 
-        jPanel7.setBorder(null);
         jPanel7.setLayout(new java.awt.GridBagLayout());
         jScrollPane7.setViewportView(jPanel7);
 
@@ -223,7 +216,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane8.setViewportView(jPanel8);
 
-        jPanel8.setBorder(null);
         jPanel8.setLayout(new java.awt.GridBagLayout());
         jScrollPane8.setViewportView(jPanel8);
 
@@ -231,23 +223,23 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
 
         container.add(components, java.awt.BorderLayout.LINE_END);
 
-        information.setBorder(null);
+        information.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         information.setPreferredSize(new java.awt.Dimension(1337, 150));
 
         javax.swing.GroupLayout informationLayout = new javax.swing.GroupLayout(information);
         information.setLayout(informationLayout);
         informationLayout.setHorizontalGroup(
             informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1337, Short.MAX_VALUE)
+            .addGap(0, 1335, Short.MAX_VALUE)
         );
         informationLayout.setVerticalGroup(
             informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         container.add(information, java.awt.BorderLayout.PAGE_END);
 
-        principal.setBorder(null);
+        principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         principal.setLayout(new java.awt.BorderLayout());
         container.add(principal, java.awt.BorderLayout.CENTER);
 
