@@ -122,11 +122,13 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jTextArea2 = new javax.swing.JTextArea();
 
         setBackground(java.awt.Color.white);
+        setBorder(null);
         setPreferredSize(new java.awt.Dimension(802, 756));
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setPreferredSize(new java.awt.Dimension(802, 756));
+        jScrollPane1.setViewportView(jPanel1);
 
         jPanel1.setBackground(java.awt.Color.white);
 
