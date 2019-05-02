@@ -573,8 +573,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(boxName, gridBagConstraints);
-
-        boxPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 0;
@@ -589,8 +587,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(motherboardName, gridBagConstraints);
-
-        motherboardPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 2;
@@ -605,8 +601,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(cpuName, gridBagConstraints);
-
-        cpuPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 4;
@@ -621,8 +615,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(coolerName, gridBagConstraints);
-
-        coolerPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 6;
@@ -637,8 +629,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(ramName, gridBagConstraints);
-
-        ramPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 8;
@@ -653,8 +643,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(gpuName, gridBagConstraints);
-
-        gpuPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 10;
@@ -669,8 +657,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(hardDiskName, gridBagConstraints);
-
-        hardDiskPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 12;
@@ -685,8 +671,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 30);
         info.add(psuName, gridBagConstraints);
-
-        psuPrize.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 19;
         gridBagConstraints.gridy = 14;
@@ -695,6 +679,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(psuPrize, gridBagConstraints);
 
         removeBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeBoxMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -703,6 +692,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeBox, gridBagConstraints);
 
         removeMotherboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeMotherboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMotherboardMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -711,6 +705,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeMotherboard, gridBagConstraints);
 
         removeHardDisk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeHardDisk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeHardDiskMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
@@ -719,6 +718,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeHardDisk, gridBagConstraints);
 
         removeRam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeRam.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeRamMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -727,6 +731,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeRam, gridBagConstraints);
 
         removeGpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeGpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeGpuMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -735,6 +744,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeGpu, gridBagConstraints);
 
         removeCooler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeCooler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeCoolerMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -743,6 +757,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removeCooler, gridBagConstraints);
 
         removePsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removePsu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removePsuMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
@@ -751,6 +770,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(removePsu, gridBagConstraints);
 
         removeCpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeCpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeCpuMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -762,6 +786,62 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
         add(components, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void removeBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeBoxMouseClicked
+        this.substractToTotal(this.transformPrize(this.boxPrize.getText()));
+        this.boxName.setText("arrastre a esta ventana para montar");
+        this.boxPrize.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeBoxMouseClicked
+
+    private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
+        this.substractToTotal(this.transformPrize(this.motherboardPrize.getText()));
+        this.motherboardName.setText("arrastre a esta ventana para montar");
+        this.motherboardPrize.setText("");
+        this.setMotherboardInvisible();
+    }//GEN-LAST:event_removeMotherboardMouseClicked
+
+    private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
+        this.substractToTotal(this.transformPrize(this.cpuPrize.getText()));
+        this.cpuName.setText("arrastre a esta ventana para montar");
+        this.cpuPrize.setText("");
+        this.setCpuInvisible();
+    }//GEN-LAST:event_removeCpuMouseClicked
+
+    private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
+        this.substractToTotal(this.transformPrize(this.coolerPrize.getText()));
+        this.coolerName.setText("arrastre a esta ventana para montar");
+        this.coolerPrize.setText("");
+        this.setCoolerInvisible();
+    }//GEN-LAST:event_removeCoolerMouseClicked
+
+    private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
+        this.substractToTotal(this.transformPrize(this.ramPrize.getText()));
+        this.ramName.setText("arrastre a esta ventana para montar");
+        this.ramPrize.setText("");
+        this.setRamInvisible();
+    }//GEN-LAST:event_removeRamMouseClicked
+
+    private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
+        this.substractToTotal(this.transformPrize(this.gpuPrize.getText()));
+        this.gpuName.setText("arrastre a esta ventana para montar");
+        this.gpuPrize.setText("");
+        this.setGpuInvisible();
+    }//GEN-LAST:event_removeGpuMouseClicked
+
+    private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
+        this.substractToTotal(this.transformPrize(this.hardDiskPrize.getText()));
+        this.hardDiskName.setText("arrastre a esta ventana para montar");
+        this.hardDiskPrize.setText("");
+        this.setHardDiskInvisible();
+    }//GEN-LAST:event_removeHardDiskMouseClicked
+
+    private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
+        this.substractToTotal(this.transformPrize(this.psuPrize.getText()));
+        this.psuName.setText("arrastre a esta ventana para montar");
+        this.psuPrize.setText("");
+        this.setPsuInvisible();
+    }//GEN-LAST:event_removePsuMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
