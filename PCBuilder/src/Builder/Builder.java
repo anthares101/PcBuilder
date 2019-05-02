@@ -5,7 +5,13 @@
  */
 package Builder;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -37,6 +43,14 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.psu.setVisible(false);
         this.ram.setVisible(false);
         this.hardDisk.setVisible(false);
+        this.removeBox.setVisible(false);
+        this.removeCooler.setVisible(false);
+        this.removeCpu.setVisible(false);
+        this.removeGpu.setVisible(false);
+        this.removeMotherboard.setVisible(false);
+        this.removePsu.setVisible(false);
+        this.removeRam.setVisible(false);
+        this.removeHardDisk.setVisible(false);
     }
     
     //Performed when a deop event happen
@@ -48,36 +62,88 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         //Check the component type
         switch(Integer.parseInt(data.get(2))){
             case 0:
+                if(this.box.isVisible()) {
+                    //System.out.println("Estoy cambiando: "+this.boxName.getText()+"\n");
+                    //System.out.println(this.totalPrize +"-"+ this.transformPrize(this.getPrize(this.boxName.getText()))+ "=");
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.boxName.getText())));
+                    //System.out.println(this.totalPrize+"\n");
+                    System.out.println("holi: "+this.transformPrize(this.getPrize(this.boxName.getText()))+"\n");
+                }
+                
                 this.setBoxVisible();
-                this.setBoxName(data.get(0) + "  " + data.get(1));
+                this.setBoxName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeBox.setVisible(true);
                 break;
             case 1:
+                if(this.motherboard.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.motherboardName.getText())));
+                }
+                
                 this.setMotherboardVisible();
-                this.setMotherboardName(data.get(0) + "  " + data.get(1));
+                this.setMotherboardName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeMotherboard.setVisible(true);
                 break;
             case 2:
+                if(this.cpu.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.cpuName.getText())));
+                }
+                
                 this.setCpuVisible();
-                this.setCpuName(data.get(0) + "  " + data.get(1));
+                this.setCpuName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeCpu.setVisible(true);
                 break;
             case 3:
+                if(this.cooler.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.coolerName.getText())));
+                }
+                
                 this.setCoolerVisible();
-                this.setCoolerName(data.get(0) + "  " + data.get(1));
+                this.setCoolerName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeCooler.setVisible(true);
                 break;
             case 4:
+                if(this.ram.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.ramName.getText())));
+                }
+                
                 this.setRamVisible();
-                this.setRamName(data.get(0) + "  " + data.get(1));
+                this.setRamName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeRam.setVisible(true);
                 break;
             case 5:
+                if(this.gpu.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.gpuName.getText())));
+                }
+                
                 this.setGpuVisible();
-                this.setGpuName(data.get(0) + "  " + data.get(1));
+                this.setGpuName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeGpu.setVisible(true);
                 break;
             case 6:
+                if(this.hardDisk.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.hardDiskName.getText())));
+                }
+                
                 this.setHardDiskVisible();
-                this.setHardDiskName(data.get(0) + "  " + data.get(1));
+                this.setHardDiskName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removeHardDisk.setVisible(true);
                 break;
             case 7:
+                if(this.psu.isVisible()) {
+                    this.substractToTotal(this.transformPrize(this.getPrize(this.psuName.getText())));
+                }
+                
                 this.setPsuVisible();
-                this.setPsuName(data.get(0) + "  " + data.get(1));
+                this.setPsuName(data.get(0) + " - " + data.get(1));
+                this.addToTotal(this.transformPrize(data.get(1)));
+                this.removePsu.setVisible(true);
                 break;
         }
     }
@@ -230,8 +296,52 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.hardDiskName.setText(name);
     }
     
+    /*private Double transfomrPrize(String prize) {
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        nf.setGroupingUsed(false);
+        nf.setMinimumFractionDigits(2);
+        String ammount= nf.format(currency);
+
+        double prize  = Double.parseDouble(ammount);
+        System.out.println("soy prize: "+prize+"\n");
+        return prize;
+    }*/
+    
+    private Double transformPrize(String currency) {
+        
+        String s;
+        
+        try {
+            s = DecimalFormat.getCurrencyInstance(Locale.getDefault()).parse (currency).toString();
+        } catch (ParseException e) {
+            System.out.println("holiwi\n");
+            return 0.0;
+        }
+
+        double prize  = Double.parseDouble(s);
+        System.out.println("soy prize: "+prize+"\n");
+        return prize;
+    }
+    
+    private String getPrize(String string) {
+        String prize;
+        
+        Scanner sc = new Scanner(string).useDelimiter("-");
+        
+        sc.next();
+        prize = sc.next();
+        
+        return prize;
+    }
+    
     public void addToTotal(Double prize) {
         this.totalPrize += prize;
+        System.out.println(this.totalPrize+"\n");
+    }
+    
+    public void substractToTotal(Double prize) {
+        this.totalPrize -= prize;
+        System.out.println(this.totalPrize+"\n");
     }
 
     /**
@@ -268,6 +378,14 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gpuName = new javax.swing.JLabel();
         hardDiskName = new javax.swing.JLabel();
         psuName = new javax.swing.JLabel();
+        removePsu = new javax.swing.JLabel();
+        removeBox = new javax.swing.JLabel();
+        removeMotherboard = new javax.swing.JLabel();
+        removeCpu = new javax.swing.JLabel();
+        removeCooler = new javax.swing.JLabel();
+        removeRam = new javax.swing.JLabel();
+        removeGpu = new javax.swing.JLabel();
+        removeHardDisk = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.white);
         setPreferredSize(new java.awt.Dimension(802, 756));
@@ -339,7 +457,127 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         add(gpuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 700, -1));
         add(hardDiskName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 680, 660, -1));
         add(psuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 700, -1));
+
+        removePsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removePsu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removePsuMouseClicked(evt);
+            }
+        });
+        add(removePsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, -1, -1));
+
+        removeBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeBoxMouseClicked(evt);
+            }
+        });
+        add(removeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
+
+        removeMotherboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeMotherboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMotherboardMouseClicked(evt);
+            }
+        });
+        add(removeMotherboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, -1, -1));
+
+        removeCpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeCpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeCpuMouseClicked(evt);
+            }
+        });
+        add(removeCpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, -1, -1));
+
+        removeCooler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeCooler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeCoolerMouseClicked(evt);
+            }
+        });
+        add(removeCooler, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, -1, -1));
+
+        removeRam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeRam.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeRamMouseClicked(evt);
+            }
+        });
+        add(removeRam, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
+
+        removeGpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeGpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeGpuMouseClicked(evt);
+            }
+        });
+        add(removeGpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, -1, -1));
+
+        removeHardDisk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/remove.png"))); // NOI18N
+        removeHardDisk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeHardDiskMouseClicked(evt);
+            }
+        });
+        add(removeHardDisk, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void removeBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeBoxMouseClicked
+        this.removeBox.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.boxName.getText())));
+        this.boxName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeBoxMouseClicked
+
+    private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
+        this.removeMotherboard.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.motherboardName.getText())));
+        this.motherboardName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeMotherboardMouseClicked
+
+    private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
+        this.removeCpu.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.cpuName.getText())));
+        this.cpuName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeCpuMouseClicked
+
+    private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
+        this.removeCooler.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.coolerName.getText())));
+        this.coolerName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeCoolerMouseClicked
+
+    private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
+        this.removeRam.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.ramName.getText())));
+        this.ramName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeRamMouseClicked
+
+    private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
+        this.removeGpu.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.gpuName.getText())));
+        this.gpuName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeGpuMouseClicked
+
+    private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
+        this.removeHardDisk.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.hardDiskName.getText())));
+        this.hardDiskName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removeHardDiskMouseClicked
+
+    private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
+        this.removePsu.setVisible(false);
+        this.substractToTotal(this.transformPrize(this.getPrize(this.psuName.getText())));
+        this.psuName.setText("");
+        this.setBoxInvisible();
+    }//GEN-LAST:event_removePsuMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -367,6 +605,14 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     private javax.swing.JLabel psuName;
     private javax.swing.JLabel ram;
     private javax.swing.JLabel ramName;
+    private javax.swing.JLabel removeBox;
+    private javax.swing.JLabel removeCooler;
+    private javax.swing.JLabel removeCpu;
+    private javax.swing.JLabel removeGpu;
+    private javax.swing.JLabel removeHardDisk;
+    private javax.swing.JLabel removeMotherboard;
+    private javax.swing.JLabel removePsu;
+    private javax.swing.JLabel removeRam;
     private javax.swing.JLabel tools;
     // End of variables declaration//GEN-END:variables
 }
