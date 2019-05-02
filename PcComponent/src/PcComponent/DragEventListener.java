@@ -11,7 +11,7 @@ import java.awt.Container;
  *
  * @author anthares101
  */
-public interface DnDMoveEventListener {
-    //Get the panel where the move event happens
-    void onDnDMoveEvent(Container panel);
+public interface DragEventListener {
+    //Get the panel where the drag event happens
+    void onDragEvent(Container panel);
 }

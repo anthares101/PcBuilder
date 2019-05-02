@@ -29,7 +29,7 @@ import javax.swing.ImageIcon;
  *
  * @author anthares101
  */
-public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveEventListener, PcComponent.MouseClickedEventListener {
+public class mainPage extends javax.swing.JFrame implements PcComponent.DragEventListener, PcComponent.MouseClickedEventListener {
     
     private int tabSelected;
     
@@ -54,9 +54,9 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
         this.tabSelected = components.getSelectedIndex();
     }
     
-    //Action performed when the DnD move event happens
+    //Action performed when the drag event happens
     @Override
-    public void onDnDMoveEvent(Container panel){
+    public void onDragEvent(Container panel){
         //Fix the last element constraints
         if(panel.getComponentCount() > 0){
             PcComponent.PcComponent pcComponentEdit = (PcComponent.PcComponent) panel.getComponent(panel.getComponentCount() - 1);
@@ -335,11 +335,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DnDMoveE
             pcComponent = new PcComponent.PcComponent();
             
             //Set the listeners for the pcComponent
-            //Set a listener for DnD move event
-            pcComponent.setDnDMoveEventListener(this);
+            //Set a listener for drag event
+            pcComponent.setDragEventListener(this);
             //Set a listener for mouse clicked event
             pcComponent.setMouseClickedEventListener(this);
             
+            pcComponent.setComponentType(components.getSelectedIndex());
             //Set the information read from the database in the component
             switch(components.getSelectedIndex()){
                 case 0:
