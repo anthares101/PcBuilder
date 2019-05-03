@@ -414,20 +414,17 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         }
         
         var prizeInt = (int) (prizeDouble.doubleValue()*100);
-        
-        System.out.println("soy prize: " + prizeInt + "\n");
+
         return prizeInt;
     }
     
     public void addToTotal(int prize) {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         this.totalPrize += prize;
-        System.out.println(this.totalPrize+"\n");
     }
     
     public void substractToTotal(int prize) {
         this.totalPrize -= prize;
-        System.out.println(this.totalPrize+"\n");
     }
 
     /**

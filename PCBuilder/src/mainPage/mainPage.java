@@ -69,6 +69,9 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     @Override
     public void onDragEvent(Container panel){
         this.componentsStateChanged(null);
+        
+        Builder builder = (Builder) this.principal.getComponent(0);
+        this.prize.setText(builder.getTotalPrizeString());
     }
     
     //Action performed when a mouse clicked event happens
@@ -95,8 +98,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     //Action performed when a remove component event happens (Update PcComponents tabs if necesary)
     @Override
     public void onComponentDeleteEvent(int type){
-        if(this.components.getSelectedIndex() == type)
+        if(this.components.getSelectedIndex() == type) {
             this.componentsStateChanged(null);
+        }
+        
+        Builder builder = (Builder) this.principal.getComponent(0);
+        this.prize.setText(builder.getTotalPrizeString());
     }
 
     /**
