@@ -187,14 +187,15 @@ public class PcComponent extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 182, 0));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/StarIcon.png"))); // NOI18N
-        jLabel5.setText("Recomendado");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("PcComponent/Bundle"); // NOI18N
+        jLabel5.setText(bundle.getString("RECOMENDADO")); // NOI18N
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(15);
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Componente");
+        jTextArea1.setText(bundle.getString("COMPONENTE")); // NOI18N
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

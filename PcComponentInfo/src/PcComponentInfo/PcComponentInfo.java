@@ -134,13 +134,14 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jPanel1.setBackground(java.awt.Color.white);
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
-        jLabel5.setText("Descripción");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("PcComponentInfo/Bundle"); // NOI18N
+        jLabel5.setText(bundle.getString("DESCRIPCIÓN")); // NOI18N
         jLabel5.setFocusable(false);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 182, 0));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponentInfo/Images/StarIcon.png"))); // NOI18N
-        jLabel4.setText("Recomendado");
+        jLabel4.setText(bundle.getString("RECOMENDADO")); // NOI18N
         jLabel4.setFocusable(false);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 48)); // NOI18N
@@ -154,7 +155,7 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jTextArea1.setColumns(45);
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Descripcion del componente");
+        jTextArea1.setText(bundle.getString("DESCRIPCION DEL COMPONENTE")); // NOI18N
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -162,7 +163,7 @@ public class PcComponentInfo extends javax.swing.JPanel {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Ubuntu", 1, 26)); // NOI18N
         jTextArea2.setRows(5);
-        jTextArea2.setText("Componente");
+        jTextArea2.setText(bundle.getString("COMPONENTE")); // NOI18N
         jTextArea2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextArea2.setFocusable(false);
 
