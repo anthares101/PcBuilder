@@ -765,8 +765,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         }
         
         //Reload the container
-        container.revalidate();
-        container.repaint();
+        this.components.revalidate();
+        this.components.repaint();
     }//GEN-LAST:event_componentsStateChanged
 
     private void principalComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_principalComponentRemoved
