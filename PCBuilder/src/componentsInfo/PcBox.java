@@ -80,7 +80,7 @@ public class PcBox extends PcComponent {
         this.maxGPU = maxGPU;
     }
     
-    public Boolean findFormFactor(String formFactor){
+    public Boolean supportFormFactor(String formFactor){
         int i = 0;
         
         while(!this.formFactors.get(i).equals(formFactor) && 

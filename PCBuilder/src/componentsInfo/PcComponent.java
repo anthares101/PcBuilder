@@ -14,11 +14,13 @@ public class PcComponent {
     private String name;
     private double prize;
     private String description;
+    private boolean recomended;
     
     public PcComponent() {
         this.setName("");
         this.setPrize(0);
         this.setDescription("");
+        this.setRecomended(false);
     }
     
     public String getName(){
@@ -32,6 +34,10 @@ public class PcComponent {
     public String getDescription(){
         return this.description;
     }
+
+    public boolean isRecomended() {
+        return this.recomended;
+    }
     
     public void setName(String name){
         this.name = name;
@@ -43,6 +49,10 @@ public class PcComponent {
     
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public void setRecomended(boolean recomended) {
+        this.recomended = recomended;
     }
     
 }
