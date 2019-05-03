@@ -21,7 +21,6 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.io.FileNotFoundException;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,6 +56,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         this.jScrollPane7.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane8.getVerticalScrollBar().setUnitIncrement(16);
         
+        this.finishBttn.setVisible(false);
+        
         //Add Builder component and set the listener for the remove component event
         Builder builder = new Builder();
         builder.setComponentDeleteEventListener(this);
@@ -72,6 +73,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
+        this.finishBttn.setVisible(true);
     }
     
     //Action performed when a mouse clicked event happens
@@ -104,6 +106,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
+        
+        if(builder.isEmpty()) {
+            this.finishBttn.setVisible(false);
+        }
     }
 
     /**
