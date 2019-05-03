@@ -25,7 +25,9 @@ public class PcComponent extends javax.swing.JPanel {
     public PcComponent() {
         initComponents();
         
-        this.visible = true;
+        //Set the default recomendation visibility
+        this.setRecomendationVisibility(false);
+        this.recomendedVisibility = false;
         
         //Required for prize internationalitation
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
@@ -36,7 +38,7 @@ public class PcComponent extends javax.swing.JPanel {
     //Determines if DnD is allowed
     private static boolean activeDnD = true;
     
-    private boolean visible;
+    private boolean recomendedVisibility;
     private int componentType;
     
     //Necesary for pcInfo
@@ -66,7 +68,7 @@ public class PcComponent extends javax.swing.JPanel {
     }
     
     public void setRecomendationVisibility(boolean visible){
-        this.visible = visible;
+        this.recomendedVisibility = visible;
         this.jLabel5.setVisible(visible);
     }
     
@@ -108,7 +110,7 @@ public class PcComponent extends javax.swing.JPanel {
     }
     
     public boolean getRecomendationVisibility(){
-        return this.visible;
+        return this.recomendedVisibility;
     }
     
     public Icon getProductImage(){

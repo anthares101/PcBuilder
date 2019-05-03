@@ -67,7 +67,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         switch(Integer.parseInt(data.get(2))){
             case 0:
                 if(this.box.isVisible()) {
-                    this.substractToTotal(this.transformPrize(this.cpuPrize.getText()));
+                    this.substractToTotal(this.transformPrize(this.boxPrize.getText()));
                 }
                 
                 this.setBoxVisible();

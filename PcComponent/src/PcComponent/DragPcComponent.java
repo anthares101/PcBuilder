@@ -46,7 +46,7 @@ class DragPcComponent extends TransferHandler {
 
         return t;
     }
-
+    //Because the builder manage the component list refresh, is not necesary
     @Override
     protected void exportDone(JComponent source, Transferable data, int action) {
         @SuppressWarnings("unchecked")
