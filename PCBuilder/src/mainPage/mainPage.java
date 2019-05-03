@@ -58,32 +58,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         this.principal.add(builder);
     }
     
-    //Action performed when a drag event happens
+    //Action performed when a drag event happens (The argument in our case is not necesary)
     @Override
     public void onDragEvent(Container panel){
-        //Fix the last element constraints
-        if(panel.getComponentCount() > 0){
-            PcComponent.PcComponent pcComponentEdit = (PcComponent.PcComponent) panel.getComponent(panel.getComponentCount() - 1);
-            //Delete last element
-            panel.remove(pcComponentEdit);
-            
-            //Set constraints
-            GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-            gridBagConstraints.gridx = 0;
-            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
-            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-            gridBagConstraints.weightx = 1;
-            gridBagConstraints.weighty = 1;
-            gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-            gridBagConstraints.insets = new Insets (0,0,0,0);
-            
-            //Re-add last element
-            panel.add(pcComponentEdit, gridBagConstraints);
-        }
-        
-        //Reload the container
-        container.revalidate();
-        container.repaint();
+        this.componentsStateChanged(null);
     }
     
     //Action performed when a mouse clicked event happens
@@ -382,14 +360,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         PcComponent.PcComponent pcComponent;
 
         for(int i = 0; i < componentList.size(); i++){
-            //If it is the last element...
-            if(i == componentList.size() -1){
-                gridBagConstraints.weightx = 1;
-                gridBagConstraints.weighty = 1;
-                gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-                gridBagConstraints.insets = new Insets (0,0,0,0);
-            }
-            
             pcComponent = new PcComponent.PcComponent();
             
             //Set the listeners for the pcComponent
@@ -531,6 +501,69 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                     break;
             }
         }
+        
+        //Fix the last element constraints
+        javax.swing.JPanel panel;
+        
+        switch(components.getSelectedIndex()){
+            case 0:
+                panel = jPanel1;
+                
+                break;
+            case 1:
+                panel = jPanel2;
+                
+                break;
+            case 2:
+                panel = jPanel3;
+                
+                break;
+            case 3:
+                panel = jPanel4;
+                
+                break;
+            case 4:
+                panel = jPanel5;
+                
+                break;
+            case 5:
+                panel = jPanel6;
+                
+                break;
+            case 6:
+                panel = jPanel7;
+                
+                break;
+            case 7:
+                panel = jPanel8;
+                
+                break;
+            default://Just initializes the panel variable if a new tab is added and not controlled
+                panel = jPanel1;
+        }
+        
+        if(panel.getComponentCount() > 0){
+            PcComponent.PcComponent pcComponentEdit = (PcComponent.PcComponent) panel.getComponent(panel.getComponentCount() - 1);
+            //Delete last element
+            panel.remove(pcComponentEdit);
+            
+            //Set constraints
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 0;
+            gridBagConstraints.gridy = GridBagConstraints.RELATIVE;
+            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+            gridBagConstraints.weightx = 1;
+            gridBagConstraints.weighty = 1;
+            gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+            gridBagConstraints.insets = new Insets (0,0,0,0);
+            
+            //Re-add last element
+            panel.add(pcComponentEdit, gridBagConstraints);
+        }
+        
+        //Reload the container
+        container.revalidate();
+        container.repaint();
     }//GEN-LAST:event_componentsStateChanged
 
     private void principalComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_principalComponentRemoved
