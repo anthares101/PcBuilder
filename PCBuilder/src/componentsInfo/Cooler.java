@@ -39,7 +39,7 @@ public class Cooler extends PcComponent{
         return this.height;
     }
 
-    public void setSockets(ArrayList sockets) {
+    public void setSockets(ArrayList<String> sockets) {
         this.sockets = sockets;
     }
     

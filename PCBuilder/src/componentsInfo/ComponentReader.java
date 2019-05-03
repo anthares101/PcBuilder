@@ -21,7 +21,7 @@ public class ComponentReader {
     
     public static ArrayList<PcBox> readPcBox() throws FileNotFoundException {
         
-        ArrayList<PcBox> array = new ArrayList();
+        ArrayList<PcBox> array = new ArrayList<>();
         
         File file = new File ("DataBases/PCBoxes.txt");
         
@@ -49,7 +49,7 @@ public class ComponentReader {
 
                 //lectura de los factores forma
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
-                ArrayList<String> factorForms = new ArrayList();
+                ArrayList<String> factorForms = new ArrayList<>();
                 while(aux.hasMoreTokens()) {
                     factorForms.add(aux.nextToken());
                 }
@@ -72,7 +72,7 @@ public class ComponentReader {
     
     public static ArrayList<Motherboard> readMotherboards() throws FileNotFoundException {
         
-        ArrayList<Motherboard> array = new ArrayList();
+        ArrayList<Motherboard> array = new ArrayList<>();
         
         File file = new File ("DataBases/Motherboards.txt");
         
@@ -111,7 +111,7 @@ public class ComponentReader {
     
     public static ArrayList<CPU> readCPUs() throws FileNotFoundException {
         
-        ArrayList<CPU> array = new ArrayList();
+        ArrayList<CPU> array = new ArrayList<>();
         
         File file = new File ("DataBases/CPUs.txt");
         
@@ -149,7 +149,7 @@ public class ComponentReader {
         
     public static ArrayList<GPU> readGPUs() throws FileNotFoundException {
 
-        ArrayList<GPU> array = new ArrayList();
+        ArrayList<GPU> array = new ArrayList<>();
         
         File file = new File ("DataBases/GPUs.txt");
        
@@ -188,7 +188,7 @@ public class ComponentReader {
     
     public static ArrayList<Cooler> readCoolers() throws FileNotFoundException {
         
-        ArrayList<Cooler> array = new ArrayList();
+        ArrayList<Cooler> array = new ArrayList<>();
         
         File file = new File ("DataBases/Coolers.txt");
         
@@ -215,7 +215,7 @@ public class ComponentReader {
 
                 //lectura de los sockets compatibles
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
-                ArrayList<String> socketList = new ArrayList();
+                ArrayList<String> socketList = new ArrayList<>();
                 while(aux.hasMoreTokens()) {
                     socketList.add(aux.nextToken());
                 }
@@ -235,7 +235,7 @@ public class ComponentReader {
     
    public static ArrayList<RAM> readRAMs() throws FileNotFoundException {
         
-        ArrayList<RAM> array = new ArrayList();
+        ArrayList<RAM> array = new ArrayList<>();
         
         File file = new File ("DataBases/RAMs.txt");
         
@@ -272,7 +272,7 @@ public class ComponentReader {
    
    public static ArrayList<HardDisk> readDisks() throws FileNotFoundException {
        
-        ArrayList<HardDisk> array = new ArrayList();
+        ArrayList<HardDisk> array = new ArrayList<>();
 
         File file = new File ("DataBases/HardDisks.txt");
         
@@ -309,7 +309,7 @@ public class ComponentReader {
     
     public static ArrayList<PSU> readPSUs() throws FileNotFoundException {
         
-        ArrayList<PSU> array = new ArrayList();
+        ArrayList<PSU> array = new ArrayList<>();
         
         File file = new File ("DataBases/PSUs.txt");
         

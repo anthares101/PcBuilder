@@ -56,7 +56,7 @@ public class PcBox extends PcComponent {
         return this.maxGPU;
     }
 
-    public void setFormFactors(ArrayList formFactors) {
+    public void setFormFactors(ArrayList<String> formFactors) {
         this.formFactors = formFactors;
     }
     

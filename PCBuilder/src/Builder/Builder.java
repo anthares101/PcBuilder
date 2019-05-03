@@ -95,7 +95,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.pcBoxObj = new PcBox();
                 this.pcBoxObj.setWidth(Double.parseDouble(data.get(3)));
                 this.pcBoxObj.setMaxGPU(Double.parseDouble(data.get(4)));
-                this.pcBoxObj.setFormFactors(new ArrayList(data.subList(5, data.size())));
+                this.pcBoxObj.setFormFactors(new ArrayList<String>(data.subList(5, data.size())));
 
                 break;
             case 1:
@@ -143,7 +143,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 //Set compatibility info
                 this.coolerObj = new Cooler();
                 this.coolerObj.setHeight(Double.parseDouble(data.get(3)));
-                this.coolerObj.setSockets(new ArrayList(data.subList(4, data.size())));
+                this.coolerObj.setSockets(new ArrayList<String>(data.subList(4, data.size())));
 
                 break;
             case 4:

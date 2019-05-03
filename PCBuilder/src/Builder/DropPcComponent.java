@@ -44,6 +44,7 @@ public class DropPcComponent extends TransferHandler {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean importData(TransferHandler.TransferSupport support) {
         if (!this.canImport(support)) {
             return false;
