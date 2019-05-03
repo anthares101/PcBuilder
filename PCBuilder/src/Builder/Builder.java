@@ -8,7 +8,6 @@ package Builder;
 import componentsInfo.CPU;
 import componentsInfo.Cooler;
 import componentsInfo.GPU;
-import componentsInfo.HardDisk;
 import componentsInfo.Motherboard;
 import componentsInfo.PSU;
 import componentsInfo.PcBox;

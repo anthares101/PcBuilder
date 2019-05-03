@@ -20,19 +20,15 @@ import componentsInfo.RAM;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 
 /**
  *
@@ -381,7 +377,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                        return false;
                     
                     if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
-                            motherboard.getSocket().equals(builder.getCpuObj().getSocket()))
+                            !motherboard.getSocket().equals(builder.getCpuObj().getSocket()))
                         return false;
                     
                     if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
