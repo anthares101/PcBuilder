@@ -10,6 +10,6 @@ package Builder;
  * @author anthares101
  */
 public interface ComponentDeleteEventListener {
-    //Action performed when a PcComponent is deleted from builder, the argument represent the component type
-    void onComponentDeleteEvent(int type);
+    //Action performed when a PcComponent is deleted from builder
+    void onComponentDeleteEvent();
 }

@@ -5,6 +5,14 @@
  */
 package Builder;
 
+import componentsInfo.CPU;
+import componentsInfo.Cooler;
+import componentsInfo.GPU;
+import componentsInfo.HardDisk;
+import componentsInfo.Motherboard;
+import componentsInfo.PSU;
+import componentsInfo.PcBox;
+import componentsInfo.RAM;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -20,6 +28,15 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     //All the operations are procesed in cents
     private int totalPrize;
     private ComponentDeleteEventListener listener;
+    
+    //Information about components is stored
+    private PcBox pcBoxObj; //Type 0
+    private Motherboard motherboardObj; //Type 1
+    private CPU cpuObj; //Type 2
+    private Cooler coolerObj; //Type 3
+    private RAM ramObj; //Type 4
+    private GPU gpuObj; //Type 5
+    private PSU psuObj; //Type 7
     
     /**
      * Creates new form Builder
@@ -61,7 +78,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     //Performed when a drop event happen
     @Override
     public void onDropEvent(ArrayList<String> data){
-        //data --> 0.Name, 1.Prize, 2.Type
+        //data --> 0.Name, 1.Prize, 2.Type, 3..n Specs for compatibility
         
         //Check the component type
         switch(Integer.parseInt(data.get(2))){
@@ -74,6 +91,12 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setBoxName(data.get(0));
                 this.setBoxPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
+                
+                //Set compatibility info
+                this.pcBoxObj = new PcBox();
+                this.pcBoxObj.setWidth(Double.parseDouble(data.get(3)));
+                this.pcBoxObj.setMaxGPU(Double.parseDouble(data.get(4)));
+                this.pcBoxObj.setFormFactors(new ArrayList(data.subList(5, data.size())));
 
                 break;
             case 1:
@@ -85,7 +108,13 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setMotherboardName(data.get(0));
                 this.setMotherboardPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
-
+                
+                //Set compatibility info
+                this.motherboardObj = new Motherboard();
+                this.motherboardObj.setFormFactor(data.get(3));
+                this.motherboardObj.setRamCompatibility(Integer.parseInt(data.get(4)));
+                this.motherboardObj.setSocket(data.get(5));
+                
                 break;
             case 2:
                 if(this.cpu.isVisible()) {
@@ -96,6 +125,10 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setCpuName(data.get(0));
                 this.setCpuPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
+                
+                //Set compatibility info
+                this.cpuObj = new CPU();
+                this.cpuObj.setSocket(data.get(3));
 
                 break;
             case 3:
@@ -107,6 +140,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setCoolerName(data.get(0));
                 this.setCoolerPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
+                
+                //Set compatibility info
+                this.coolerObj = new Cooler();
+                this.coolerObj.setHeight(Double.parseDouble(data.get(3)));
+                this.coolerObj.setSockets(new ArrayList(data.subList(4, data.size())));
 
                 break;
             case 4:
@@ -118,6 +156,10 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setRamName(data.get(0));
                 this.setRamPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
+                
+                //Set compatibility info
+                this.ramObj = new RAM();
+                this.ramObj.setType(Integer.parseInt(data.get(3)));
 
                 break;
             case 5:
@@ -129,7 +171,13 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setGpuName(data.get(0));
                 this.setGpuPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
-
+                
+                //Set compatibility info
+                this.gpuObj = new GPU();
+                this.gpuObj.setLongitude(Double.parseDouble(data.get(3)));
+                this.gpuObj.setRecommendedPSU(Integer.parseInt(data.get(4)));
+                this.gpuObj.setWidth(Double.parseDouble(data.get(5)));
+                
                 break;
             case 6:
                 if(this.hardDisk.isVisible()) {
@@ -151,6 +199,10 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 this.setPsuName(data.get(0));
                 this.setPsuPrize(data.get(1));
                 this.addToTotal(this.transformPrize(data.get(1)));
+                
+                //Set compatibility info
+                this.psuObj = new PSU();
+                this.psuObj.setWatts(Integer.parseInt(data.get(3)));
 
                 break;
         }
@@ -170,6 +222,34 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         
         return nf.format(this.getTotalPrize());
+    }
+
+    public PcBox getPcBoxObj() {
+        return pcBoxObj;
+    }
+
+    public Motherboard getMotherboardObj() {
+        return motherboardObj;
+    }
+
+    public CPU getCpuObj() {
+        return cpuObj;
+    }
+
+    public Cooler getCoolerObj() {
+        return coolerObj;
+    }
+
+    public RAM getRamObj() {
+        return ramObj;
+    }
+
+    public GPU getGpuObj() {
+        return gpuObj;
+    }
+
+    public PSU getPsuObj() {
+        return psuObj;
     }
     
     public void setBoxVisible() {
@@ -844,7 +924,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setBoxInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(0);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeBoxMouseClicked
 
     private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
@@ -854,7 +934,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setMotherboardInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(1);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeMotherboardMouseClicked
 
     private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
@@ -864,7 +944,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setCpuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(2);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeCpuMouseClicked
 
     private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
@@ -874,7 +954,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setCoolerInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(3);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeCoolerMouseClicked
 
     private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
@@ -884,7 +964,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setRamInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(4);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeRamMouseClicked
 
     private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
@@ -894,7 +974,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setGpuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(5);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeGpuMouseClicked
 
     private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
@@ -904,7 +984,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setHardDiskInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(6);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeHardDiskMouseClicked
 
     private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
@@ -914,7 +994,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setPsuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent(7);
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removePsuMouseClicked
 
 

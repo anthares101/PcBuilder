@@ -102,10 +102,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     
     //Action performed when a remove component event happens (Update PcComponents tabs if necesary)
     @Override
-    public void onComponentDeleteEvent(int type){
-        if(this.components.getSelectedIndex() == type) {
-            this.componentsStateChanged(null);
-        }
+    public void onComponentDeleteEvent(){
+        this.componentsStateChanged(null);
         
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
@@ -286,11 +284,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private boolean pcComponentAlreadyInBuilder(int type, String pcComponentName){
+    private boolean pcComponentNotAlreadyInBuilder(int type, String pcComponentName){
         if(this.principal.getComponentCount() > 0){
-            Builder builder = (Builder) this.principal.getComponents()[0];
+            Builder builder = (Builder) this.principal.getComponent(0);
             
-            switch(type){
+            switch(type){//type variable --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 6.HardDisk, 7.Psu
                 case 0:
                     if(pcComponentName.equals(builder.getBoxName()))
                         return false;
@@ -329,9 +327,113 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         return true;
     }
     
+    //pcComponent need to be converted to one of the pcComponent children
+    private boolean pcComponentCompatible(int type, Object pcComponent){
+        if(this.principal.getComponentCount() > 0){
+            Builder builder = (Builder) this.principal.getComponent(0);
+            
+            switch(type){//type variable --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 7.Psu
+                case 0:
+                    PcBox pcBox = (PcBox) pcComponent;
+                    
+                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") && 
+                            !pcBox.supportFormFactor(builder.getMotherboardObj().getFormFactor()))
+                        return false;
+                    
+                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                            pcBox.getWidth() < builder.getCoolerObj().getHeight())
+                        return false;
+                    
+                    if(!builder.getGpuName().equals("arrastre a esta ventana para montar") &&
+                            pcBox.getMaxGPU() < builder.getGpuObj().getLongitude())
+                        return false;
+                    
+                    break;
+                case 1:
+                    Motherboard motherboard = (Motherboard) pcComponent;
+                    
+                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                            !builder.getPcBoxObj().supportFormFactor(motherboard.getFormFactor()))
+                       return false;
+                    
+                    if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
+                            motherboard.getSocket().equals(builder.getCpuObj().getSocket()))
+                        return false;
+                    
+                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                            !builder.getCoolerObj().hasSocket(motherboard.getSocket()))
+                        return false;
+                    
+                    if(!builder.getRamName().equals("arrastre a esta ventana para montar") &&
+                            motherboard.getRamCompatibility() < builder.getRamObj().getType())
+                        return false;
+                    
+                    break;
+                case 2:
+                    CPU cpu = (CPU) pcComponent;
+                    
+                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                            !cpu.getSocket().equals(builder.getMotherboardObj().getSocket()))
+                        return false;
+                    
+                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                            !builder.getCoolerObj().hasSocket(cpu.getSocket()))
+                        return false;
+                    
+                    break;
+                case 3:
+                    Cooler cooler = (Cooler) pcComponent;
+                    
+                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                            builder.getPcBoxObj().getWidth() < cooler.getHeight())
+                        return false;
+                    
+                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                            cooler.hasSocket(builder.getMotherboardObj().getSocket()))
+                        return false;
+                    
+                    if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
+                            cooler.hasSocket(builder.getCpuObj().getSocket()))
+                        return false;
+                    
+                    break;
+                case 4:
+                    RAM ram = (RAM) pcComponent;
+                    
+                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                            builder.getMotherboardObj().getRamCompatibility() < ram.getType())
+                        return false;
+                    
+                    break;
+                case 5:
+                    GPU gpu = (GPU) pcComponent;
+                    
+                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                            builder.getPcBoxObj().getMaxGPU() < gpu.getLongitude())
+                        return false;
+                    
+                    if(!builder.getPsuName().equals("arrastre a esta ventana para montar") &&
+                            gpu.getRecommendedPSU() > builder.getPsuObj().getWatts())
+                        return false;
+                    
+                    break;
+                case 7:
+                    PSU psu = (PSU) pcComponent;
+                    
+                    if(!builder.getGpuName().equals("arrastre a esta ventana para montar") &&
+                            builder.getGpuObj().getRecommendedPSU() > psu.getWatts())
+                        return false;
+                    
+                    break;
+            }
+        }
+        
+        return true;
+    }
+    
     private void componentsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_componentsStateChanged
         //Clear the last selected tab for performance improvemment
-        switch(this.components.getSelectedIndex()){
+        switch(this.components.getSelectedIndex()){//components.getSelectedIndex() --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 6.HardDisk, 7.Psu
             case 0:
                 jPanel1.removeAll();
                 break;
@@ -361,7 +463,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         //Read all the components from the database according with the tab index
         ArrayList componentList = new ArrayList();
         try {
-            switch(components.getSelectedIndex()){
+            switch(components.getSelectedIndex()){//components.getSelectedIndex() --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 6.HardDisk, 7.Psu
                 case 0:
                     componentList = ComponentReader.readPcBox();
                     break;
@@ -413,11 +515,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
             
             pcComponent.setComponentType(components.getSelectedIndex());
             //Set the information read from the database in the component
-            switch(components.getSelectedIndex()){
+            switch(components.getSelectedIndex()){//components.getSelectedIndex() --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 6.HardDisk, 7.Psu
                 case 0:
                     PcBox pcBox = (PcBox) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), pcBox.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), pcBox.getName()) && this.pcComponentCompatible(0, componentList.get(i))){
                         pcComponent.setComponentType(0);
                         pcComponent.setProductName(pcBox.getName());
                         pcComponent.setProductPrize(pcBox.getPrize());
@@ -425,6 +527,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(pcBox.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/PCBoxes_images/" + pcBox.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/PCBoxes_images/" + pcBox.getName() + "_142x141.jpg"));
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(String.valueOf(pcBox.getWidth()));
+                        pcComponent.addSpec(String.valueOf(pcBox.getMaxGPU()));
+                        for(int j = 0; j < pcBox.getFormFactorListSize(); j++)
+                            pcComponent.addSpec(pcBox.getFormFactor(j));
 
                         //Add the GPU to the list
                         jPanel1.add(pcComponent, gridBagConstraints);
@@ -434,7 +542,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 1:
                     Motherboard motherboard = (Motherboard) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), motherboard.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), motherboard.getName()) && this.pcComponentCompatible(1, componentList.get(i))){
                         pcComponent.setComponentType(1);
                         pcComponent.setProductName(motherboard.getName());
                         pcComponent.setProductPrize(motherboard.getPrize());
@@ -442,7 +550,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(motherboard.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/Motherboards_images/" + motherboard.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/Motherboards_images/" + motherboard.getName() + "_142x141.jpg"));   
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(motherboard.getFormFactor());
+                        pcComponent.addSpec(String.valueOf(motherboard.getRamCompatibility()));
+                        pcComponent.addSpec(motherboard.getSocket());
+                                
                         //Add the GPU to the list
                         jPanel2.add(pcComponent, gridBagConstraints);
                     }
@@ -451,7 +564,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 2:
                     CPU cpu = (CPU) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), cpu.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), cpu.getName()) && this.pcComponentCompatible(2, componentList.get(i))){
                         pcComponent.setComponentType(2);
                         pcComponent.setProductName(cpu.getName());
                         pcComponent.setProductPrize(cpu.getPrize());
@@ -459,7 +572,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(cpu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/CPUs_images/" + cpu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/CPUs_images/" + cpu.getName() + "_142x141.jpg"));
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(cpu.getSocket());
+                        
                         //Add the GPU to the list
                         jPanel3.add(pcComponent, gridBagConstraints);
                     }
@@ -468,7 +584,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 3:
                     Cooler cooler = (Cooler) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), cooler.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), cooler.getName()) && this.pcComponentCompatible(3, componentList.get(i))){
                         pcComponent.setComponentType(3);
                         pcComponent.setProductName(cooler.getName());
                         pcComponent.setProductPrize(cooler.getPrize());
@@ -476,7 +592,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(cooler.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/Coolers_images/" + cooler.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(String.valueOf(cooler.getHeight()));
+                        for(int j = 0; j < cooler.getSocketListSize(); j++)
+                            pcComponent.addSpec(cooler.getSocket(j));
+                        
                         //Add the GPU to the list
                         jPanel4.add(pcComponent, gridBagConstraints);
                     }
@@ -485,7 +606,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 4:
                     RAM ram = (RAM) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), ram.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), ram.getName()) && this.pcComponentCompatible(4, componentList.get(i))){
                         pcComponent.setComponentType(4);
                         pcComponent.setProductName(ram.getName());
                         pcComponent.setProductPrize(ram.getPrize());
@@ -493,7 +614,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(ram.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/RAMs_images/" + ram.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/RAMs_images/" + ram.getName() + "_142x141.jpg"));
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(String.valueOf(ram.getType()));
+                        
                         //Add the GPU to the list
                         jPanel5.add(pcComponent, gridBagConstraints);
                     }
@@ -502,7 +626,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 5:
                     GPU gpu = (GPU) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), gpu.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), gpu.getName()) && this.pcComponentCompatible(5, componentList.get(i))){
                         pcComponent.setComponentType(5);
                         pcComponent.setProductName(gpu.getName());
                         pcComponent.setProductPrize(gpu.getPrize());
@@ -510,7 +634,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(gpu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/GPUs_images/" + gpu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/GPUs_images/" + gpu.getName() + "_142x141.jpg"));
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(String.valueOf(gpu.getLongitude()));
+                        pcComponent.addSpec(String.valueOf(gpu.getRecommendedPSU()));
+                        pcComponent.addSpec(String.valueOf(gpu.getWidth()));
+                        
                         //Add the GPU to the list
                         jPanel6.add(pcComponent, gridBagConstraints);
                     }
@@ -519,7 +648,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 6:
                     HardDisk hardDisk = (HardDisk) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), hardDisk.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), hardDisk.getName())){
                         pcComponent.setComponentType(6);
                         pcComponent.setProductName(hardDisk.getName());
                         pcComponent.setProductPrize(hardDisk.getPrize());
@@ -527,7 +656,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(hardDisk.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/HardDisks_images/" + hardDisk.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/HardDisks_images/" + hardDisk.getName() + "_142x141.jpg"));
-
+                        
                         //Add the GPU to the list
                         jPanel7.add(pcComponent, gridBagConstraints);
                     }
@@ -536,7 +665,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 7:
                     PSU psu = (PSU) componentList.get(i);
                     
-                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), psu.getName())){
+                    if(this.pcComponentNotAlreadyInBuilder(components.getSelectedIndex(), psu.getName()) && this.pcComponentCompatible(7, componentList.get(i))){
                         pcComponent.setComponentType(7);
                         pcComponent.setProductName(psu.getName());
                         pcComponent.setProductPrize(psu.getPrize());
@@ -544,7 +673,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setProductDescription(psu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/PSU_images/" + psu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/PSU_images/" + psu.getName() + "_142x141.jpg"));
-
+                        
+                        //Set compatibility info
+                        pcComponent.addSpec(String.valueOf(psu.getWatts()));
+                        
                         //Add the GPU to the list
                         jPanel8.add(pcComponent, gridBagConstraints);
                     }
@@ -556,7 +688,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         //Fix the last element constraints
         javax.swing.JPanel panel;
         
-        switch(components.getSelectedIndex()){
+        switch(components.getSelectedIndex()){//components.getSelectedIndex() --> 0.PcBox, 1.Motherboard, 2.Cpu, 3.Cooler, 4.Ram, 5.Gpu, 6.HardDisk, 7.Psu
             case 0:
                 panel = jPanel1;
                 

@@ -27,6 +27,10 @@ public class Cooler extends PcComponent{
         return this.sockets.get(index);
     }
     
+    public int getSocketListSize() {
+        return this.sockets.size();
+    }
+    
     public Boolean isSocketsEmpty(){
         return this.sockets.isEmpty();
     }
@@ -54,8 +58,7 @@ public class Cooler extends PcComponent{
     public Boolean hasSocket(String formFactor){
         int i = 0;
         
-        while(!this.sockets.get(i).equals(formFactor) && 
-                i < this.sockets.size())
+        while(i < this.sockets.size() && !this.sockets.get(i).equals(formFactor))
             i++;
         
         return i != this.sockets.size();

@@ -7,6 +7,7 @@ package PcComponent;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -24,6 +25,7 @@ public class PcComponent extends javax.swing.JPanel {
      */
     public PcComponent() {
         initComponents();
+        this.specList = new ArrayList();
         
         //Set the default recomendation visibility
         this.setRecomendationVisibility(false);
@@ -40,12 +42,14 @@ public class PcComponent extends javax.swing.JPanel {
     
     private boolean recomendedVisibility;
     private int componentType;
+    private MouseClickedEventListener listener;
     
     //Necesary for pcInfo
     private String description;
     private String bigImagePath;
     
-    private MouseClickedEventListener listener;
+    //Necesary for compatibility check
+    ArrayList<String> specList;
   
     //Set a listener to the mouse clicked event
     public void setMouseClickedEventListener (MouseClickedEventListener listener) {
@@ -92,6 +96,14 @@ public class PcComponent extends javax.swing.JPanel {
         PcComponent.activeDnD = activeDnD;
     }
     
+    public void setSpecList(ArrayList<String> list){
+        this.specList = list;
+    }
+    
+    public void addSpec(String spec){
+        this.specList.add(spec);
+    }
+    
     public String getProductName(){
         return this.jTextArea1.getText();
     }
@@ -127,6 +139,14 @@ public class PcComponent extends javax.swing.JPanel {
 
     public String getProductBigImagePath() {
         return bigImagePath;
+    }
+    
+    public  String getSpec(int index){
+        return this.specList.get(index);
+    }
+    
+    public  int getSpecListSize(){
+        return this.specList.size();
     }
 
     public static boolean isActiveDnD() {

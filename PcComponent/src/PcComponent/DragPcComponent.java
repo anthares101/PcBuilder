@@ -41,6 +41,8 @@ class DragPcComponent extends TransferHandler {
         data.add(sourcePcComponent.getProductName());
         data.add(currency.format(sourcePcComponent.getProductPrize()));
         data.add(String.valueOf(sourcePcComponent.getComponentType()));
+        for(int i = 0; i < sourcePcComponent.getSpecListSize(); i++)
+            data.add(sourcePcComponent.getSpec(i));
 
         Transferable t = new TransferablePcComponent(data);
 

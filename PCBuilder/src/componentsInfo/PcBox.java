@@ -32,6 +32,10 @@ public class PcBox extends PcComponent {
         return this.formFactors.get(index);
     }
     
+    public int getFormFactorListSize() {
+        return this.formFactors.size();
+    }
+    
     public Boolean isFormFactorsEmpty(){
         return this.formFactors.isEmpty();
     }
@@ -83,8 +87,7 @@ public class PcBox extends PcComponent {
     public Boolean supportFormFactor(String formFactor){
         int i = 0;
         
-        while(!this.formFactors.get(i).equals(formFactor) && 
-                i < this.formFactors.size())
+        while(i < this.formFactors.size() &&!this.formFactors.get(i).equals(formFactor))
             i++;
         
         return i != this.formFactors.size();
