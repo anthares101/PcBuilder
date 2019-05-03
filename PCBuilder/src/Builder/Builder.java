@@ -460,7 +460,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         box = new javax.swing.JLabel();
         tools = new javax.swing.JLabel();
         components = new javax.swing.JPanel();
-        removes = new javax.swing.JPanel();
         info = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -499,7 +498,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         setPreferredSize(new java.awt.Dimension(802, 756));
         setLayout(new java.awt.BorderLayout());
 
-        images.setBackground(java.awt.Color.white);
+        images.setBackground(new java.awt.Color(255, 251, 242));
         images.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hardDisk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/hardDisk.png"))); // NOI18N
@@ -531,16 +530,11 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
         add(images, java.awt.BorderLayout.CENTER);
 
-        components.setBackground(java.awt.Color.white);
+        components.setBackground(new java.awt.Color(255, 243, 240));
         components.setPreferredSize(new java.awt.Dimension(802, 200));
         components.setLayout(new java.awt.BorderLayout());
 
-        removes.setBackground(java.awt.Color.white);
-        removes.setPreferredSize(new java.awt.Dimension(30, 200));
-        removes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        components.add(removes, java.awt.BorderLayout.LINE_START);
-
-        info.setBackground(java.awt.Color.white);
+        info.setBackground(new java.awt.Color(255, 251, 242));
         info.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -962,7 +956,6 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     private javax.swing.JLabel removeMotherboard;
     private javax.swing.JLabel removePsu;
     private javax.swing.JLabel removeRam;
-    private javax.swing.JPanel removes;
     private javax.swing.JLabel tools;
     // End of variables declaration//GEN-END:variables
 }

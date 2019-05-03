@@ -20,15 +20,19 @@ import componentsInfo.RAM;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 /**
  *
@@ -46,6 +50,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     //Init the maninPage class (Avoid the 'Leaking this in constructor' warning)
     public void initMainPage(){
         initComponents();
+        
+        this.setTitle("PCBuilder");
         
         this.jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane2.getVerticalScrollBar().setUnitIncrement(16);
@@ -73,7 +79,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
-        
+       
         if(builder.isCompleted()) {
             this.finishBttn.setVisible(true);
         }
@@ -146,12 +152,16 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/mainPage/images/logo.png")).getImage()
+        );
+        setName("PCBuilder"); // NOI18N
         setResizable(false);
 
+        container.setBackground(new java.awt.Color(255, 238, 224));
         container.setPreferredSize(new java.awt.Dimension(1337, 906));
         container.setLayout(new java.awt.BorderLayout());
 
-        components.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        components.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 150, 86)));
         components.setMaximumSize(new java.awt.Dimension(535, 756));
         components.setMinimumSize(new java.awt.Dimension(535, 756));
         components.setPreferredSize(new java.awt.Dimension(535, 756));
@@ -161,10 +171,12 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 251, 242));
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setViewportView(jPanel1);
 
+        jPanel1.setBackground(new java.awt.Color(255, 238, 224));
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel1);
 
@@ -175,6 +187,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setViewportView(jPanel2);
 
+        jPanel2.setBackground(new java.awt.Color(255, 238, 224));
         jPanel2.setLayout(new java.awt.GridBagLayout());
         jScrollPane2.setViewportView(jPanel2);
 
@@ -184,6 +197,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setViewportView(jPanel3);
 
+        jPanel3.setBackground(new java.awt.Color(255, 238, 224));
         jPanel3.setLayout(new java.awt.GridBagLayout());
         jScrollPane3.setViewportView(jPanel3);
 
@@ -193,6 +207,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane4.setViewportView(jPanel4);
 
+        jPanel4.setBackground(new java.awt.Color(255, 238, 224));
         jPanel4.setLayout(new java.awt.GridBagLayout());
         jScrollPane4.setViewportView(jPanel4);
 
@@ -202,6 +217,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setViewportView(jPanel5);
 
+        jPanel5.setBackground(new java.awt.Color(255, 238, 224));
         jPanel5.setLayout(new java.awt.GridBagLayout());
         jScrollPane5.setViewportView(jPanel5);
 
@@ -211,6 +227,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setViewportView(jPanel6);
 
+        jPanel6.setBackground(new java.awt.Color(255, 238, 224));
         jPanel6.setLayout(new java.awt.GridBagLayout());
         jScrollPane6.setViewportView(jPanel6);
 
@@ -220,6 +237,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setViewportView(jPanel7);
 
+        jPanel7.setBackground(new java.awt.Color(255, 238, 224));
         jPanel7.setLayout(new java.awt.GridBagLayout());
         jScrollPane7.setViewportView(jPanel7);
 
@@ -229,6 +247,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane8.setViewportView(jPanel8);
 
+        jPanel8.setBackground(new java.awt.Color(255, 238, 224));
         jPanel8.setLayout(new java.awt.GridBagLayout());
         jScrollPane8.setViewportView(jPanel8);
 
@@ -236,10 +255,14 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
 
         container.add(components, java.awt.BorderLayout.LINE_END);
 
-        information.setBackground(java.awt.Color.white);
-        information.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        information.setBackground(new java.awt.Color(34, 86, 104));
+        information.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 150, 86)));
+        information.setForeground(new java.awt.Color(255, 255, 255));
         information.setPreferredSize(new java.awt.Dimension(1337, 150));
 
+        finishBttn.setBackground(new java.awt.Color(55, 157, 146));
+        finishBttn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        finishBttn.setForeground(new java.awt.Color(255, 255, 255));
         finishBttn.setText("Terminar");
         finishBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +271,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         });
 
         prize.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        prize.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout informationLayout = new javax.swing.GroupLayout(information);
         information.setLayout(informationLayout);
@@ -272,7 +296,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
 
         container.add(information, java.awt.BorderLayout.PAGE_END);
 
-        principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 150, 86)));
         principal.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 principalComponentRemoved(evt);
@@ -623,11 +647,13 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     }//GEN-LAST:event_principalComponentRemoved
 
     private void finishBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishBttnActionPerformed
+        
         Builder builder = (Builder) this.principal.getComponent(0);
         
         String info = "Importe total: " + builder.getTotalPrizeString();
         JPanel panel = new JPanel();
         panel.add(new JLabel("<html>" + info + "<br><br>¡Gracias por su compra!</html>", SwingConstants.CENTER));
+
         JOptionPane.showMessageDialog(this, panel, "Compra realizada",
                 JOptionPane.INFORMATION_MESSAGE,
                 new ImageIcon("src/mainPage/images/purchase.png"));
