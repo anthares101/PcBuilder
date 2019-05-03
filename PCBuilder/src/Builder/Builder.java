@@ -156,6 +156,22 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         }
     }
     
+    public Double getTotalPrize() {
+        int ammount = this.totalPrize;
+        int decimals = ammount % 100;
+        int units = (ammount - decimals) / 100;
+        String prize = String.valueOf(units) + "." + String.valueOf(decimals);
+        Double doublePrize = Double.valueOf(prize);
+        
+        return doublePrize;
+    }
+    
+    public String getTotalPrizeString() {
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        
+        return nf.format(this.getTotalPrize());
+    }
+    
     public void setBoxVisible() {
         this.tools.setVisible(false);
         this.box.setVisible(true);

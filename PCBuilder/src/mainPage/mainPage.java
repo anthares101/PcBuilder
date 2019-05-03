@@ -21,10 +21,15 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.io.FileNotFoundException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -56,6 +61,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         Builder builder = new Builder();
         builder.setComponentDeleteEventListener(this);
         this.principal.add(builder);
+        
+        this.prize.setText(builder.getTotalPrizeString());
     }
     
     //Action performed when a drag event happens
@@ -142,6 +149,8 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         jScrollPane8 = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         information = new javax.swing.JPanel();
+        finishBttn = new javax.swing.JButton();
+        prize = new javax.swing.JLabel();
         principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -235,18 +244,38 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
 
         container.add(components, java.awt.BorderLayout.LINE_END);
 
+        information.setBackground(java.awt.Color.white);
         information.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         information.setPreferredSize(new java.awt.Dimension(1337, 150));
+
+        finishBttn.setText("Terminar");
+        finishBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finishBttnActionPerformed(evt);
+            }
+        });
+
+        prize.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
 
         javax.swing.GroupLayout informationLayout = new javax.swing.GroupLayout(information);
         information.setLayout(informationLayout);
         informationLayout.setHorizontalGroup(
             informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1335, Short.MAX_VALUE)
+            .addGroup(informationLayout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(finishBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 670, Short.MAX_VALUE)
+                .addComponent(prize)
+                .addGap(144, 144, 144))
         );
         informationLayout.setVerticalGroup(
             informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addGroup(informationLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(informationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(finishBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prize))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         container.add(information, java.awt.BorderLayout.PAGE_END);
@@ -538,6 +567,17 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         PcComponent.PcComponent.setActiveDnD(true);
     }//GEN-LAST:event_principalComponentRemoved
 
+    private void finishBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishBttnActionPerformed
+        Builder builder = (Builder) this.principal.getComponent(0);
+        
+        String info = "Importe total: " + builder.getTotalPrizeString();
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("<html>" + info + "<br><br>¡Gracias por su compra!</html>", SwingConstants.CENTER));
+        JOptionPane.showMessageDialog(this, panel, "Compra realizada",
+                JOptionPane.INFORMATION_MESSAGE,
+                new ImageIcon("src/mainPage/images/purchase.png"));
+    }//GEN-LAST:event_finishBttnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -579,6 +619,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane components;
     private javax.swing.JPanel container;
+    private javax.swing.JButton finishBttn;
     private javax.swing.JPanel information;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -597,5 +638,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPanel principal;
+    private javax.swing.JLabel prize;
     // End of variables declaration//GEN-END:variables
 }
