@@ -39,6 +39,7 @@ public class ComponentReader {
 
                 box.setName(st.nextToken());
                 box.setPrize(Double.parseDouble(st.nextToken()));
+                box.setRecomended(Boolean.valueOf(st.nextToken()));
 
                 //lectura de los factores forma
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
@@ -81,6 +82,7 @@ public class ComponentReader {
 
                 mb.setName(st.nextToken());
                 mb.setPrize(Double.parseDouble(st.nextToken()));
+                mb.setRecomended(Boolean.valueOf(st.nextToken()));
                 mb.setFormFactor(st.nextToken());
                 mb.setSocket(st.nextToken());
                 mb.setRamCompatibility(Integer.parseInt(st.nextToken()));
@@ -114,6 +116,7 @@ public class ComponentReader {
 
                 cpu.setName(st.nextToken());
                 cpu.setPrize(Double.parseDouble(st.nextToken()));
+                cpu.setRecomended(Boolean.valueOf(st.nextToken()));
                 cpu.setSocket(st.nextToken());
                 cpu.setDescription(st.nextToken());
 
@@ -144,6 +147,7 @@ public class ComponentReader {
 
                 gpu.setName(st.nextToken());
                 gpu.setPrize(Double.parseDouble(st.nextToken()));
+                gpu.setRecomended(Boolean.valueOf(st.nextToken()));
                 gpu.setWidth(Double.parseDouble(st.nextToken()));
                 gpu.setLongitude(Double.parseDouble(st.nextToken()));
                 gpu.setRecommendedPSU(Integer.parseInt(st.nextToken()));
@@ -177,6 +181,7 @@ public class ComponentReader {
 
                 cooler.setName(st.nextToken());
                 cooler.setPrize(Double.parseDouble(st.nextToken()));
+                cooler.setRecomended(Boolean.valueOf(st.nextToken()));
 
                 //lectura de los sockets compatibles
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
@@ -216,6 +221,7 @@ public class ComponentReader {
                 
                 ram.setName(st.nextToken());
                 ram.setPrize(Double.parseDouble(st.nextToken()));
+                ram.setRecomended(Boolean.valueOf(st.nextToken()));
                 ram.setType(Integer.parseInt(st.nextToken()));
                 ram.setDescription(st.nextToken());
                 
@@ -246,6 +252,7 @@ public class ComponentReader {
                 
                 hd.setName(st.nextToken());
                 hd.setPrize(Double.parseDouble(st.nextToken()));
+                hd.setRecomended(Boolean.valueOf(st.nextToken()));
                 hd.setDescription(st.nextToken());
                 
                 array.add(hd);
@@ -275,6 +282,7 @@ public class ComponentReader {
                 
                 psu.setName(st.nextToken());
                 psu.setPrize(Double.parseDouble(st.nextToken()));
+                psu.setRecomended(Boolean.valueOf(st.nextToken()));
                 psu.setWatts(Integer.parseInt(st.nextToken()));
                 psu.setDescription(st.nextToken());
                 

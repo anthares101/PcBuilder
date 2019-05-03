@@ -414,6 +414,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(0);
                         pcComponent.setProductName(pcBox.getName());
                         pcComponent.setProductPrize(pcBox.getPrize());
+                        pcComponent.setRecomendationVisibility(pcBox.isRecomended());
                         pcComponent.setProductDescription(pcBox.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/PCBoxes_images/" + pcBox.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/PCBoxes_images/" + pcBox.getName() + "_142x141.jpg"));
@@ -430,6 +431,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(1);
                         pcComponent.setProductName(motherboard.getName());
                         pcComponent.setProductPrize(motherboard.getPrize());
+                        pcComponent.setRecomendationVisibility(motherboard.isRecomended());
                         pcComponent.setProductDescription(motherboard.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/Motherboards_images/" + motherboard.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/Motherboards_images/" + motherboard.getName() + "_142x141.jpg"));   
@@ -446,6 +448,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(2);
                         pcComponent.setProductName(cpu.getName());
                         pcComponent.setProductPrize(cpu.getPrize());
+                        pcComponent.setRecomendationVisibility(cpu.isRecomended());
                         pcComponent.setProductDescription(cpu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/CPUs_images/" + cpu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/CPUs_images/" + cpu.getName() + "_142x141.jpg"));
@@ -462,6 +465,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(3);
                         pcComponent.setProductName(cooler.getName());
                         pcComponent.setProductPrize(cooler.getPrize());
+                        pcComponent.setRecomendationVisibility(cooler.isRecomended());
                         pcComponent.setProductDescription(cooler.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/Coolers_images/" + cooler.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
@@ -478,6 +482,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(4);
                         pcComponent.setProductName(ram.getName());
                         pcComponent.setProductPrize(ram.getPrize());
+                        pcComponent.setRecomendationVisibility(ram.isRecomended());
                         pcComponent.setProductDescription(ram.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/RAMs_images/" + ram.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/RAMs_images/" + ram.getName() + "_142x141.jpg"));
@@ -494,6 +499,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(5);
                         pcComponent.setProductName(gpu.getName());
                         pcComponent.setProductPrize(gpu.getPrize());
+                        pcComponent.setRecomendationVisibility(gpu.isRecomended());
                         pcComponent.setProductDescription(gpu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/GPUs_images/" + gpu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/GPUs_images/" + gpu.getName() + "_142x141.jpg"));
@@ -510,6 +516,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(6);
                         pcComponent.setProductName(hardDisk.getName());
                         pcComponent.setProductPrize(hardDisk.getPrize());
+                        pcComponent.setRecomendationVisibility(hardDisk.isRecomended());
                         pcComponent.setProductDescription(hardDisk.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/HardDisks_images/" + hardDisk.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/HardDisks_images/" + hardDisk.getName() + "_142x141.jpg"));
@@ -526,6 +533,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         pcComponent.setComponentType(7);
                         pcComponent.setProductName(psu.getName());
                         pcComponent.setProductPrize(psu.getPrize());
+                        pcComponent.setRecomendationVisibility(psu.isRecomended());
                         pcComponent.setProductDescription(psu.getDescription());
                         pcComponent.setProductBigImagePath("DataBases/PSU_images/" + psu.getName() + "_230x229.jpg");
                         pcComponent.setProductImage(new ImageIcon("DataBases/PSU_images/" + psu.getName() + "_142x141.jpg"));
