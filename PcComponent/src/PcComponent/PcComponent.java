@@ -33,6 +33,8 @@ public class PcComponent extends javax.swing.JPanel {
         //Required for drag and drop operation (No listener set)
         this.setTransferHandler(new DragPcComponent());
     }
+    //Determines if DnD is allowed
+    private static boolean activeDnD = true;
     
     private boolean visible;
     private int componentType;
@@ -83,6 +85,10 @@ public class PcComponent extends javax.swing.JPanel {
     public void setProductBigImagePath(String bigImagePath){
         this.bigImagePath = bigImagePath;
     }
+
+    public static void setActiveDnD(boolean activeDnD) {
+        PcComponent.activeDnD = activeDnD;
+    }
     
     public String getProductName(){
         return this.jTextArea1.getText();
@@ -119,6 +125,10 @@ public class PcComponent extends javax.swing.JPanel {
 
     public String getProductBigImagePath() {
         return bigImagePath;
+    }
+
+    public static boolean isActiveDnD() {
+        return activeDnD;
     }
 
     /**
@@ -224,13 +234,17 @@ public class PcComponent extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        TransferHandler handler = this.getTransferHandler();
-        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        if(PcComponent.isActiveDnD()){
+            TransferHandler handler = this.getTransferHandler();
+            handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        }
     }//GEN-LAST:event_formMouseDragged
 
     private void jTextArea1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseDragged
-        TransferHandler handler = this.getTransferHandler();
-        handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        if(PcComponent.isActiveDnD()){
+            TransferHandler handler = this.getTransferHandler();
+            handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        }
     }//GEN-LAST:event_jTextArea1MouseDragged
 
 

@@ -6,6 +6,7 @@
 package mainPage;
 
 import Builder.Builder;
+import Builder.ComponentDeleteEventListener;
 import PcComponentInfo.PcComponentInfo;
 import componentsInfo.CPU;
 import componentsInfo.ComponentReader;
@@ -29,14 +30,17 @@ import javax.swing.ImageIcon;
  *
  * @author anthares101
  */
-public class mainPage extends javax.swing.JFrame implements PcComponent.DragEventListener, PcComponent.MouseClickedEventListener {
-    
-    private int tabSelected;
+public class mainPage extends javax.swing.JFrame implements PcComponent.DragEventListener, PcComponent.MouseClickedEventListener, ComponentDeleteEventListener {
     
     /**
      * Creates new form mainPage
      */
     public mainPage() {
+        super();
+    }
+    
+    //Init the maninPage class (Avoid the 'Leaking this in constructor' warning)
+    public void initMainPage(){
         initComponents();
         
         this.jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
@@ -48,13 +52,13 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         this.jScrollPane7.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane8.getVerticalScrollBar().setUnitIncrement(16);
         
-        this.principal.add(new Builder());
-        
-        //Save the tab selected, necesary later
-        this.tabSelected = components.getSelectedIndex();
+        //Add Builder component and set the listener for the remove component event
+        Builder builder = new Builder();
+        builder.setComponentDeleteEventListener(this);
+        this.principal.add(builder);
     }
     
-    //Action performed when the drag event happens
+    //Action performed when a drag event happens
     @Override
     public void onDragEvent(Container panel){
         //Fix the last element constraints
@@ -82,7 +86,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         container.repaint();
     }
     
-    //Action performed when the mouse clicked event happens
+    //Action performed when a mouse clicked event happens
     @Override
     public void onMouseClickedEvent(PcComponent.PcComponent pcComponent){
         if(principal.getComponentCount() > 1) {
@@ -95,10 +99,19 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         pcInfo.setRecomendationVisibility(pcComponent.getRecomendationVisibility());
         pcInfo.setProductImage(new ImageIcon(pcComponent.getProductBigImagePath()));
         pcInfo.setComponentDescription(pcComponent.getProductDescription());
-
+        
+        //Disable DnD when PcInfo is active
+        PcComponent.PcComponent.setActiveDnD(false);
         principal.add(pcInfo);
         principal.revalidate();
         principal.repaint();
+    }
+    
+    //Action performed when a remove component event happens (Update PcComponents tabs if necesary)
+    @Override
+    public void onComponentDeleteEvent(int type){
+        if(this.components.getSelectedIndex() == type)
+            this.componentsStateChanged(null);
     }
 
     /**
@@ -239,6 +252,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         container.add(information, java.awt.BorderLayout.PAGE_END);
 
         principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        principal.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                principalComponentRemoved(evt);
+            }
+        });
         principal.setLayout(new java.awt.BorderLayout());
         container.add(principal, java.awt.BorderLayout.CENTER);
 
@@ -246,10 +264,53 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private boolean pcComponentAlreadyInBuilder(int type, String pcComponentName){
+        if(this.principal.getComponentCount() > 0){
+            Builder builder = (Builder) this.principal.getComponents()[0];
+            
+            switch(type){
+                case 0:
+                    if(pcComponentName.equals(builder.getBoxName()))
+                        return false;
+                    break;
+                case 1:
+                    if(pcComponentName.equals(builder.getMotherboardName()))
+                        return false;
+                    break;
+                case 2:
+                    if(pcComponentName.equals(builder.getCpuName()))
+                        return false;
+                    break;
+                case 3:
+                    if(pcComponentName.equals(builder.getCoolerName()))
+                        return false;
+                    break;
+                case 4:
+                    if(pcComponentName.equals(builder.getRamName()))
+                        return false;
+                    break;
+                case 5:
+                    if(pcComponentName.equals(builder.getGpuName()))
+                        return false;
+                    break;
+                case 6:
+                    if(pcComponentName.equals(builder.getHardDiskName()))
+                        return false;
+                    break;
+                case 7:
+                    if(pcComponentName.equals(builder.getPsuName()))
+                        return false;
+                    break;
+            }
+        }
+        
+        return true;
+    }
+    
     private void componentsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_componentsStateChanged
         //Clear the last selected tab for performance improvemment
-        switch(this.tabSelected){
+        switch(this.components.getSelectedIndex()){
             case 0:
                 jPanel1.removeAll();
                 break;
@@ -275,9 +336,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 jPanel8.removeAll();
                 break; 
         }
-        
-        //Save the new selected tab
-        tabSelected = components.getSelectedIndex();
 
         //Read all the components from the database according with the tab index
         ArrayList componentList = new ArrayList();
@@ -345,119 +403,140 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
             switch(components.getSelectedIndex()){
                 case 0:
                     PcBox pcBox = (PcBox) componentList.get(i);
+                    
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), pcBox.getName())){
+                        pcComponent.setComponentType(0);
+                        pcComponent.setProductName(pcBox.getName());
+                        pcComponent.setProductPrize(pcBox.getPrize());
+                        pcComponent.setProductDescription(pcBox.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/PCBoxes_images/" + pcBox.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/PCBoxes_images/" + pcBox.getName() + "_142x141.jpg"));
 
-                    pcComponent.setComponentType(0);
-                    pcComponent.setProductName(pcBox.getName());
-                    pcComponent.setProductPrize(pcBox.getPrize());
-                    pcComponent.setProductDescription(pcBox.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/PCBoxes_images/" + pcBox.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/PCBoxes_images/" + pcBox.getName() + "_142x141.jpg"));
-
-                    //Add the GPU to the list
-                    jPanel1.add(pcComponent, gridBagConstraints);
-
+                        //Add the GPU to the list
+                        jPanel1.add(pcComponent, gridBagConstraints);
+                    }
+                    
                     break;
                 case 1:
                     Motherboard motherboard = (Motherboard) componentList.get(i);
-
-                    pcComponent.setComponentType(1);
-                    pcComponent.setProductName(motherboard.getName());
-                    pcComponent.setProductPrize(motherboard.getPrize());
-                    pcComponent.setProductDescription(motherboard.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/Motherboards_images/" + motherboard.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/Motherboards_images/" + motherboard.getName() + "_142x141.jpg"));   
                     
-                    //Add the GPU to the list
-                    jPanel2.add(pcComponent, gridBagConstraints);
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), motherboard.getName())){
+                        pcComponent.setComponentType(1);
+                        pcComponent.setProductName(motherboard.getName());
+                        pcComponent.setProductPrize(motherboard.getPrize());
+                        pcComponent.setProductDescription(motherboard.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/Motherboards_images/" + motherboard.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/Motherboards_images/" + motherboard.getName() + "_142x141.jpg"));   
+
+                        //Add the GPU to the list
+                        jPanel2.add(pcComponent, gridBagConstraints);
+                    }
                     
                     break;
                 case 2:
                     CPU cpu = (CPU) componentList.get(i);
-
-                    pcComponent.setComponentType(2);
-                    pcComponent.setProductName(cpu.getName());
-                    pcComponent.setProductPrize(cpu.getPrize());
-                    pcComponent.setProductDescription(cpu.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/CPUs_images/" + cpu.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/CPUs_images/" + cpu.getName() + "_142x141.jpg"));
                     
-                    //Add the GPU to the list
-                    jPanel3.add(pcComponent, gridBagConstraints);
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), cpu.getName())){
+                        pcComponent.setComponentType(2);
+                        pcComponent.setProductName(cpu.getName());
+                        pcComponent.setProductPrize(cpu.getPrize());
+                        pcComponent.setProductDescription(cpu.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/CPUs_images/" + cpu.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/CPUs_images/" + cpu.getName() + "_142x141.jpg"));
+
+                        //Add the GPU to the list
+                        jPanel3.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
                 case 3:
                     Cooler cooler = (Cooler) componentList.get(i);
+                    
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), cooler.getName())){
+                        pcComponent.setComponentType(3);
+                        pcComponent.setProductName(cooler.getName());
+                        pcComponent.setProductPrize(cooler.getPrize());
+                        pcComponent.setProductDescription(cooler.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/Coolers_images/" + cooler.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
 
-                    pcComponent.setComponentType(3);
-                    pcComponent.setProductName(cooler.getName());
-                    pcComponent.setProductPrize(cooler.getPrize());
-                    pcComponent.setProductDescription(cooler.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/Coolers_images/" + cooler.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/Coolers_images/" + cooler.getName() + "_142x141.jpg"));
-
-                    //Add the GPU to the list
-                    jPanel4.add(pcComponent, gridBagConstraints);
+                        //Add the GPU to the list
+                        jPanel4.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
                 case 4:
                     RAM ram = (RAM) componentList.get(i);
+                    
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), ram.getName())){
+                        pcComponent.setComponentType(4);
+                        pcComponent.setProductName(ram.getName());
+                        pcComponent.setProductPrize(ram.getPrize());
+                        pcComponent.setProductDescription(ram.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/RAMs_images/" + ram.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/RAMs_images/" + ram.getName() + "_142x141.jpg"));
 
-                    pcComponent.setComponentType(4);
-                    pcComponent.setProductName(ram.getName());
-                    pcComponent.setProductPrize(ram.getPrize());
-                    pcComponent.setProductDescription(ram.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/RAMs_images/" + ram.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/RAMs_images/" + ram.getName() + "_142x141.jpg"));
-
-                    //Add the GPU to the list
-                    jPanel5.add(pcComponent, gridBagConstraints);
+                        //Add the GPU to the list
+                        jPanel5.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
                 case 5:
                     GPU gpu = (GPU) componentList.get(i);
+                    
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), gpu.getName())){
+                        pcComponent.setComponentType(5);
+                        pcComponent.setProductName(gpu.getName());
+                        pcComponent.setProductPrize(gpu.getPrize());
+                        pcComponent.setProductDescription(gpu.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/GPUs_images/" + gpu.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/GPUs_images/" + gpu.getName() + "_142x141.jpg"));
 
-                    pcComponent.setComponentType(5);
-                    pcComponent.setProductName(gpu.getName());
-                    pcComponent.setProductPrize(gpu.getPrize());
-                    pcComponent.setProductDescription(gpu.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/GPUs_images/" + gpu.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/GPUs_images/" + gpu.getName() + "_142x141.jpg"));
-
-                    //Add the GPU to the list
-                    jPanel6.add(pcComponent, gridBagConstraints);
+                        //Add the GPU to the list
+                        jPanel6.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
                 case 6:
                     HardDisk hardDisk = (HardDisk) componentList.get(i);
+                    
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), hardDisk.getName())){
+                        pcComponent.setComponentType(6);
+                        pcComponent.setProductName(hardDisk.getName());
+                        pcComponent.setProductPrize(hardDisk.getPrize());
+                        pcComponent.setProductDescription(hardDisk.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/HardDisks_images/" + hardDisk.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/HardDisks_images/" + hardDisk.getName() + "_142x141.jpg"));
 
-                    pcComponent.setComponentType(6);
-                    pcComponent.setProductName(hardDisk.getName());
-                    pcComponent.setProductPrize(hardDisk.getPrize());
-                    pcComponent.setProductDescription(hardDisk.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/HardDisks_images/" + hardDisk.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/HardDisks_images/" + hardDisk.getName() + "_142x141.jpg"));
-
-                    //Add the GPU to the list
-                    jPanel7.add(pcComponent, gridBagConstraints);
+                        //Add the GPU to the list
+                        jPanel7.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
                 case 7:
                     PSU psu = (PSU) componentList.get(i);
-
-                    pcComponent.setComponentType(7);
-                    pcComponent.setProductName(psu.getName());
-                    pcComponent.setProductPrize(psu.getPrize());
-                    pcComponent.setProductDescription(psu.getDescription());
-                    pcComponent.setProductBigImagePath("DataBases/PSU_images/" + psu.getName() + "_230x229.jpg");
-                    pcComponent.setProductImage(new ImageIcon("DataBases/PSU_images/" + psu.getName() + "_142x141.jpg"));
                     
-                    //Add the GPU to the list
-                    jPanel8.add(pcComponent, gridBagConstraints);
+                    if(this.pcComponentAlreadyInBuilder(components.getSelectedIndex(), psu.getName())){
+                        pcComponent.setComponentType(7);
+                        pcComponent.setProductName(psu.getName());
+                        pcComponent.setProductPrize(psu.getPrize());
+                        pcComponent.setProductDescription(psu.getDescription());
+                        pcComponent.setProductBigImagePath("DataBases/PSU_images/" + psu.getName() + "_230x229.jpg");
+                        pcComponent.setProductImage(new ImageIcon("DataBases/PSU_images/" + psu.getName() + "_142x141.jpg"));
+
+                        //Add the GPU to the list
+                        jPanel8.add(pcComponent, gridBagConstraints);
+                    }
 
                     break;
             }
         }
     }//GEN-LAST:event_componentsStateChanged
+
+    private void principalComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_principalComponentRemoved
+        //Enable DnD when PcInfo is closed
+        PcComponent.PcComponent.setActiveDnD(true);
+    }//GEN-LAST:event_principalComponentRemoved
 
     /**
      * @param args the command line arguments
@@ -490,6 +569,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 mainPage page = new mainPage();
+                page.initMainPage();
                 page.setVisible(true);
                 page.setLocationRelativeTo(null);
             }

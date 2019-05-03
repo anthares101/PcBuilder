@@ -58,9 +58,6 @@ public class DropPcComponent extends TransferHandler {
         } catch (UnsupportedFlavorException | IOException | ClassNotFoundException e) {
             return false;
         }
-
-        @SuppressWarnings("unchecked")
-        javax.swing.JPanel panel = (javax.swing.JPanel) support.getComponent();
         
         //Throw the drop event if listener is set
         if (this.listener != null) this.listener.onDropEvent(data);
