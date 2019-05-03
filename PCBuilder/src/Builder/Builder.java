@@ -5,21 +5,21 @@
  */
 package Builder;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Sergi
  */
 public class Builder extends javax.swing.JPanel implements DropEventListener {
-
-    Double totalPrize;
+    
+    //All the operations are procesed in cents
+    private int totalPrize;
+    private ComponentDeleteEventListener listener;
     
     /**
      * Creates new form Builder
@@ -27,7 +27,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     public Builder() {
         initComponents();
                
-        this.totalPrize = 0.0;
+        this.totalPrize = 0;
         
         //Required for drop operation
         DropPcComponent transferHandler = new DropPcComponent();
@@ -53,21 +53,21 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.removeGpu.setVisible(false);
     }
     
-    //Performed when a deop event happen
+    //Set a listener to the remove component event
+    public void setComponentDeleteEventListener (ComponentDeleteEventListener listener) {
+        this.listener = listener;
+    }
+    
+    //Performed when a drop event happen
     @Override
     public void onDropEvent(ArrayList<String> data){
         //data --> 0.Name, 1.Prize, 2.Type
-        //NumberFormat currency = NumberFormat.getCurrencyInstance(); For prize
         
         //Check the component type
         switch(Integer.parseInt(data.get(2))){
             case 0:
                 if(this.box.isVisible()) {
-                    //System.out.println("Estoy cambiando: "+this.boxName.getText()+"\n");
-                    //System.out.println(this.totalPrize +"-"+ this.transformPrize(this.getPrize(this.boxName.getText()))+ "=");
                     this.substractToTotal(this.transformPrize(this.cpuPrize.getText()));
-                    //System.out.println(this.totalPrize+"\n");
-                    //System.out.println("holi: "+this.transformPrize(this.getPrize(this.boxName.getText()))+"\n");
                 }
                 
                 this.setBoxVisible();
@@ -351,40 +351,65 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
     public void setHardDiskPrize(String prize) {
         this.hardDiskPrize.setText(prize);
     }
-    
-    /*private Double transfomrPrize(String prize) {
-        NumberFormat nf = NumberFormat.getNumberInstance();
-        nf.setGroupingUsed(false);
-        nf.setMinimumFractionDigits(2);
-        String ammount= nf.format(currency);
 
-        double prize  = Double.parseDouble(ammount);
-        System.out.println("soy prize: "+prize+"\n");
-        return prize;
-    }*/
-    
-    private Double transformPrize(String currency) {
-        
-        String s;
-        
-        try {
-            s = DecimalFormat.getCurrencyInstance(Locale.getDefault()).parse (currency).toString();
-        } catch (ParseException e) {
-            System.out.println("holiwi\n");
-            return 0.0;
-        }
+    public String getBoxName() {
+        return boxName.getText();
+    }
 
-        double prize  = Double.parseDouble(s);
-        System.out.println("soy prize: "+prize+"\n");
-        return prize;
+    public String getCoolerName() {
+        return coolerName.getText();
+    }
+
+    public String getCpuName() {
+        return cpuName.getText();
+    }
+
+    public String getGpuName() {
+        return gpuName.getText();
+    }
+
+    public String getHardDiskName() {
+        return hardDiskName.getText();
+    }
+
+    public String getMotherboardName() {
+        return motherboardName.getText();
+    }
+
+    public String getPsuName() {
+        return psuName.getText();
+    }
+
+    public String getRamName() {
+        return ramName.getText();
     }
     
-    public void addToTotal(Double prize) {
+    
+    
+    //Transform from String euros to int cents
+    private int transformPrize(String prize) {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        
+        Number prizeDouble = null;
+        try {
+            prizeDouble = currency.parse(prize);
+        } catch (ParseException ex) {
+            Logger.getLogger(Builder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        var prizeInt = (int) (prizeDouble.doubleValue()*100);
+        
+        System.out.println("soy prize: " + prizeInt + "\n");
+        return prizeInt;
+    }
+    
+    public void addToTotal(int prize) {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
         this.totalPrize += prize;
         System.out.println(this.totalPrize+"\n");
     }
     
-    public void substractToTotal(Double prize) {
+    public void substractToTotal(int prize) {
         this.totalPrize -= prize;
         System.out.println(this.totalPrize+"\n");
     }
@@ -792,6 +817,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.boxName.setText("arrastre a esta ventana para montar");
         this.boxPrize.setText("");
         this.setBoxInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeBoxMouseClicked
 
     private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
@@ -799,6 +827,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.motherboardName.setText("arrastre a esta ventana para montar");
         this.motherboardPrize.setText("");
         this.setMotherboardInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeMotherboardMouseClicked
 
     private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
@@ -806,6 +837,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.cpuName.setText("arrastre a esta ventana para montar");
         this.cpuPrize.setText("");
         this.setCpuInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeCpuMouseClicked
 
     private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
@@ -813,6 +847,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.coolerName.setText("arrastre a esta ventana para montar");
         this.coolerPrize.setText("");
         this.setCoolerInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeCoolerMouseClicked
 
     private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
@@ -820,6 +857,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.ramName.setText("arrastre a esta ventana para montar");
         this.ramPrize.setText("");
         this.setRamInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeRamMouseClicked
 
     private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
@@ -827,6 +867,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.gpuName.setText("arrastre a esta ventana para montar");
         this.gpuPrize.setText("");
         this.setGpuInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeGpuMouseClicked
 
     private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
@@ -834,6 +877,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.hardDiskName.setText("arrastre a esta ventana para montar");
         this.hardDiskPrize.setText("");
         this.setHardDiskInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removeHardDiskMouseClicked
 
     private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
@@ -841,6 +887,9 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.psuName.setText("arrastre a esta ventana para montar");
         this.psuPrize.setText("");
         this.setPsuInvisible();
+        
+        //PcComponents in tabs are updated if listener is set
+        if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removePsuMouseClicked
 
 
