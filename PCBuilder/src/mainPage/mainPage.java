@@ -409,11 +409,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                         return false;
                     
                     if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
-                            cooler.hasSocket(builder.getMotherboardObj().getSocket()))
+                            !cooler.hasSocket(builder.getMotherboardObj().getSocket()))
                         return false;
                     
                     if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
-                            cooler.hasSocket(builder.getCpuObj().getSocket()))
+                            !cooler.hasSocket(builder.getCpuObj().getSocket()))
                         return false;
                     
                     break;
