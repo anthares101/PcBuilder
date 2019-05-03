@@ -47,7 +47,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     public void initMainPage(){
         initComponents();
         
-        this.setTitle("PCBuilder");
+        this.setTitle(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("PCBUILDER"));
         
         this.jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
         this.jScrollPane2.getVerticalScrollBar().setUnitIncrement(16);
@@ -257,7 +257,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         finishBttn.setBackground(new java.awt.Color(55, 157, 146));
         finishBttn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         finishBttn.setForeground(new java.awt.Color(255, 255, 255));
-        finishBttn.setText("Terminar");
+        finishBttn.setText(bundle.getString("TERMINAR")); // NOI18N
         finishBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finishBttnActionPerformed(evt);
@@ -356,15 +356,15 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 0:
                     PcBox pcBox = (PcBox) pcComponent;
                     
-                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") && 
+                    if(!builder.getMotherboardName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) && 
                             !pcBox.supportFormFactor(builder.getMotherboardObj().getFormFactor()))
                         return false;
                     
-                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getCoolerName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             pcBox.getWidth() < builder.getCoolerObj().getHeight())
                         return false;
                     
-                    if(!builder.getGpuName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getGpuName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             pcBox.getMaxGPU() < builder.getGpuObj().getLongitude())
                         return false;
                     
@@ -372,19 +372,19 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 1:
                     Motherboard motherboard = (Motherboard) pcComponent;
                     
-                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getBoxName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !builder.getPcBoxObj().supportFormFactor(motherboard.getFormFactor()))
                        return false;
                     
-                    if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getCpuName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !motherboard.getSocket().equals(builder.getCpuObj().getSocket()))
                         return false;
                     
-                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getCoolerName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !builder.getCoolerObj().hasSocket(motherboard.getSocket()))
                         return false;
                     
-                    if(!builder.getRamName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getRamName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             motherboard.getRamCompatibility() < builder.getRamObj().getType())
                         return false;
                     
@@ -392,11 +392,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 2:
                     CPU cpu = (CPU) pcComponent;
                     
-                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getMotherboardName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !cpu.getSocket().equals(builder.getMotherboardObj().getSocket()))
                         return false;
                     
-                    if(!builder.getCoolerName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getCoolerName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !builder.getCoolerObj().hasSocket(cpu.getSocket()))
                         return false;
                     
@@ -404,15 +404,15 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 3:
                     Cooler cooler = (Cooler) pcComponent;
                     
-                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getBoxName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             builder.getPcBoxObj().getWidth() < cooler.getHeight())
                         return false;
                     
-                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getMotherboardName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !cooler.hasSocket(builder.getMotherboardObj().getSocket()))
                         return false;
                     
-                    if(!builder.getCpuName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getCpuName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             !cooler.hasSocket(builder.getCpuObj().getSocket()))
                         return false;
                     
@@ -420,7 +420,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 4:
                     RAM ram = (RAM) pcComponent;
                     
-                    if(!builder.getMotherboardName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getMotherboardName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             builder.getMotherboardObj().getRamCompatibility() < ram.getType())
                         return false;
                     
@@ -428,11 +428,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 5:
                     GPU gpu = (GPU) pcComponent;
                     
-                    if(!builder.getBoxName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getBoxName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             builder.getPcBoxObj().getMaxGPU() < gpu.getLongitude())
                         return false;
                     
-                    if(!builder.getPsuName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getPsuName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             gpu.getRecommendedPSU() > builder.getPsuObj().getWatts())
                         return false;
                     
@@ -440,7 +440,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 case 7:
                     PSU psu = (PSU) pcComponent;
                     
-                    if(!builder.getGpuName().equals("arrastre a esta ventana para montar") &&
+                    if(!builder.getGpuName().equals(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR")) &&
                             builder.getGpuObj().getRecommendedPSU() > psu.getWatts())
                         return false;
                     
@@ -778,11 +778,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         
         Builder builder = (Builder) this.principal.getComponent(0);
         
-        String info = "Importe total: " + builder.getTotalPrizeString();
+        String info = java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("IMPORTE TOTAL:") + builder.getTotalPrizeString();
         JPanel panel = new JPanel();
-        panel.add(new JLabel("<html>" + info + "<br><br>¡Gracias por su compra!</html>", SwingConstants.CENTER));
+        panel.add(new JLabel(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("Gracias por su compra"), new Object[] {info}), SwingConstants.CENTER));
 
-        JOptionPane.showMessageDialog(this, panel, "Compra realizada",
+        JOptionPane.showMessageDialog(this, panel, java.util.ResourceBundle.getBundle("mainPage/Bundle").getString("COMPRA REALIZADA"),
                 JOptionPane.INFORMATION_MESSAGE,
                 new ImageIcon("src/mainPage/images/purchase.png"));
     }//GEN-LAST:event_finishBttnActionPerformed

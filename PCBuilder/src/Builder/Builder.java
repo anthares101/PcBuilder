@@ -617,7 +617,8 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Caja:");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Builder/Bundle"); // NOI18N
+        jLabel1.setText(bundle.getString("CAJA:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -627,7 +628,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Placa Base:");
+        jLabel2.setText(bundle.getString("PLACA BASE:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -636,7 +637,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("CPU:");
+        jLabel3.setText(bundle.getString("CPU:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -645,7 +646,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Disipador:");
+        jLabel4.setText(bundle.getString("DISIPADOR:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -654,7 +655,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel4, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("RAM:");
+        jLabel5.setText(bundle.getString("RAM:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -663,7 +664,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel5, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("GPU:");
+        jLabel6.setText(bundle.getString("GPU:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -672,7 +673,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setText("Disco duro:");
+        jLabel7.setText(bundle.getString("DISCO DURO:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -681,7 +682,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         info.add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("PSU:");
+        jLabel8.setText(bundle.getString("PSU:")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
@@ -689,7 +690,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(jLabel8, gridBagConstraints);
 
-        boxName.setText("arrastre a esta ventana para montar");
+        boxName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -703,7 +704,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(boxPrize, gridBagConstraints);
 
-        motherboardName.setText("arrastre a esta ventana para montar");
+        motherboardName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
@@ -717,7 +718,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(motherboardPrize, gridBagConstraints);
 
-        cpuName.setText("arrastre a esta ventana para montar");
+        cpuName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
@@ -731,7 +732,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(cpuPrize, gridBagConstraints);
 
-        coolerName.setText("arrastre a esta ventana para montar");
+        coolerName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
@@ -745,7 +746,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(coolerPrize, gridBagConstraints);
 
-        ramName.setText("arrastre a esta ventana para montar");
+        ramName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
@@ -759,7 +760,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(ramPrize, gridBagConstraints);
 
-        gpuName.setText("arrastre a esta ventana para montar");
+        gpuName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 10;
@@ -773,7 +774,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(gpuPrize, gridBagConstraints);
 
-        hardDiskName.setText("arrastre a esta ventana para montar");
+        hardDiskName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 12;
@@ -787,7 +788,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         info.add(hardDiskPrize, gridBagConstraints);
 
-        psuName.setText("arrastre a esta ventana para montar");
+        psuName.setText(bundle.getString("ARRASTRE A ESTA VENTANA PARA MONTAR")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 14;
@@ -912,7 +913,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeBoxMouseClicked
         this.substractToTotal(this.transformPrize(this.boxPrize.getText()));
-        this.boxName.setText("arrastre a esta ventana para montar");
+        this.boxName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.boxPrize.setText("");
         this.setBoxInvisible();
         
@@ -922,7 +923,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
         this.substractToTotal(this.transformPrize(this.motherboardPrize.getText()));
-        this.motherboardName.setText("arrastre a esta ventana para montar");
+        this.motherboardName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.motherboardPrize.setText("");
         this.setMotherboardInvisible();
         
@@ -932,7 +933,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
         this.substractToTotal(this.transformPrize(this.cpuPrize.getText()));
-        this.cpuName.setText("arrastre a esta ventana para montar");
+        this.cpuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.cpuPrize.setText("");
         this.setCpuInvisible();
         
@@ -942,7 +943,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
         this.substractToTotal(this.transformPrize(this.coolerPrize.getText()));
-        this.coolerName.setText("arrastre a esta ventana para montar");
+        this.coolerName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.coolerPrize.setText("");
         this.setCoolerInvisible();
         
@@ -952,7 +953,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
         this.substractToTotal(this.transformPrize(this.ramPrize.getText()));
-        this.ramName.setText("arrastre a esta ventana para montar");
+        this.ramName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.ramPrize.setText("");
         this.setRamInvisible();
         
@@ -962,7 +963,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
         this.substractToTotal(this.transformPrize(this.gpuPrize.getText()));
-        this.gpuName.setText("arrastre a esta ventana para montar");
+        this.gpuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.gpuPrize.setText("");
         this.setGpuInvisible();
         
@@ -972,7 +973,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
         this.substractToTotal(this.transformPrize(this.hardDiskPrize.getText()));
-        this.hardDiskName.setText("arrastre a esta ventana para montar");
+        this.hardDiskName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.hardDiskPrize.setText("");
         this.setHardDiskInvisible();
         
@@ -982,7 +983,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
 
     private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
         this.substractToTotal(this.transformPrize(this.psuPrize.getText()));
-        this.psuName.setText("arrastre a esta ventana para montar");
+        this.psuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.psuPrize.setText("");
         this.setPsuInvisible();
         
