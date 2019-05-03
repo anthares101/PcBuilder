@@ -1,4 +1,4 @@
-Gigabyte GeForce RTX 2060 OC 6GB GDDR6;389.99;122.02;225.65;500;El sistema de refrigeración WINDFORCE 2X cuenta con 2 ventiladores de cuchilla exclusivos de 100 mm, ventilador alterno, 2 tubos de calor de cobre compuesto GPU de contacto directo y ventilador activo 3D, que entregan una disipación de calor efectiva.
+Gigabyte GeForce RTX 2060 OC 6GB GDDR6;389.99;1;122.02;225.65;500;El sistema de refrigeración WINDFORCE 2X cuenta con 2 ventiladores de cuchilla exclusivos de 100 mm, ventilador alterno, 2 tubos de calor de cobre compuesto GPU de contacto directo y ventilador activo 3D, que entregan una disipación de calor efectiva.
 
 CARACTERÍSTICAS:
 -Desarrollado por GeForce RTX 2060
@@ -28,7 +28,7 @@ CARACTERÍSTICAS:
 -DisplayPort 1.4 * 3
 -HDMI 2.0b * 1
 -Soporte SLI No$
-Gigabyte Radeon RX 580 Gaming 8G 8GB GDDR5;195.90;116;232;500;Te presentamos la Gigabyte Radeon RX 580 Gaming 8G, una tarjeta gráfica con 8GB GDDR5.
+Gigabyte Radeon RX 580 Gaming 8G 8GB GDDR5;195.90;1;116;232;500;Te presentamos la Gigabyte Radeon RX 580 Gaming 8G, una tarjeta gráfica con 8GB GDDR5.
 
 CARACTERÍSTICAS:
 -Graphics Processing Radeon RX580
@@ -51,7 +51,7 @@ CARACTERÍSTICAS:
 -Dual-link DVI-D *1
 -HDMI *1
 -Display Port *3$
-Gigabyte GeForce RTX 2070 WindForce 8G 8GB GDDR6;534.99;116.45;280.35;550;El nuevo buque insignia de NVIDIA, GeForce® RTX 2070, es la GPU para juegos más avanzada del planeta, impulsada por la arquitectura NVIDIA Turing ™ de alto rendimiento, con 8GB GDDR6 y sistema ded ventilación WindForce exclusivo de Gigabyte.
+Gigabyte GeForce RTX 2070 WindForce 8G 8GB GDDR6;534.99;0;116.45;280.35;550;El nuevo buque insignia de NVIDIA, GeForce® RTX 2070, es la GPU para juegos más avanzada del planeta, impulsada por la arquitectura NVIDIA Turing ™ de alto rendimiento, con 8GB GDDR6 y sistema ded ventilación WindForce exclusivo de Gigabyte.
 
 CARACTERÍSTICAS:
 -Desarrollado por GeForce® RTX 2070
@@ -78,7 +78,7 @@ CARACTERÍSTICAS:
 -DisplayPort 1.4 x3,
 -HDMI 2.0b x1,
 -USB Type-C ™ (support VirtualLinkTM) x1$
-Gigabyte GeForce GTX 1070 G1 Gaming 8GB GDDR5;389.90;115;286;500;Con hasta un 100% más de rendimiento que las tarjetas de la serie anterior y un espectacular desempeño gráfico en videojuegos y realidad virtual, llegan a nosotros las GTX 1070, las joyas de la corona de las tarjetas gráficas. La serie 70 es tradicionalmente la mejor serie en cuanto a relación calidad/precio.
+Gigabyte GeForce GTX 1070 G1 Gaming 8GB GDDR5;389.90;0;115;286;500;Con hasta un 100% más de rendimiento que las tarjetas de la serie anterior y un espectacular desempeño gráfico en videojuegos y realidad virtual, llegan a nosotros las GTX 1070, las joyas de la corona de las tarjetas gráficas. La serie 70 es tradicionalmente la mejor serie en cuanto a relación calidad/precio.
 
 La nueva serie de tarjetas gráficas Nvidia han dejado boquiabiertos a todo el mundo en todos los aspectos imaginables al superar en potencia, consumo precio que nadie esperaba. Sobre todo después de haber sido sometida a varias pruebas en las que su rendimiento no sólo dobla, sino que en algunos casos triplica, la potencia gráfica de modelos anteriores, y todo ello con un precio ultra competitivo.
 
@@ -106,7 +106,7 @@ CARACTERÍSTICAS:
 -Recommended PSU	500W
 -Power Connectors	8 pin*1
 -Card size	H=42 L=286 W=115 mm$
-Sapphire Pulse Radeon RX Vega 56 8GB HBM2;329.90;125;282;750;Con un excelente rendimiento de 1080p, el SAPPHIRE PULSE Radeon RX VEGA 56 es el corazón de la PC de un jugador. La GPU con overclocking de fábrica bombeará cuadros con una eficiencia extraordinaria, y ofrecerá un juego suave y sin interrupciones con ultra detalles. El enfriador personalizado ha sido diseñado teniendo en cuenta el rendimiento y la longevidad.
+Sapphire Pulse Radeon RX Vega 56 8GB HBM2;329.90;0;125;282;750;Con un excelente rendimiento de 1080p, el SAPPHIRE PULSE Radeon RX VEGA 56 es el corazón de la PC de un jugador. La GPU con overclocking de fábrica bombeará cuadros con una eficiencia extraordinaria, y ofrecerá un juego suave y sin interrupciones con ultra detalles. El enfriador personalizado ha sido diseñado teniendo en cuenta el rendimiento y la longevidad.
 
 CARACTERÍSTICAS:
 -3584 Stream Processors
