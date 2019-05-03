@@ -819,7 +819,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setBoxInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(0);
     }//GEN-LAST:event_removeBoxMouseClicked
 
     private void removeMotherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMotherboardMouseClicked
@@ -829,7 +829,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setMotherboardInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(1);
     }//GEN-LAST:event_removeMotherboardMouseClicked
 
     private void removeCpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCpuMouseClicked
@@ -839,7 +839,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setCpuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(2);
     }//GEN-LAST:event_removeCpuMouseClicked
 
     private void removeCoolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeCoolerMouseClicked
@@ -849,7 +849,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setCoolerInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(3);
     }//GEN-LAST:event_removeCoolerMouseClicked
 
     private void removeRamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeRamMouseClicked
@@ -859,7 +859,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setRamInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(4);
     }//GEN-LAST:event_removeRamMouseClicked
 
     private void removeGpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeGpuMouseClicked
@@ -869,7 +869,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setGpuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(5);
     }//GEN-LAST:event_removeGpuMouseClicked
 
     private void removeHardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeHardDiskMouseClicked
@@ -879,7 +879,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setHardDiskInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(6);
     }//GEN-LAST:event_removeHardDiskMouseClicked
 
     private void removePsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removePsuMouseClicked
@@ -889,7 +889,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.setPsuInvisible();
         
         //PcComponents in tabs are updated if listener is set
-        if (this.listener != null) this.listener.onComponentDeleteEvent();
+        if (this.listener != null) this.listener.onComponentDeleteEvent(7);
     }//GEN-LAST:event_removePsuMouseClicked
 
 

@@ -32,12 +32,15 @@ import javax.swing.ImageIcon;
  */
 public class mainPage extends javax.swing.JFrame implements PcComponent.DragEventListener, PcComponent.MouseClickedEventListener, ComponentDeleteEventListener {
     
-    private int tabSelected;
-    
     /**
      * Creates new form mainPage
      */
     public mainPage() {
+        super();
+    }
+    
+    //Init the maninPage class (Avoid the 'Leaking this in constructor' warning)
+    public void initMainPage(){
         initComponents();
         
         this.jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
@@ -53,9 +56,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         Builder builder = new Builder();
         builder.setComponentDeleteEventListener(this);
         this.principal.add(builder);
-        
-        //Save the tab selected, necesary later
-        this.tabSelected = components.getSelectedIndex();
     }
     
     //Action performed when a drag event happens
@@ -107,10 +107,11 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         principal.repaint();
     }
     
-    //Action performed when a remove component event happens (Update PcComponents tabs)
+    //Action performed when a remove component event happens (Update PcComponents tabs if necesary)
     @Override
-    public void onComponentDeleteEvent(){
-        this.componentsStateChanged(null);
+    public void onComponentDeleteEvent(int type){
+        if(this.components.getSelectedIndex() == type)
+            this.componentsStateChanged(null);
     }
 
     /**
@@ -309,7 +310,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
     
     private void componentsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_componentsStateChanged
         //Clear the last selected tab for performance improvemment
-        switch(this.tabSelected){
+        switch(this.components.getSelectedIndex()){
             case 0:
                 jPanel1.removeAll();
                 break;
@@ -335,9 +336,6 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
                 jPanel8.removeAll();
                 break; 
         }
-        
-        //Save the new selected tab
-        tabSelected = components.getSelectedIndex();
 
         //Read all the components from the database according with the tab index
         ArrayList componentList = new ArrayList();
@@ -571,6 +569,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 mainPage page = new mainPage();
+                page.initMainPage();
                 page.setVisible(true);
                 page.setLocationRelativeTo(null);
             }
