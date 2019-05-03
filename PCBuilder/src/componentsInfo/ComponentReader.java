@@ -39,7 +39,13 @@ public class ComponentReader {
 
                 box.setName(st.nextToken());
                 box.setPrize(Double.parseDouble(st.nextToken()));
-                box.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    box.setRecomended(true);
+                }
+                else {
+                    box.setRecomended(false);
+                }
 
                 //lectura de los factores forma
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
@@ -82,7 +88,13 @@ public class ComponentReader {
 
                 mb.setName(st.nextToken());
                 mb.setPrize(Double.parseDouble(st.nextToken()));
-                mb.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    mb.setRecomended(true);
+                }
+                else {
+                    mb.setRecomended(false);
+                }
                 mb.setFormFactor(st.nextToken());
                 mb.setSocket(st.nextToken());
                 mb.setRamCompatibility(Integer.parseInt(st.nextToken()));
@@ -116,7 +128,13 @@ public class ComponentReader {
 
                 cpu.setName(st.nextToken());
                 cpu.setPrize(Double.parseDouble(st.nextToken()));
-                cpu.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    cpu.setRecomended(true);
+                }
+                else {
+                    cpu.setRecomended(false);
+                }
                 cpu.setSocket(st.nextToken());
                 cpu.setDescription(st.nextToken());
 
@@ -147,7 +165,13 @@ public class ComponentReader {
 
                 gpu.setName(st.nextToken());
                 gpu.setPrize(Double.parseDouble(st.nextToken()));
-                gpu.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    gpu.setRecomended(true);
+                }
+                else {
+                    gpu.setRecomended(false);
+                }
                 gpu.setWidth(Double.parseDouble(st.nextToken()));
                 gpu.setLongitude(Double.parseDouble(st.nextToken()));
                 gpu.setRecommendedPSU(Integer.parseInt(st.nextToken()));
@@ -181,7 +205,13 @@ public class ComponentReader {
 
                 cooler.setName(st.nextToken());
                 cooler.setPrize(Double.parseDouble(st.nextToken()));
-                cooler.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    cooler.setRecomended(true);
+                }
+                else {
+                    cooler.setRecomended(false);
+                }
 
                 //lectura de los sockets compatibles
                 StringTokenizer aux = new StringTokenizer(st.nextToken(), ",");
@@ -221,7 +251,13 @@ public class ComponentReader {
                 
                 ram.setName(st.nextToken());
                 ram.setPrize(Double.parseDouble(st.nextToken()));
-                ram.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    ram.setRecomended(true);
+                }
+                else {
+                    ram.setRecomended(false);
+                }
                 ram.setType(Integer.parseInt(st.nextToken()));
                 ram.setDescription(st.nextToken());
                 
@@ -252,7 +288,14 @@ public class ComponentReader {
                 
                 hd.setName(st.nextToken());
                 hd.setPrize(Double.parseDouble(st.nextToken()));
-                hd.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    hd.setRecomended(true);
+                }
+                else {
+                    hd.setRecomended(false);
+                }
+                
                 hd.setDescription(st.nextToken());
                 
                 array.add(hd);
@@ -282,7 +325,13 @@ public class ComponentReader {
                 
                 psu.setName(st.nextToken());
                 psu.setPrize(Double.parseDouble(st.nextToken()));
-                psu.setRecomended(Boolean.valueOf(st.nextToken()));
+                
+                if(st.nextToken().equals("1")) {
+                    psu.setRecomended(true);
+                }
+                else {
+                    psu.setRecomended(false);
+                }
                 psu.setWatts(Integer.parseInt(st.nextToken()));
                 psu.setDescription(st.nextToken());
                 

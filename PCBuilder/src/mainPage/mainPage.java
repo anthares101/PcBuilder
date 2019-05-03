@@ -73,7 +73,10 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
-        this.finishBttn.setVisible(true);
+        
+        if(builder.isCompleted()) {
+            this.finishBttn.setVisible(true);
+        }
     }
     
     //Action performed when a mouse clicked event happens
@@ -107,9 +110,7 @@ public class mainPage extends javax.swing.JFrame implements PcComponent.DragEven
         Builder builder = (Builder) this.principal.getComponent(0);
         this.prize.setText(builder.getTotalPrizeString());
         
-        if(builder.isEmpty()) {
-            this.finishBttn.setVisible(false);
-        }
+        this.finishBttn.setVisible(false);
     }
 
     /**

@@ -304,6 +304,18 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         return false;
     }
     
+    public Boolean isCompleted() {
+        if(this.box.isVisible() && this.cooler.isVisible() &&
+           this.cpu.isVisible() && this.gpu.isVisible() &&
+           this.hardDisk.isVisible() && this.motherboard.isVisible() &&
+           this.psu.isVisible() && this.ram.isVisible()) {
+            
+            return true;
+        }
+        
+        return false;
+    }
+    
     public void setBoxName(String name) {
         this.boxName.setText(name);
     }
