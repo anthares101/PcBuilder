@@ -50,6 +50,14 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         transferHandler.setDragEventListener(this);
         this.setTransferHandler(transferHandler);
         
+        this.pcBoxObj = null;
+        this.motherboardObj = null;
+        this.cpuObj = null;
+        this.coolerObj = null;
+        this.ramObj = null;
+        this.gpuObj = null;
+        this.psuObj = null;
+        
         this.tools.setVisible(true);
         this.box.setVisible(false);
         this.cooler.setVisible(false);
@@ -916,6 +924,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.boxName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.boxPrize.setText("");
         this.setBoxInvisible();
+        this.pcBoxObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -926,6 +935,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.motherboardName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.motherboardPrize.setText("");
         this.setMotherboardInvisible();
+        this.motherboardObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -936,6 +946,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.cpuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.cpuPrize.setText("");
         this.setCpuInvisible();
+        this.cpuObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -946,6 +957,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.coolerName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.coolerPrize.setText("");
         this.setCoolerInvisible();
+        this.coolerObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -956,6 +968,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.ramName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.ramPrize.setText("");
         this.setRamInvisible();
+        this.ramObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -966,6 +979,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.gpuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.gpuPrize.setText("");
         this.setGpuInvisible();
+        this.gpuObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
@@ -986,6 +1000,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         this.psuName.setText(java.util.ResourceBundle.getBundle("Builder/Bundle").getString("ARRASTRE A ESTA VENTANA PARA MONTAR"));
         this.psuPrize.setText("");
         this.setPsuInvisible();
+        this.psuObj = null;
         
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
