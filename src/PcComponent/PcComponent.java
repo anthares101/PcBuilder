@@ -25,7 +25,7 @@ public class PcComponent extends javax.swing.JPanel {
      */
     public PcComponent() {
         initComponents();
-        this.specList = new ArrayList();
+        this.specList = new ArrayList<>();
         
         //Set the default recomendation visibility
         this.setRecomendationVisibility(false);

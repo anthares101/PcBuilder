@@ -37,7 +37,7 @@ class DragPcComponent extends TransferHandler {
         
         //Copy the component information
         NumberFormat currency = NumberFormat.getCurrencyInstance();
-        ArrayList<String> data = new ArrayList();
+        ArrayList<String> data = new ArrayList<>();
         data.add(sourcePcComponent.getProductName());
         data.add(currency.format(sourcePcComponent.getProductPrize()));
         data.add(String.valueOf(sourcePcComponent.getComponentType()));
