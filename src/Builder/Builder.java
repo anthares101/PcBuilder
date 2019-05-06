@@ -512,7 +512,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
             Logger.getLogger(Builder.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        var prizeInt = (int) (prizeDouble.doubleValue()*100);
+        int prizeInt = (int) (prizeDouble.doubleValue()*100);
 
         return prizeInt;
     }
