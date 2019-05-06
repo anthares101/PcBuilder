@@ -594,7 +594,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 hardDiskMouseClicked(evt);
             }
         });
-        images.add(hardDisk, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
+        images.add(hardDisk, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, -1));
 
         ram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/ram.png"))); // NOI18N
         ram.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -602,7 +602,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 ramMouseClicked(evt);
             }
         });
-        images.add(ram, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        images.add(ram, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         cooler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/cooler.png"))); // NOI18N
         cooler.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -610,7 +610,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 coolerMouseClicked(evt);
             }
         });
-        images.add(cooler, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+        images.add(cooler, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
 
         cpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/cpu.png"))); // NOI18N
         cpu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -618,7 +618,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 cpuMouseClicked(evt);
             }
         });
-        images.add(cpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        images.add(cpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 20, 30));
 
         gpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/gpu.png"))); // NOI18N
         gpu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -626,7 +626,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 gpuMouseClicked(evt);
             }
         });
-        images.add(gpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+        images.add(gpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
 
         psu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/psu.png"))); // NOI18N
         psu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -634,7 +634,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 psuMouseClicked(evt);
             }
         });
-        images.add(psu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+        images.add(psu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
 
         motherboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/motherboard.png"))); // NOI18N
         motherboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -642,7 +642,7 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
                 motherboardMouseClicked(evt);
             }
         });
-        images.add(motherboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        images.add(motherboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
 
         box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/box.png"))); // NOI18N
         box.addMouseListener(new java.awt.event.MouseAdapter() {
