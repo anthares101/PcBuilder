@@ -589,27 +589,67 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         images.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hardDisk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/hardDisk.png"))); // NOI18N
+        hardDisk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hardDiskMouseClicked(evt);
+            }
+        });
         images.add(hardDisk, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
 
         ram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/ram.png"))); // NOI18N
+        ram.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ramMouseClicked(evt);
+            }
+        });
         images.add(ram, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         cooler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/cooler.png"))); // NOI18N
+        cooler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                coolerMouseClicked(evt);
+            }
+        });
         images.add(cooler, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
         cpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/cpu.png"))); // NOI18N
+        cpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cpuMouseClicked(evt);
+            }
+        });
         images.add(cpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         gpu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/gpu.png"))); // NOI18N
+        gpu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gpuMouseClicked(evt);
+            }
+        });
         images.add(gpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
         psu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/psu.png"))); // NOI18N
+        psu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psuMouseClicked(evt);
+            }
+        });
         images.add(psu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         motherboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/motherboard.png"))); // NOI18N
+        motherboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                motherboardMouseClicked(evt);
+            }
+        });
         images.add(motherboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/box.png"))); // NOI18N
+        box.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boxMouseClicked(evt);
+            }
+        });
         images.add(box, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, -10, -1, -1));
 
         tools.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Builder/images/tools.png"))); // NOI18N
@@ -1005,6 +1045,39 @@ public class Builder extends javax.swing.JPanel implements DropEventListener {
         //PcComponents in tabs are updated if listener is set
         if (this.listener != null) this.listener.onComponentDeleteEvent();
     }//GEN-LAST:event_removePsuMouseClicked
+    
+    //The next functions just call their removeComponentClicked equivalent to allow the user to click directly on the drawn components
+    private void boxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxMouseClicked
+        this.removeBoxMouseClicked(evt);
+    }//GEN-LAST:event_boxMouseClicked
+
+    private void motherboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_motherboardMouseClicked
+        this.removeMotherboardMouseClicked(evt);
+    }//GEN-LAST:event_motherboardMouseClicked
+
+    private void psuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psuMouseClicked
+        this.removePsuMouseClicked(evt);
+    }//GEN-LAST:event_psuMouseClicked
+
+    private void gpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gpuMouseClicked
+        this.removeGpuMouseClicked(evt);
+    }//GEN-LAST:event_gpuMouseClicked
+
+    private void cpuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cpuMouseClicked
+        this.removeCpuMouseClicked(evt);
+    }//GEN-LAST:event_cpuMouseClicked
+
+    private void coolerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coolerMouseClicked
+        this.removeCoolerMouseClicked(evt);
+    }//GEN-LAST:event_coolerMouseClicked
+
+    private void ramMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ramMouseClicked
+        this.removeRamMouseClicked(evt);
+    }//GEN-LAST:event_ramMouseClicked
+
+    private void hardDiskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hardDiskMouseClicked
+        this.removeHardDiskMouseClicked(evt);
+    }//GEN-LAST:event_hardDiskMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
