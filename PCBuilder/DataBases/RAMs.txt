@@ -1,0 +1,47 @@
+G.Skill Trident Z RGB DDR4 3200 PC4-25600 16GB 2x8GB CL16;149;1;4;La nueva gama de memorias RAM G.Skill Trident Z RGB ofrece soluciones para un rendimiento increíble. Estos kits optimizan el rendimiento de las plataformas de nueva generación, con la ventaja añadida de un alto potencial de overclocking. Además, estas rápidas memorias incorporan un sistema de iluminación LED RGB con hasta 16.8 millones de colores con varios modos de iluminación por software. Simplemente pincha la memoria Trident Z RGB en tu placa basey disfruta de la iluminación.
+
+La compañía G.Skill, gracias a un intenso trabajo de I+D durante sus más de 25 años de historia, ha diseñado y fabricado las memorias Trident Z RGB para el overclocking y el gaming más exigente. Con un PCB de alta calidad de 10 capas, un disipador denso de aluminio para una óptima temperatura, los mejores chips de memoria seleccionados a mano y la tecnología Intel XMP 2.0 para un overclocking sencillo, estas memorias te darán el rendimiento que necesitas en tu sistema, tanto si vas a hacer overclocking como si vas a jugar.
+
+CARACTERÍSTICAS:
+-Alto rendimiento.
+-Iluminación RGB por software de hasta 16.8 millones de colores.
+-Optimizadas para la nueva generación de procesadores y placas base.
+-Diseñadas y fabricadas con los mejores componentes para los sistemas más exigente en overcloking o gaming.
+-Tipo de la memoria DDR4.
+-Capacidad 16GB (2x8GB).
+-Multi-Channel Kit de doble canal.
+-Velocidad Probada 3200MHz.
+-Latencia Probada  16-18-18-38.$
+Corsair Vengeance LPX DDR4 2400 PC4-19200 16GB 2x8GB CL16;95;1;4;La memoria Vengeance LPX se ha diseñado para overclocking de alto rendimiento. El disipador de calor, fabricado en aluminio puro, permite una disipación térmica más rápida, la placa impresa de ocho capas administra el calor y proporciona una capacidad superior para incrementar el overclocking. Cada circuito integrado está seleccionado individualmente para el máximo potencial de rendimiento. El formato DDR4 está optimizado para las placas base Intel de la serie X99/100 Series más recientes y ofrece frecuencias más elevadas, mayor ancho de banda y menor consumo energético que los módulos DDR3. Se ha verificado la compatibilidad de los módulos Vengeance LPX DDR4 para toda las placas base de la serie X99/100 Series, lo que asegura un rendimiento rápido y fiable. Compatibilidad con XMP 2.0 para un overclocking automático sin problemas. Y están disponibles en distintos colores para combinar con su placa base, sus componentes, o sencillamente con su estilo personal.
+
+CARACTERÍSTICAS:
+-Compatibilidad probada en las placas base de la serie X99/100 Series, lo que asegura un rendimiento rápido y fiable.
+-Diseñados para overclocking de alto rendimiento
+-Disipador de calor de aluminio de puro para una disipación térmica más rápida y funcionamiento a menor temperatura
+-Compatibilidad con XMP 2.0 para un overclocking automático libre de problemas
+-Su diseño de perfil bajo la hace perfecta para espacios más pequeños
+-Disponible en distintos colores para combinarlos con la placa base de su sistema.
+-Tipo de la memoria DDR4.
+-Capacidad: 16 GB (2x8 GB).
+-Velocidad: 2400 MHz.
+-Latencia probada: 16-16-16-39.$
+Kingston HyperX Fury Black DDR4 2400 PC4-19200 8GB CL15;49;0;4;Te presentamos la revolución en las memorias para PC. La Kingston HyperX Fury DDR4 ha sido diseñada para ofrecer un rendimiento superior a lo establecido. Disfruta de toda la potencia y saca el mayor partido a tu procesador y gráfica con la serie Fury de Kingston. Con el lanzamiento del procesador Intel Skylake y los chipsets de serie 100, HyperX se complace en anunciar que todas sus unidades HyperX FURY DDR4 y HyperX Predator DDR4 son compatibles con Skylake.
+
+CARACTERÍSTICAS:
+-Capacidad 8GB.
+-Velocidad 2400MHz.
+-Latencia CL15.$
+Kingston HyperX Fury DDR4 2400 PC4-19200 16GB 2X8GB CL15;94;0;4;Te presentamos la revolución en las memorias para PC. La Kingston HyperX Fury DDR4 ha sido diseñada para ofrecer un rendimiento superior a lo establecido. Disfruta de toda la potencia y saca el mayor partido a tu procesador y gráfica con la serie Fury de Kingston. Con el lanzamiento del procesador Intel Skylake y los chipsets de serie 100, HyperX se complace en anunciar que todas sus unidades HyperX FURY DDR4 y HyperX Predator DDR4 son compatibles con Skylake.
+
+CARACTERÍSTICAS:
+-Tipo memoria DDR4
+-Capacidad 16GB (2x8GB)
+-Velocidad 2400MHz.
+-Latencia CL15.$
+G.Skill Ripjaws V Red DDR4 2400 PC4-19200 16GB 2x8GB CL15;99;0;4;La nueva gama G.Skill Ripjaws V ofrece soluciones para un rendimiento increíble. Estos kits optimizar el rendimiento de las plataformas de nueva generación, con la ventaja añadida un alto potencial de overclocking. Con tensiones nominales de 1,2 V o 1.35V (dependiendo del modelo), la memoria de G.Skill Ripjaws Serie V están optimizados para Intel o AMD.
+
+CARACTERÍSTICAS:
+-Tipo memoria DDR4
+-Capacidad 16GB (8GBx2)
+-Velocidad de testeo 2400MHz
+-Latencia Testeada 15-15-15-35.$

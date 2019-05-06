@@ -1,0 +1,151 @@
+Gigabyte GeForce RTX 2060 OC 6GB GDDR6;389.99;1;122.02;225.65;500;El sistema de refrigeración WINDFORCE 2X cuenta con 2 ventiladores de cuchilla exclusivos de 100 mm, ventilador alterno, 2 tubos de calor de cobre compuesto GPU de contacto directo y ventilador activo 3D, que entregan una disipación de calor efectiva.
+
+CARACTERÍSTICAS:
+-Desarrollado por GeForce RTX 2060
+-Integrado con 6GB GDDR6 interfaz de memoria de 192 bits
+-Sistema de enfriamiento WINDFORCE 2X con ventiladores alternativos
+-Ventiladores de cuchilla únicos de 90mm
+-Placa posterior de protección
+-Reloj de núcleo 1755 MHz (Tarjeta de referencia: 1680 MHz)
+-Procesamiento de gráficos GeForce RTX ™ 2060
+-Reloj de núcleo 1755 MHz (Tarjeta de referencia: 1680 MHz)
+-RTX-OPS 38
+-CUDA® Cores 1920
+-Reloj de la memoria 14000 MHz
+-Tamaño de la memoria 6 GB
+-Tipo de memoria GDDR6
+-Bus de memoria 192 bits
+-Ancho de banda de memoria (GB / s) 336 GB / s
+-Tarjeta de bus PCI-E 3.0 x 16
+-Resolución máxima digital 7680x4320 @ 60Hz
+-Vista múltiple 4
+-Tamaño de tarjeta L=225.65 W=122.02 H=40.5 mm
+-Formulario PCB ATX
+-DirectX 12
+-OpenGL 4.5
+-PSU recomendada 500W
+-Conectores de potencia 8 Pin * 1
+-DisplayPort 1.4 * 3
+-HDMI 2.0b * 1
+-Soporte SLI No$
+Gigabyte Radeon RX 580 Gaming 8G 8GB GDDR5;195.90;1;116;232;500;Te presentamos la Gigabyte Radeon RX 580 Gaming 8G, una tarjeta gráfica con 8GB GDDR5.
+
+CARACTERÍSTICAS:
+-Graphics Processing Radeon RX580
+-Core Clock
+-OC mode: 1355MHz
+-Gaming mode: 1340MHz
+-Process Technology 14 nm
+-Memory Clock 8000 MHz
+-Memory Size 8 GB
+-Memory Type GDDR5
+-Memory Bus 256 bit
+-Digital max resolution 7680x4320
+-Multi-view 5
+-Card size H=40 L=232 W=116 mm
+-PCB Form ATX
+-DirectX 12
+-OpenGL 4.5
+-Recommended PSU 500W
+-Power Connectors 8 pin*1
+-Dual-link DVI-D *1
+-HDMI *1
+-Display Port *3$
+Gigabyte GeForce RTX 2070 WindForce 8G 8GB GDDR6;534.99;0;116.45;280.35;550;El nuevo buque insignia de NVIDIA, GeForce® RTX 2070, es la GPU para juegos más avanzada del planeta, impulsada por la arquitectura NVIDIA Turing ™ de alto rendimiento, con 8GB GDDR6 y sistema ded ventilación WindForce exclusivo de Gigabyte.
+
+CARACTERÍSTICAS:
+-Desarrollado por GeForce® RTX 2070
+-Integrado con la interfaz de memoria de 8GB GDDR6 de 256 bits
+-Sistema de enfriamiento por ventilador WINDFORCE Stack 3X
+-RGB Fusión 16.7M De colores personalizables
+-Placa posterior de metal
+-Graphics Processing GeForce® RTX 2070
+-Core Clock 1620 MHz
+-CUDA® Cores 2304
+-Memory Clock 14000 MHz
+-Memory Size 8 GB
+-Memory Type GDDR6
+-Memory Bus 256 bit
+-Memory Bandwidth (GB/sec) 448 GB/s
+-Card Bus PCI-E 3.0 x 16
+-Digital max resolution 7680x4320@60Hz
+-Multi-view 4
+-Card size L=280.35 W=116.45 H=40.24 mm
+-PCB Form ATX
+-DirectX 12
+-OpenGL 4.5
+-Recommended PSU 550W (With One 8-Pin and One 6-Pin EXTERNAL POWER CONNECTOR)
+-DisplayPort 1.4 x3,
+-HDMI 2.0b x1,
+-USB Type-C ™ (support VirtualLinkTM) x1$
+Gigabyte GeForce GTX 1070 G1 Gaming 8GB GDDR5;389.90;0;115;286;500;Con hasta un 100% más de rendimiento que las tarjetas de la serie anterior y un espectacular desempeño gráfico en videojuegos y realidad virtual, llegan a nosotros las GTX 1070, las joyas de la corona de las tarjetas gráficas. La serie 70 es tradicionalmente la mejor serie en cuanto a relación calidad/precio.
+
+La nueva serie de tarjetas gráficas Nvidia han dejado boquiabiertos a todo el mundo en todos los aspectos imaginables al superar en potencia, consumo precio que nadie esperaba. Sobre todo después de haber sido sometida a varias pruebas en las que su rendimiento no sólo dobla, sino que en algunos casos triplica, la potencia gráfica de modelos anteriores, y todo ello con un precio ultra competitivo.
+
+Si eres un jugón no puedes perderte una tarjeta gráfica como la Gigabyte GeForce GTX 1070 G1 Gaming, una gráfica basada en la arquitectura Pascal, 8GB GDDR5, una GPU (Procesador gráfico) GP104-400-A1 con una frecuencia base de 1.62GHz, con boost a 1.82GHz y con tecnología FinFET y compatible con DirectX 12.
+
+CARACTERÍSTICAS:
+-ClocK Boost: 1822 MHz/ Base: 1620 MHz in OC Mode
+-Boost: 1784 MHz/ Base: 1594 MHz in Gaming Mode
+-Memory Clock	8008 MHz
+-Graphics Processing	GeForce GTX 1070
+-Process Technology	16 nm
+-Memory Size	8 GB
+-Memory Bus	256 bit
+-Card Bus	PCI-E 3.0 x 16
+-Memory Type	GDDR5
+-DirectX	12
+-OpenGL	4.5
+-PCB Form	ATX
+-Digital max resolution	7680x4320 (requires 2*DP1.3 connectors)
+-Analog max resolution	4096x2160
+-Multi-view	4
+-Output	Dual-link DVI-D *1
+-HDMI-2.0b*1 (Max Resolution: 4096x2160 @60 Hz)
+-Display Port-1.4 *3 (Max Resolution: 7680x4320 @60 Hz)
+-Recommended PSU	500W
+-Power Connectors	8 pin*1
+-Card size	H=42 L=286 W=115 mm$
+Sapphire Pulse Radeon RX Vega 56 8GB HBM2;329.90;0;125;282;750;Con un excelente rendimiento de 1080p, el SAPPHIRE PULSE Radeon RX VEGA 56 es el corazón de la PC de un jugador. La GPU con overclocking de fábrica bombeará cuadros con una eficiencia extraordinaria, y ofrecerá un juego suave y sin interrupciones con ultra detalles. El enfriador personalizado ha sido diseñado teniendo en cuenta el rendimiento y la longevidad.
+
+CARACTERÍSTICAS:
+-3584 Stream Processors
+-14 nm
+-1208 MHz Reloj del GPU
+-1512 MHz Reloj del GPU Boost
+-PCI-Express 3.0
+-2048 bit Bus de Memoria
+-HBM2 Tipo de Memoria
+-800 MHz Reloj de la Memoria
+-Tamaño 8 GB
+-UEFI BIOS
+-Máxima 4 Salidas
+-1 x HDMI 2.0b
+-3 x DisplayPort 1.4
+-5120×2880@60Hz Pixel de Resolución DisplayPort
+-4096×2160@60Hz de Resolución HDMI
+-OpenGL® 4.5
+-OpenCL 2.0
+-DirectX® 12
+-Shader Model 5.0
+-Tecnología AMD CrossFire
+-Tecnología FreeSync
+-Tecnología AMD Eyefinity
+-Tecnología AMD Liquid VR
+-AMD Xconnect ready
+-DirectX™ 12 Optimized
+-Radeon VR ready Premium
+-HDR Ready
+-Frame Rate Target Control
+-Dual-X Cooling
+-Intelligent Fan Control III
+-Fuse protection
+-Precision fan control
+-Robust VRM Cooling
+-Radeon Chill
+-Radeon Relive
+-Enfriamiento
+-Dual-X fans
+-Rulemán doble
+-2.5 ranuras ocupadas
+-282(L)X 125(W)X 50 (H) Dimensiones /mm$

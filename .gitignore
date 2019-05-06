@@ -54,3 +54,6 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+/PCBuilder/nbproject/private/
+/PcComponent/nbproject/private/
+/PcComponentInfo/nbproject/private/

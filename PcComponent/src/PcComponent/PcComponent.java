@@ -6,8 +6,13 @@
 package PcComponent;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.TransferHandler;
 
 /**
  *
@@ -20,17 +25,45 @@ public class PcComponent extends javax.swing.JPanel {
      */
     public PcComponent() {
         initComponents();
+        this.specList = new ArrayList();
         
-        this.visible = true;
+        //Set the default recomendation visibility
+        this.setRecomendationVisibility(false);
+        this.recomendedVisibility = false;
+        
         //Required for prize internationalitation
         this.setProductPrize(Double.parseDouble(this.jLabel3.getText()));
+        
+        //Required for drag and drop operation (No listener set)
+        this.setTransferHandler(new DragPcComponent());
+    }
+    //Determines if DnD is allowed
+    private static boolean activeDnD = true;
+    
+    private boolean recomendedVisibility;
+    private int componentType;
+    private MouseClickedEventListener listener;
+    
+    //Necesary for pcInfo
+    private String description;
+    private String bigImagePath;
+    
+    //Necesary for compatibility check
+    ArrayList<String> specList;
+  
+    //Set a listener to the mouse clicked event
+    public void setMouseClickedEventListener (MouseClickedEventListener listener) {
+        this.listener = listener;
     }
     
-    private boolean visible;
-    private int componentType;
+    //Set a listener to the drag event
+    public void setDragEventListener(DragEventListener listener){
+        DragPcComponent dragAndDrop = (DragPcComponent) this.getTransferHandler();
+        dragAndDrop.setDragEventListener(listener);
+    }
     
     public void setProductName(String name){
-        this.jLabel2.setText(name);
+        this.jTextArea1.setText(name);
     }
     
     public void setProductPrize(double prize){
@@ -39,7 +72,7 @@ public class PcComponent extends javax.swing.JPanel {
     }
     
     public void setRecomendationVisibility(boolean visible){
-        this.visible = visible;
+        this.recomendedVisibility = visible;
         this.jLabel5.setVisible(visible);
     }
     
@@ -51,16 +84,45 @@ public class PcComponent extends javax.swing.JPanel {
         this.componentType = type;
     }
     
-    public String getProductName(){
-        return this.jLabel2.getText();
+    public void setProductDescription(String description){
+        this.description = description;
     }
     
-    public String getProductPrize(){
-        return this.jLabel3.getText();
+    public void setProductBigImagePath(String bigImagePath){
+        this.bigImagePath = bigImagePath;
+    }
+
+    public static void setActiveDnD(boolean activeDnD) {
+        PcComponent.activeDnD = activeDnD;
+    }
+    
+    public void setSpecList(ArrayList<String> list){
+        this.specList = list;
+    }
+    
+    public void addSpec(String spec){
+        this.specList.add(spec);
+    }
+    
+    public String getProductName(){
+        return this.jTextArea1.getText();
+    }
+    
+    public double getProductPrize(){
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        Number prize = 0;
+                
+        try {
+            prize = currency.parse(this.jLabel3.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(PcComponent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return prize.doubleValue();
     }
     
     public boolean getRecomendationVisibility(){
-        return this.visible;
+        return this.recomendedVisibility;
     }
     
     public Icon getProductImage(){
@@ -69,6 +131,26 @@ public class PcComponent extends javax.swing.JPanel {
     
     public int getComponentType(){
         return this.componentType;
+    }
+
+    public String getProductDescription() {
+        return description;
+    }
+
+    public String getProductBigImagePath() {
+        return bigImagePath;
+    }
+    
+    public  String getSpec(int index){
+        return this.specList.get(index);
+    }
+    
+    public  int getSpecListSize(){
+        return this.specList.size();
+    }
+
+    public static boolean isActiveDnD() {
+        return activeDnD;
     }
 
     /**
@@ -81,67 +163,118 @@ public class PcComponent extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setBackground(java.awt.Color.white);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/questionMarkIcon.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 28)); // NOI18N
-        jLabel2.setText("Componente");
-
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 30)); // NOI18N
         jLabel3.setText("0.00");
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 182, 0));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/StartIcon.png"))); // NOI18N
-        jLabel5.setText("Recomendado");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PcComponent/Image/StarIcon.png"))); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("PcComponent/Bundle"); // NOI18N
+        jLabel5.setText(bundle.getString("RECOMENDADO")); // NOI18N
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(15);
+        jTextArea1.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText(bundle.getString("COMPONENTE")); // NOI18N
+        jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextArea1.setCaretColor(java.awt.Color.white);
+        jTextArea1.setFocusable(false);
+        jTextArea1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseDragged(evt);
+            }
+        });
+        jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextArea1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addContainerGap())))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5))
+                    .addComponent(jTextArea1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseClicked
+        //Throw the mouse clicked move event if listener is set
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
+    }//GEN-LAST:event_jTextArea1MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        //Throw the mouse clicked move event if listener is set
+        if (this.listener != null) this.listener.onMouseClickedEvent(this);
+    }//GEN-LAST:event_formMouseClicked
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        if(PcComponent.isActiveDnD()){
+            TransferHandler handler = this.getTransferHandler();
+            handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        }
+    }//GEN-LAST:event_formMouseDragged
+
+    private void jTextArea1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MouseDragged
+        if(PcComponent.isActiveDnD()){
+            TransferHandler handler = this.getTransferHandler();
+            handler.exportAsDrag(this, evt, TransferHandler.MOVE);
+        }
+    }//GEN-LAST:event_jTextArea1MouseDragged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

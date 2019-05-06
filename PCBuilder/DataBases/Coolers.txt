@@ -1,0 +1,55 @@
+Cooler Master Hyper TX3 EVO;21.60;1;1366,1156,1155,775,1150,FM1,FM2,AM3+,AM3,AM2+,AM2,AM4;136;-Disipación del calor óptima mediante 3 tubos de calor de contacto directos.
+-Opción para añadir un segundo ventilador con soportes Quick-Snap para aumentar el -rendimiento de refrigeración.
+-Ventilador de 92mm. termoregulado y velocidad moderada.
+-Refrigerador de CPU silenciosa: 17dBA (en velocidad mínima).
+-Sistema sencillo para cambiar el ventilador mediante clips.$
+Cooler Master Hyper 212X;31.50;1;AM3,AM3+,FM1,FM2,FM2+,1151,2011-v3;158;El Cooler Master Hyper 212X con su diseño en forma de torre y su radiador de aluminio atravesado por cuatro heatpipes de cobre, con su contacto directo a la CPU permitiendo así una transmisión térmica más eficiente.
+
+CARACTERÍSTICAS:
+-Heatpipes de cobre de alto rendimiento con una mecha unida por fusión polvo de cobre.
+-La tecnología patentada CDC ™ - 4 heatpipes de contacto directo que crean una superficie de contacto brecha-menos
+-Matriz de aluminio de la aleta con el diseño Nueva efecto túnel para mejorar la disipación de calor.
+-Teniendo 4ta generación - MTBF de 160.000 horas gracias a componentes altamente duraderos POM.
+-Nuevo diseño de Fan-cuchillas que crean vórtices para aumentar el flujo de aire sin crear más ruido.
+-Inteligente del motor del ventilador - el ventilador se detiene cuando se bloquea para evitar el daño, y se reinicia automáticamente el ventilador cuando se haya despejado.
+-El sistema de montaje universal para todas las plataformas Intel y AMD.$
+MSI Core Frozr L;55.99;0;2066,2011-3,2011,1366,1156,1155,1151,1150,775,AM4,FM2,FM1,AM3+,AM3,AM2+,AM2;155;Los juegos cobran vida a través del hardware de alto desempeño que puede calentarse mucho durante la batalla. La refrigeración de los componentes puede hacer toda la diferencia cuando necesitas mantener tu hardware frío para una experiencia de juego suave.
+
+El MSI Core Frozr L fue diseñado utilizando toda la experiencia y tecnologías de vanguardia de los productos MSI GAMING para ofrecer el mejor desempeño térmico de su clase.
+
+Utilizando la tecnología patentada de ventilador TORX de MSI que también puede encontrarse en nuestras tarjetas gráficas GAMING, se genera una gran masa de aire para una refrigeración altamente efectiva. La combinación única de dos tipos de aletas diferentes también asegura que el ventilador se mantenga relativamente silencioso bajo cargas extremas.
+
+Core Frozr L utiliza una base de cobre bañada en níquel que crea un área altamente conductiva que atrapa el calor de la CPU y lo lleva eficientemente hacia los tubos conductores de calor. Cuatro tubos SuperPipes de 8mm llegan desde la base hasta un conjunto impactante de aletas de aluminio. Las aletas tienen la tecnología de Control de Flujo de Aire que dirige el aire con precisión a los tubos conductores de calor para una dispersión de calor más eficiente.
+
+Cada pequeño detalle cuenta cuando se trata de crear el máximo diseño térmico, que es por lo cual el Core Frozr L utiliza un compuesto térmico premium para asegurar un desempeño duradero y confiable. Cómo quieres que se vea tu sistema depende de tí, por eso incluimos las cubiertas de color plateado y negro junto con el Core Frozr L para que puedas personalizar tu sistema de refrigeración de CPU.
+
+Soporta todos los sockets populares de Intel y AMD y puede colocarse con un sistema de montaje fácil de usar. Core Frozr L también incluye una placa trasera de CPU que le otorga más soporte tanto para la placa madre como el sistema de refrigeración para evitar cualquier daño causado por años de uso o golpes ocasionales durante el transporte.
+
+CARACTERÍSTICAS:
+-Base de cobre bañada en níquel conectada con cuatro tubos conductores de calor de 8mm de alta eficiencia y aletas de aluminio para disipar hasta 200W de calor de la CPU
+-Compuesto térmico Premium X que asegura una conductividad de calor duradera
+-Tecnología de control de flujo de aire que utiliza deflectores especiales en las aletas para dirigir más aire a los tubos conductores de calor para una mejor refrigeración.
+-Ventilador de 120mm con el diseño premiado MSI TORX que utiliza rodamientos hidrodinámicos para aumentar el flujo de aire
+-2 conjuntos de clips para ventilador compatibles con el diseño de 120mm, que permite la configuración de doble ventilador en modo push/pull
+-Diseño de base inteligente que deja espacio para la tarjeta gráfica en el 1er slot PCI-e
+-Fácil de instalar y compatible con todas las plataformas Intel y AMD
+-Placa trasera de metal para el sistema de refrigeración de la CPU que ofrece mayor resistencia para evitar que la placa madre se doble durante el uso a largo plazo
+-Paneles de cobertura personalizables en colores negro y plateado incluidos en la caja con la cubireta LED MSI GAMING.$
+Nfortec Vela KX;23.99;0;1156,1155,1150,1151,2011;159;La familia de disipadores de Nfortec está compuesta por dos modelos que, a pesar de lo contenido de su precio, ofrecen unas prestaciones difícilmente igualables. En el caso del disipador Vela KX, nos encontramos con un disipador que incluye un total de 4 heatpipes con base de cobre, una configuración que ofrecerá el rendimiento esperado.
+
+CARACTERÍSTICAS:
+-Un disipador de altas capacidades. Vela KX no es un disipador cualquiera, sino que sus prestaciones están a la altura de cualquier tipo de exigencia. Esto es así debido que sus 48 aletas de aluminio han sido diseñadas utilizando una tecnología que permite una mayor refrigeración. Esto ha supuesto que la resistencia del aire se haya reducido lo que ha favorecido un aumento del flujo de aire que se desliza entre ellas. Como consecuencia de esto, la disipación de calor será mucho más eficiente.
+-El complemento perfecto. A todo buen disipador debe acompañarle un buen ventilador por lo que Vela KX ha sido dotado ventilador de 140mm. Este no sólo cuenta con diseño cónico, sino que, además, es capaz de generar un flujo de aire constante a la par que elevado, todo ello con el fin de reducir la temperatura general del conjunto. Con un nivel sonoro que apenas rozará los 20 dBA junto con una velocidad que irá de las 600 a las 1200 RPM, el contar un alto caudal de aire está más que garantizado. Por si fuese poco, vienen incluidos dos adaptadores adicionales para instalar un segundo ventilador.
+-Pensado para todos. El que un disipador cuente con unas altas prestaciones no está necesariamente reñido con un tamaño elevado por lo que el Vela KX ha sido diseñado pensando en ofrecer la mayor compatibilidad que sea posible. Es por esto que sus dimensiones son de 146mm de alto por 159 de ancho y tan sólo 71mm de profundidad, algo que sin duda agradeceréis a la hora de colocar vuestras memorias.
+-Instalación sencilla. El Vela KX cuenta con un sistema de montaje que, lejos de estar pensado para expertos en la materia, ha sido diseñado pensando en todos los usuarios. En tan sólo unos pocos pasos guiados a través de su manual, tendrás tu disipador listo y montado sobre tu socket. Sus anclajes metálicos dotarán al conjunto de una sujeción correcta y duradera.$
+Thermaltake Riing Silent 12 CPU Cooler Rojo;61.59;0;2011-3,2011,1366,1156,1155,1151,1150,775,FM2,FM1,AM3+,AM3,AM2+,AM2;159;Diseñado para su uso con memoria RAM de gama alta y las placas base. Un ventilador de 120 mm equipado para mejorar el flujo de aire de refrigeración produce un rendimiento impresionante con un diseño optimizado 11 del ventilador de la hoja. Cojinetes hidráulicos para garantizar un funcionamiento silencioso ruido ultra bajo. El anillo de LED patentado mantiene la uniformidad de brillo y de color, y el efecto de iluminación es visible desde todos los lados y ángulos.
+
+CARACTERÍSTICAS:
+-Diseño aspas del ventilador once
+-Marco del viento Bloqueador
+-Patentado Riing LED
+-Diseño de cojinete hidráulico
+-Funcionamiento silencioso optimizado
+-Demuestra imagen térmica para la distribución uniforme del calor
+-La disipación de calor Superior
+-Anti-vibración Sistemas de montaje a la no interferencia de refrigeración.$
